@@ -11,20 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313213120) do
+ActiveRecord::Schema.define(:version => 20130321210614) do
 
-  create_table "companies", :force => true do |t|
+  create_table "test_entities", :force => true do |t|
     t.string   "name"
-    t.text     "description"
+    t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-  end
-
-  create_table "roles", :force => true do |t|
-    t.string   "Role"
-    t.string   "role"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -41,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20130313213120) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "username"
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-	has_one :role
-  # Include default devise modules. Others available are:
+	# Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -12,7 +11,8 @@ class User < ActiveRecord::Base
   validates_presence_of :username
 
   def role_symbols
-  	 [:admin] if @User.role = "admin"
+  	 # [:admin] if @User.role = "admin"
+     return ["#{self.role}".to_sym]
   end
 
 end

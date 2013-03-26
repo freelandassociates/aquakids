@@ -11,13 +11,140 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321210614) do
+ActiveRecord::Schema.define(:version => 20130322215356) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "attainments", :force => true do |t|
+    t.date     "date_achieved"
+    t.text     "comments"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "children", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "sex"
+    t.date     "date_of_birth"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "facilities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "levels", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "parents", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "cell_phone"
+    t.string   "home_phone"
+    t.string   "work_phone"
+    t.string   "care_provider"
+    t.string   "care_provider_phone"
+    t.text     "comments"
+    t.string   "email"
+    t.string   "alternate_email"
+    t.string   "emergency_contact"
+    t.string   "emergency_contact_phone"
+    t.string   "insurance"
+    t.string   "insurance_phone"
+    t.string   "policy_number"
+    t.string   "doctor"
+    t.string   "doctor_phone"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  create_table "registrations", :force => true do |t|
+    t.text     "comments"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "relationships", :force => true do |t|
+    t.string   "relationship"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "schedules", :force => true do |t|
+    t.date     "start_date"
+    t.date     "stop_date"
+    t.integer  "day_of_week"
+    t.time     "start_time"
+    t.time     "stop_time"
+    t.integer  "size"
+    t.text     "comments"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "skills", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "teachers", :force => true do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "cell_phone"
+    t.string   "home_phone"
+    t.string   "work_phone"
+    t.string   "email"
+    t.text     "notes"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "test_entities", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -39,5 +166,11 @@ ActiveRecord::Schema.define(:version => 20130321210614) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "zones", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

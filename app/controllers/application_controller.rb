@@ -7,6 +7,4 @@ class ApplicationController < ActionController::Base
 	  Authorization.current_user = current_user
 	end
 
-  # before_filter { |c| Authorization.current_user = c.current_user }
-
 end

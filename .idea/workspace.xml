@@ -2,53 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f543ad6e-7a09-4748-96bc-5991275e9030" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/aquakids.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/companies.js.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/roles.js.coffee" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/companies.css.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/roles.css.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/companies_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/roles_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/helpers/companies_helper.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/helpers/roles_helper.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/company.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/role.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/companies/_form.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/companies/edit.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/companies/index.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/companies/new.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/companies/show.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/roles/_form.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/roles/edit.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/roles/index.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/roles/new.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/roles/show.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20130312183128_create_companies.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20130313213120_create_roles.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/companies.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/roles.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/functional/companies_controller_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/functional/roles_controller_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/company_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/helpers/companies_helper_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/helpers/roles_helper_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/role_test.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/static/home.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/erd.pdf" afterPath="$PROJECT_DIR$/erd.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/authorization_rules.rb" afterPath="$PROJECT_DIR$/config/authorization_rules.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aquakids.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363899900881" ignored="false" />
+    <file path="/Dummy.txt" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1364240598894" ignored="false" />
+    <file path="/user.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363974690956" ignored="false" />
+    <file path="/parent.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363975011404" ignored="false" />
+    <file path="/relationship.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363974981294" ignored="false" />
+    <file path="/child.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363988091030" ignored="false" />
+    <file path="/location.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363975373023" ignored="false" />
+    <file path="/facility.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363975407774" ignored="false" />
+    <file path="/zone.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363975424023" ignored="false" />
+    <file path="/schedule.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363988123260" ignored="false" />
+    <file path="/session.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363987010282" ignored="false" />
+    <file path="/teacher.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363987050535" ignored="false" />
+    <file path="/type.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363987071369" ignored="false" />
+    <file path="/registration.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363989343119" ignored="false" />
+    <file path="/level.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363989109055" ignored="false" />
+    <file path="/skill.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363989320001" ignored="false" />
+    <file path="/attainment.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363989276882" ignored="false" />
+    <file path="/routes.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1364241579507" ignored="false" />
+    <file path="/static_controller.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1364241137261" ignored="false" />
+    <file path="/home.html.erb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1364241299640" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,15 +47,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="schema.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/schema.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RailsDependency/#aquakids" pinned="false" current="true" current-in-tab="true">
         <entry file="uml://RailsDependency/#aquakids">
           <provider selected="true" editor-type-id="UmlEditorProvider">
@@ -81,15 +54,121 @@
               <ID>RailsDependency</ID>
               <OriginalElement>#aquakids</OriginalElement>
               <nodes>
-                <node x="0.0" y="0.0">User</node>
+                <node x="-7794.999999999999" y="-10080.098039215683">User</node>
+                <node x="-7264.999999999999" y="-10190.098039215683">Parent</node>
+                <node x="-6605.999999999999" y="-10574.33333333333">Teacher</node>
+                <node x="-5777.999999999999" y="-10218.463235294115">Registration</node>
+                <node x="-6470.999999999999" y="-10666.33333333333">Type</node>
+                <node x="-6056.999999999999" y="-10863.33333333333">Skill</node>
+                <node x="-7634.499999999999" y="-10758.33333333333">Location</node>
+                <node x="-6520.999999999999" y="-10034.33333333333">Child</node>
+                <node x="-6470.999999999999" y="-10218.33333333333">Activity</node>
+                <node x="-6126.999999999999" y="-10396.33333333333">Schedule</node>
+                <node x="-6470.999999999999" y="-10126.33333333333">Session</node>
+                <node x="-7039.999999999999" y="-10758.33333333333">Facility</node>
+                <node x="-6077.499999999999" y="-9944.83333333333">Relationship</node>
+                <node x="-6470.999999999999" y="-10850.33333333333">Level</node>
+                <node x="-5664.999999999999" y="-10554.431372549016">Attainment</node>
+                <node x="-6470.999999999999" y="-10758.33333333333">Zone</node>
               </nodes>
               <notes />
-              <edges />
-              <settings layout="Hierarchic Group" zoom="1.0" x="225.0" y="171.0" />
-              <SelectedNodes />
+              <edges>
+                <edge source="Location" target="Facility">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Schedule" target="Registration">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="User" target="Parent">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Child" target="Schedule">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Registration" target="Attainment">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Level" target="Skill">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Skill" target="Registration">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Level" target="Schedule">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Parent" target="Relationship">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Skill" target="Attainment">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Teacher" target="Schedule">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Type" target="Schedule">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Registration" target="Skill">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Parent" target="Child">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Facility" target="Zone">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Child" target="Relationship">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Child" target="Parent">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Child" target="Registration">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Activity" target="Schedule">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Schedule" target="Child">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Zone" target="Schedule">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Session" target="Schedule">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.20689655172413793" x="-5424.583333333334" y="-9951.0" />
+              <SelectedNodes>
+                <node>User</node>
+              </SelectedNodes>
               <Categories>
-                <Category>Association fields</Category>
                 <Category>Migration fields</Category>
+                <Category>Association fields</Category>
               </Categories>
             </state>
           </provider>
@@ -114,11 +193,32 @@
       <MyDateState />
     </option>
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/app/models/facility.rb" />
+        <option value="$PROJECT_DIR$/app/models/session.rb" />
+        <option value="$PROJECT_DIR$/app/models/teacher.rb" />
+        <option value="$PROJECT_DIR$/app/models/type.rb" />
+        <option value="$PROJECT_DIR$/app/models/zone.rb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/models/activity.rb" />
+        <option value="$PROJECT_DIR$/app/models/child.rb" />
+        <option value="$PROJECT_DIR$/app/models/schedule.rb" />
+        <option value="$PROJECT_DIR$/app/models/level.rb" />
+        <option value="$PROJECT_DIR$/app/models/attainment.rb" />
+        <option value="$PROJECT_DIR$/app/models/skill.rb" />
+        <option value="$PROJECT_DIR$/app/models/registration.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/static_controller.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/views/static/home.html.erb" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1905" />
-    <option name="y" value="22" />
-    <option name="width" value="1896" />
-    <option name="height" value="1055" />
+    <option name="y" value="38" />
+    <option name="width" value="1276" />
+    <option name="height" value="762" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -146,8 +246,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -261,6 +359,10 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -276,18 +378,78 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aquakids" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aquakids" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skills" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aquakids" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aquakids" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aquakids" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aquakids" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -418,6 +580,13 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="false" name="test" type="RakeRunConfigurationType" factoryName="Rake">
@@ -557,24 +726,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1905" y="22" width="1896" height="1055" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="38" width="1276" height="762" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28864864" sideWeight="0.67083335" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.199187" sideWeight="0.97766495" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.228125" sideWeight="0.6594595" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.228125" sideWeight="0.6594595" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -636,182 +805,107 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://RailsDependency/#aquakids">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>RailsDependency</ID>
-          <OriginalElement>#aquakids</OriginalElement>
-          <nodes>
-            <node x="" y="">User</node>
-            <node x="" y="">Company</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="643.0" y="419.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Migration fields</Category>
-            <Category>Association fields</Category>
-          </Categories>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://RailsDependency/#aquakids">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>RailsDependency</ID>
-          <OriginalElement>#aquakids</OriginalElement>
-          <nodes>
-            <node x="0.0" y="0.0">User</node>
-            <node x="231.0" y="339.0">Company</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="116.0" y="207.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Migration fields</Category>
-            <Category>Association fields</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130321150153_create_test_entities.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/zone.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="12" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
+        <state line="3" column="2" selection-start="77" selection-end="77" vertical-scroll-proportion="0.05472103">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="uml://RailsDependency/#aquakids">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>RailsDependency</ID>
-          <OriginalElement>#aquakids</OriginalElement>
-          <nodes>
-            <node x="0.0" y="0.0">User</node>
-            <node x="0.0" y="339.0">TestEntity</node>
-            <node x="231.0" y="339.0">Company</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="225.0" y="207.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Migration fields</Category>
-            <Category>Association fields</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="2" selection-start="50" selection-end="50" vertical-scroll-proportion="0.036480688">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
+    <entry file="file://$PROJECT_DIR$/app/models/type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="25" selection-start="53" selection-end="53" vertical-scroll-proportion="0.018240344">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/activity.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="2" selection-start="58" selection-end="58" vertical-scroll-proportion="0.036363635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/child.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="107" selection-end="183" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/schedule.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="20" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/level.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="2" selection-start="74" selection-end="74" vertical-scroll-proportion="0.054545455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/skill.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="53" selection-end="128" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/registration.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="18" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/attainment.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="2" selection-start="85" selection-end="85" vertical-scroll-proportion="0.07981221">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/skills/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362@global/gems/bundler-1.2.3/lib/bundler/spec_set.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.33279222" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
+    <entry file="file://$PROJECT_DIR$/app/views/skills/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="uml://GemDependency/#aquakids">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>GemDependency</ID>
-          <OriginalElement>#aquakids</OriginalElement>
-          <nodes>
-            <node x="" y="">rails</node>
-            <node x="" y="">treetop</node>
-            <node x="" y="">rake</node>
-            <node x="" y="">polyglot</node>
-            <node x="" y="">coffee-script</node>
-            <node x="" y="">rack</node>
-            <node x="" y="">sass-rails</node>
-            <node x="" y="">actionmailer</node>
-            <node x="" y="">activerecord</node>
-            <node x="" y="">rack-cache</node>
-            <node x="" y="">multi_json</node>
-            <node x="" y="">mime-types</node>
-            <node x="" y="">railties</node>
-            <node x="" y="">activeresource</node>
-            <node x="" y="">rails-erd</node>
-            <node x="" y="">builder</node>
-            <node x="" y="">journey</node>
-            <node x="" y="">orm_adapter</node>
-            <node x="" y="">coffee-script-source</node>
-            <node x="" y="">declarative_authorization</node>
-            <node x="" y="">pg</node>
-            <node x="" y="">rdoc</node>
-            <node x="" y="">bundler</node>
-            <node x="" y="">sexp_processor</node>
-            <node x="" y="">tzinfo</node>
-            <node x="" y="">warden</node>
-            <node x="" y="">rack-ssl</node>
-            <node x="" y="">choice</node>
-            <node x="" y="">arel</node>
-            <node x="" y="">actionpack</node>
-            <node x="" y="">#aquakids</node>
-            <node x="" y="">ruby_parser</node>
-            <node x="" y="">sass</node>
-            <node x="" y="">json</node>
-            <node x="" y="">erubis</node>
-            <node x="" y="">rack-test</node>
-            <node x="" y="">ruby-graphviz</node>
-            <node x="" y="">mail</node>
-            <node x="" y="">tilt</node>
-            <node x="" y="">execjs</node>
-            <node x="" y="">jquery-rails</node>
-            <node x="" y="">thor</node>
-            <node x="" y="">activemodel</node>
-            <node x="" y="">activesupport</node>
-            <node x="" y="">sprockets</node>
-            <node x="" y="">uglifier</node>
-            <node x="" y="">coffee-rails</node>
-            <node x="" y="">bcrypt-ruby</node>
-            <node x="" y="">devise</node>
-            <node x="" y="">i18n</node>
-            <node x="" y="">hike</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.6948717948717948" x="890.0" y="995.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/static/home.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130321150153_create_test_entities.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="12" selection-start="63" selection-end="63" vertical-scroll-proportion="0.021459227">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/static_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="2" column="10" selection-start="63" selection-end="63" vertical-scroll-proportion="0.05320814">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="26" selection-start="530" selection-end="530" vertical-scroll-proportion="0.6651017">
           <folding />
         </state>
       </provider>
@@ -822,15 +916,121 @@
           <ID>RailsDependency</ID>
           <OriginalElement>#aquakids</OriginalElement>
           <nodes>
-            <node x="0.0" y="0.0">User</node>
+            <node x="-7794.999999999999" y="-10080.098039215683">User</node>
+            <node x="-7264.999999999999" y="-10190.098039215683">Parent</node>
+            <node x="-6605.999999999999" y="-10574.33333333333">Teacher</node>
+            <node x="-5777.999999999999" y="-10218.463235294115">Registration</node>
+            <node x="-6470.999999999999" y="-10666.33333333333">Type</node>
+            <node x="-6056.999999999999" y="-10863.33333333333">Skill</node>
+            <node x="-7634.499999999999" y="-10758.33333333333">Location</node>
+            <node x="-6520.999999999999" y="-10034.33333333333">Child</node>
+            <node x="-6470.999999999999" y="-10218.33333333333">Activity</node>
+            <node x="-6126.999999999999" y="-10396.33333333333">Schedule</node>
+            <node x="-6470.999999999999" y="-10126.33333333333">Session</node>
+            <node x="-7039.999999999999" y="-10758.33333333333">Facility</node>
+            <node x="-6077.499999999999" y="-9944.83333333333">Relationship</node>
+            <node x="-6470.999999999999" y="-10850.33333333333">Level</node>
+            <node x="-5664.999999999999" y="-10554.431372549016">Attainment</node>
+            <node x="-6470.999999999999" y="-10758.33333333333">Zone</node>
           </nodes>
           <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="225.0" y="171.0" />
-          <SelectedNodes />
+          <edges>
+            <edge source="Location" target="Facility">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Schedule" target="Registration">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="User" target="Parent">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Child" target="Schedule">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Registration" target="Attainment">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Level" target="Skill">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Skill" target="Registration">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Level" target="Schedule">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Parent" target="Relationship">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Skill" target="Attainment">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Teacher" target="Schedule">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Type" target="Schedule">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Registration" target="Skill">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Parent" target="Child">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Facility" target="Zone">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Child" target="Relationship">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Child" target="Parent">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Child" target="Registration">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Activity" target="Schedule">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Schedule" target="Child">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Zone" target="Schedule">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Session" target="Schedule">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.20689655172413793" x="-5424.583333333334" y="-9951.0" />
+          <SelectedNodes>
+            <node>User</node>
+          </SelectedNodes>
           <Categories>
-            <Category>Association fields</Category>
             <Category>Migration fields</Category>
+            <Category>Association fields</Category>
           </Categories>
         </state>
       </provider>

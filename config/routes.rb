@@ -1,8 +1,49 @@
 Aquakids::Application.routes.draw do
   
+  resources :skills
+
+
+  resources :teachers
+
+
+  resources :sessions
+
+
+  resources :types
+
+
+  resources :activities
+
+
+  resources :levels
+
+
+  resources :schedules
+
+
+  resources :zones
+
+
+  resources :facilities
+
+
+  resources :locations
+
+
+  resources :children
+
+
+  resources :parents
+
+
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
-  root :to => "companies#index"
+  #map.with_options :controller => 'static' do |static|
+  #  static.home 'home', :action => 'home'
+  #end
+
+
+  root :to => "static#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

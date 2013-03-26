@@ -1,0 +1,105 @@
+<%= form_for(@parent) do |f| %>
+  <% if @parent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@parent.errors.count, "error") %> prohibited this parent from being saved:</h2>
+
+      <ul>
+      <% @parent.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :address_1 %><br />
+    <%= f.text_field :address_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :address_2 %><br />
+    <%= f.text_field :address_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :cell_phone %><br />
+    <%= f.text_field :cell_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :home_phone %><br />
+    <%= f.text_field :home_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :work_phone %><br />
+    <%= f.text_field :work_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :care_provider %><br />
+    <%= f.text_field :care_provider %>
+  </div>
+  <div class="field">
+    <%= f.label :care_provider_phone %><br />
+    <%= f.text_field :care_provider_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :alternate_email %><br />
+    <%= f.text_field :alternate_email %>
+  </div>
+  <div class="field">
+    <%= f.label :emergency_contact %><br />
+    <%= f.text_field :emergency_contact %>
+  </div>
+  <div class="field">
+    <%= f.label :emergency_contact_phone %><br />
+    <%= f.text_field :emergency_contact_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :insurance %><br />
+    <%= f.text_field :insurance %>
+  </div>
+  <div class="field">
+    <%= f.label :insurance_phone %><br />
+    <%= f.text_field :insurance_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :policy_number %><br />
+    <%= f.text_field :policy_number %>
+  </div>
+  <div class="field">
+    <%= f.label :doctor %><br />
+    <%= f.text_field :doctor %>
+  </div>
+  <div class="field">
+    <%= f.label :doctor_phone %><br />
+    <%= f.text_field :doctor_phone %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

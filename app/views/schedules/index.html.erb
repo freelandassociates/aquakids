@@ -1,0 +1,35 @@
+<h1>Listing schedules</h1>
+
+<table>
+  <tr>
+    <th>Start date</th>
+    <th>Stop date</th>
+    <th>Day of week</th>
+    <th>Start time</th>
+    <th>Stop time</th>
+    <th>Size</th>
+    <th>Comments</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @schedules.each do |schedule| %>
+  <tr>
+    <td><%= schedule.start_date %></td>
+    <td><%= schedule.stop_date %></td>
+    <td><%= schedule.day_of_week %></td>
+    <td><%= schedule.start_time %></td>
+    <td><%= schedule.stop_time %></td>
+    <td><%= schedule.size %></td>
+    <td><%= schedule.comments %></td>
+    <td><%= link_to 'Show', schedule %></td>
+    <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
+    <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Schedule', new_schedule_path %>

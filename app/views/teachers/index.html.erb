@@ -1,0 +1,47 @@
+<h1>Listing teachers</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Middle name</th>
+    <th>Last name</th>
+    <th>Address 1</th>
+    <th>Address 2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Cell phone</th>
+    <th>Home phone</th>
+    <th>Work phone</th>
+    <th>Email</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @teachers.each do |teacher| %>
+  <tr>
+    <td><%= teacher.first_name %></td>
+    <td><%= teacher.middle_name %></td>
+    <td><%= teacher.last_name %></td>
+    <td><%= teacher.address_1 %></td>
+    <td><%= teacher.address_2 %></td>
+    <td><%= teacher.city %></td>
+    <td><%= teacher.state %></td>
+    <td><%= teacher.zip %></td>
+    <td><%= teacher.cell_phone %></td>
+    <td><%= teacher.home_phone %></td>
+    <td><%= teacher.work_phone %></td>
+    <td><%= teacher.email %></td>
+    <td><%= teacher.notes %></td>
+    <td><%= link_to 'Show', teacher %></td>
+    <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+    <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Teacher', new_teacher_path %>

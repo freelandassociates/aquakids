@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_date: 2013-03-22
+  stop_date: 2013-03-22
+  day_of_week: 1
+  start_time: 2013-03-22 16:07:34
+  stop_time: 2013-03-22 16:07:34
+  size: 1
+  comments: MyText
+
+two:
+  start_date: 2013-03-22
+  stop_date: 2013-03-22
+  day_of_week: 1
+  start_time: 2013-03-22 16:07:34
+  stop_time: 2013-03-22 16:07:34
+  size: 1
+  comments: MyText

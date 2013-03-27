@@ -1,65 +1,78 @@
-<h1>Listing parents</h1>
-
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Address 1</th>
-    <th>Address 2</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-    <th>Cell phone</th>
-    <th>Home phone</th>
-    <th>Work phone</th>
-    <th>Care provider</th>
-    <th>Care provider phone</th>
-    <th>Comments</th>
-    <th>Email</th>
-    <th>Alternate email</th>
-    <th>Emergency contact</th>
-    <th>Emergency contact phone</th>
-    <th>Insurance</th>
-    <th>Insurance phone</th>
-    <th>Policy number</th>
-    <th>Doctor</th>
-    <th>Doctor phone</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @parents.each do |parent| %>
-  <tr>
-    <td><%= parent.first_name %></td>
-    <td><%= parent.last_name %></td>
-    <td><%= parent.address_1 %></td>
-    <td><%= parent.address_2 %></td>
-    <td><%= parent.city %></td>
-    <td><%= parent.state %></td>
-    <td><%= parent.zip %></td>
-    <td><%= parent.cell_phone %></td>
-    <td><%= parent.home_phone %></td>
-    <td><%= parent.work_phone %></td>
-    <td><%= parent.care_provider %></td>
-    <td><%= parent.care_provider_phone %></td>
-    <td><%= parent.comments %></td>
-    <td><%= parent.email %></td>
-    <td><%= parent.alternate_email %></td>
-    <td><%= parent.emergency_contact %></td>
-    <td><%= parent.emergency_contact_phone %></td>
-    <td><%= parent.insurance %></td>
-    <td><%= parent.insurance_phone %></td>
-    <td><%= parent.policy_number %></td>
-    <td><%= parent.doctor %></td>
-    <td><%= parent.doctor_phone %></td>
-    <td><%= link_to 'Show', parent %></td>
-    <td><%= link_to 'Edit', edit_parent_path(parent) %></td>
-    <td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Parent -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
+      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:address_1) %></th>
+      <th><%= model_class.human_attribute_name(:address_2) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:zip) %></th>
+      <th><%= model_class.human_attribute_name(:cell_phone) %></th>
+      <th><%= model_class.human_attribute_name(:home_phone) %></th>
+      <th><%= model_class.human_attribute_name(:work_phone) %></th>
+      <th><%= model_class.human_attribute_name(:care_provider) %></th>
+      <th><%= model_class.human_attribute_name(:care_provider_phone) %></th>
+      <th><%= model_class.human_attribute_name(:comments) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:alternate_email) %></th>
+      <th><%= model_class.human_attribute_name(:emergency_contact) %></th>
+      <th><%= model_class.human_attribute_name(:emergency_contact_phone) %></th>
+      <th><%= model_class.human_attribute_name(:insurance) %></th>
+      <th><%= model_class.human_attribute_name(:insurance_phone) %></th>
+      <th><%= model_class.human_attribute_name(:policy_number) %></th>
+      <th><%= model_class.human_attribute_name(:doctor) %></th>
+      <th><%= model_class.human_attribute_name(:doctor_phone) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @parents.each do |parent| %>
+      <tr>
+        <td><%= link_to parent.id, parent_path(parent) %></td>
+        <td><%= parent.first_name %></td>
+        <td><%= parent.last_name %></td>
+        <td><%= parent.address_1 %></td>
+        <td><%= parent.address_2 %></td>
+        <td><%= parent.city %></td>
+        <td><%= parent.state %></td>
+        <td><%= parent.zip %></td>
+        <td><%= parent.cell_phone %></td>
+        <td><%= parent.home_phone %></td>
+        <td><%= parent.work_phone %></td>
+        <td><%= parent.care_provider %></td>
+        <td><%= parent.care_provider_phone %></td>
+        <td><%= parent.comments %></td>
+        <td><%= parent.email %></td>
+        <td><%= parent.alternate_email %></td>
+        <td><%= parent.emergency_contact %></td>
+        <td><%= parent.emergency_contact_phone %></td>
+        <td><%= parent.insurance %></td>
+        <td><%= parent.insurance_phone %></td>
+        <td><%= parent.policy_number %></td>
+        <td><%= parent.doctor %></td>
+        <td><%= parent.doctor_phone %></td>
+        <td><%=l parent.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_parent_path(parent), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      parent_path(parent),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Parent', new_parent_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_parent_path,
+            :class => 'btn btn-primary' %>

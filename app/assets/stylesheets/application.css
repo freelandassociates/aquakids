@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
  */
+
+
+#schedules td, th {
+	font-size: 10px;
+	white-space: nowrap;
+}

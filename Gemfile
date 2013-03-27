@@ -34,6 +34,10 @@ gem 'devise'
 
 gem 'declarative_authorization'
 
+gem 'simple_form'
+
+gem 'ransack'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

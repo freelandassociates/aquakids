@@ -1,6 +1,6 @@
-<h1>Editing zone</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @zone %> |
-<%= link_to 'Back', zones_path %>
+<%- model_class = Zone -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                   :default => "Edit #{model_class.model_name.human}") %></h1>
+</div>
+<%= render :partial => 'form' %>

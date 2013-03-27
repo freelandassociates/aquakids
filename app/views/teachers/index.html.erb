@@ -1,47 +1,60 @@
-<h1>Listing teachers</h1>
-
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Middle name</th>
-    <th>Last name</th>
-    <th>Address 1</th>
-    <th>Address 2</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-    <th>Cell phone</th>
-    <th>Home phone</th>
-    <th>Work phone</th>
-    <th>Email</th>
-    <th>Notes</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @teachers.each do |teacher| %>
-  <tr>
-    <td><%= teacher.first_name %></td>
-    <td><%= teacher.middle_name %></td>
-    <td><%= teacher.last_name %></td>
-    <td><%= teacher.address_1 %></td>
-    <td><%= teacher.address_2 %></td>
-    <td><%= teacher.city %></td>
-    <td><%= teacher.state %></td>
-    <td><%= teacher.zip %></td>
-    <td><%= teacher.cell_phone %></td>
-    <td><%= teacher.home_phone %></td>
-    <td><%= teacher.work_phone %></td>
-    <td><%= teacher.email %></td>
-    <td><%= teacher.notes %></td>
-    <td><%= link_to 'Show', teacher %></td>
-    <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-    <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Teacher -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
+      <th><%= model_class.human_attribute_name(:middle_name) %></th>
+      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:address_1) %></th>
+      <th><%= model_class.human_attribute_name(:address_2) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:zip) %></th>
+      <th><%= model_class.human_attribute_name(:cell_phone) %></th>
+      <th><%= model_class.human_attribute_name(:home_phone) %></th>
+      <th><%= model_class.human_attribute_name(:work_phone) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:notes) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teachers.each do |teacher| %>
+      <tr>
+        <td><%= link_to teacher.id, teacher_path(teacher) %></td>
+        <td><%= teacher.first_name %></td>
+        <td><%= teacher.middle_name %></td>
+        <td><%= teacher.last_name %></td>
+        <td><%= teacher.address_1 %></td>
+        <td><%= teacher.address_2 %></td>
+        <td><%= teacher.city %></td>
+        <td><%= teacher.state %></td>
+        <td><%= teacher.zip %></td>
+        <td><%= teacher.cell_phone %></td>
+        <td><%= teacher.home_phone %></td>
+        <td><%= teacher.work_phone %></td>
+        <td><%= teacher.email %></td>
+        <td><%= teacher.notes %></td>
+        <td><%=l teacher.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_teacher_path(teacher), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      teacher_path(teacher),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Teacher', new_teacher_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_teacher_path,
+            :class => 'btn btn-primary' %>

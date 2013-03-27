@@ -3,5 +3,7 @@ class Skill < ActiveRecord::Base
   has_many :attainments
   has_many :registrations, :through => :attainments
 
-  attr_accessible :name
+  validates_presence_of :name, :level_id
+
+  attr_accessible :name, :level_id
 end

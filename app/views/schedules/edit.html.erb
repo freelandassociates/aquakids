@@ -1,6 +1,6 @@
-<h1>Editing schedule</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @schedule %> |
-<%= link_to 'Back', schedules_path %>
+<%- model_class = Schedule -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                   :default => "Edit #{model_class.model_name.human}") %></h1>
+</div>
+<%= render :partial => 'form' %>

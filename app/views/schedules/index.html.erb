@@ -2,56 +2,65 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped">
+
+<%= search_form_for @search do |f| %>
+  <%= f.label :Zone %>
+  <%= f.collection_select :zone_id_in, Zone.all, :id, :name, {}, { size: Zone.all.length, multiple: true, class: 'chzn-select' } %>
+  <!-- <%= f.label :zone_name_cont, "Zone" %> -->
+  <!-- <%= f.text_field :zone_name_cont %> -->
+  <div><%= f.submit "Search" %></div>
+<% end %>
+
+
+<p>Current User's Location is <%= current_user.location.id if current_location %></p>
+<p>Current User's Location is <%= current_location.id if current_location %></p>
+
+<table id="datatable" class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:start_date) %></th>
-      <th><%= model_class.human_attribute_name(:stop_date) %></th>
-      <th><%= model_class.human_attribute_name(:day_of_week) %></th>
-      <th><%= model_class.human_attribute_name(:start_time) %></th>
-      <th><%= model_class.human_attribute_name(:stop_time) %></th>
-      <th><%= model_class.human_attribute_name(:size) %></th>
-      <th><%= model_class.human_attribute_name(:comments) %></th>
-      <th><%= model_class.human_attribute_name(:level_id) %></th>
-      <th><%= model_class.human_attribute_name(:type_id) %></th>
-      <th><%= model_class.human_attribute_name(:zone_id) %></th>
-      <th><%= model_class.human_attribute_name(:activity_id) %></th>
-      <th><%= model_class.human_attribute_name(:program_id) %></th>
-      <th><%= model_class.human_attribute_name(:teacher_id) %></th>
-      <th><%= model_class.human_attribute_name(:child_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Location</th>
+      <th>Facility</th>
+      <th>Zone</th>
+      <th>Session</th>
+      <th>Start Date</th>
+      <th>Stop Date</th>
+      <th>Lessons</th>
+      <th>Start Time</th>
+      <th>Stop Time</th>
+      <th>Size</th>
+      <th>#</th>
+      <th>Level</th>
+      <th>Absences</th>
+      <th>Specials</th>
+      <th>Type</th>
+      <th>Teacher</th>
+      <th>Comments</th>
+      <th>Class #</th>
+      <th>Activity</th>
     </tr>
   </thead>
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
-        <td><%= link_to schedule.id, schedule_path(schedule) %></td>
+        <td><%= schedule.location.name %></td>
+        <td><%= schedule.facility.name %></td>
+        <td><%= schedule.zone.name %></td>
+        <td><%= schedule.program.name %></td>
         <td><%= schedule.start_date %></td>
         <td><%= schedule.stop_date %></td>
-        <td><%= schedule.day_of_week %></td>
-        <td><%= schedule.start_time %></td>
-        <td><%= schedule.stop_time %></td>
+        <td><%= Date::DAYNAMES[schedule.day_of_week] %></td>
+        <td><%= schedule.start_time.strftime("%H:%M") %></td>
+        <td><%= schedule.stop_time.strftime("%H:%M") %></td>
         <td><%= schedule.size %></td>
+        <td></td>
+        <td><%= schedule.level.name %></td>
+        <td></td>
+        <td></td>
+        <td><%= schedule.type.name %></td>
+        <td><%= schedule.teacher.first_name + ' ' + schedule.teacher.last_name %></td>
         <td><%= schedule.comments %></td>
-        <td><%= schedule.level_id %></td>
-        <td><%= schedule.type_id %></td>
-        <td><%= schedule.zone_id %></td>
-        <td><%= schedule.activity_id %></td>
-        <td><%= schedule.program_id %></td>
-        <td><%= schedule.teacher_id %></td>
-        <td><%= schedule.child_id %></td>
-        <td><%=l schedule.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_schedule_path(schedule), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      schedule_path(schedule),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
+        <td><%= schedule.id %></td>
+        <td><%= schedule.activity.name %></td>        
       </tr>
     <% end %>
   </tbody>

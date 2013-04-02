@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_one :parent
+  belongs_to :location
 
 	# Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -15,6 +16,14 @@ class User < ActiveRecord::Base
   def role_symbols
   	 # [:admin] if @User.role = "admin"
      return ["#{self.role}".to_sym]
+  end
+
+  def self.current
+    Thread.current[:user]
+  end
+  
+  def self.current=(user)
+    Thread.current[:user] = user
   end
 
 end

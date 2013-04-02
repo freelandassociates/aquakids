@@ -1,6 +1,5 @@
 class Facility < ActiveRecord::Base
-  belongs_to :location
-  has_many :zones
+  has_many :schedules
 
   validates_presence_of :name, :location_id
 

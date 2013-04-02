@@ -10,6 +10,10 @@ gem 'pg'
 group :development do
   gem 'rails-erd'
   gem 'ruby_parser'
+  
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 # Gems used only for assets and not required
@@ -26,6 +30,10 @@ group :assets do
   gem 'therubyracer', '~> 0.10.2'
   gem 'less-rails'
   gem 'twitter-bootstrap-rails', '2.1.7'
+
+  gem 'chosen-rails'
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  gem 'jquery-ui-rails'
 end
 
 gem 'jquery-rails'

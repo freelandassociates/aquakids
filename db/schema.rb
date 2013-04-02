@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326204349) do
+ActiveRecord::Schema.define(:version => 20130401204534) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -115,7 +115,8 @@ ActiveRecord::Schema.define(:version => 20130326204349) do
     t.integer  "activity_id"
     t.integer  "program_id"
     t.integer  "teacher_id"
-    t.integer  "child_id"
+    t.integer  "facility_id"
+    t.integer  "location_id"
   end
 
   create_table "skills", :force => true do |t|
@@ -171,6 +172,7 @@ ActiveRecord::Schema.define(:version => 20130326204349) do
     t.datetime "updated_at",                             :null => false
     t.string   "username"
     t.string   "role"
+    t.integer  "location_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -178,9 +180,8 @@ ActiveRecord::Schema.define(:version => 20130326204349) do
 
   create_table "zones", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "facility_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

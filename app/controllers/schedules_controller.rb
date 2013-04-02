@@ -2,7 +2,9 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all
+    # @schedules = Schedule.all
+    @search = Schedule.search(params[:q])
+    @schedules = @search.result
 
     respond_to do |format|
       format.html # index.html.erb

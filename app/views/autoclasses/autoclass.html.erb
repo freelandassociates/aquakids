@@ -1,0 +1,28 @@
+<%- model_class = Autoclass -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                                 :default => "New #{model_class.model_name.human}") %></h1>
+</div>
+<%= simple_form_for @autoclass, :validate => false, url: { action: :create_schedules }, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :max_classes %>
+  <%= f.input :size, label: "Class size" %>
+  <%= f.input :start_date, as: :string %>
+  <%= f.input :stop_date, as: :string %>
+  <%= f.input :day_of_week, collection: Date::DAYNAMES.zip((0..6).to_a), prompt: "Select day of week" %>
+  <%= f.input :start_at_time %>
+  <%= f.input :class_length %>
+  <%= f.input :stop_by_time %>
+  <%= f.input :activity_id, collection: Activity.all(order: 'name'), prompt: "Choose a value" %>
+  <%= f.input :program_id, collection: Program.all(order: 'name'), prompt: "Choose a value" %>
+  <%= f.input :location_id, collection: Location.all(order: 'name'), prompt: "Choose a value" %>
+  <%= f.input :facility_id, collection: Facility.all(order: 'name'), prompt: "Choose a value" %>
+  <%= f.input :zone_id, collection: Zone.all(order: 'name'), prompt: "Choose a value" %>
+  <%= f.input :level_id, collection: Level.all(order: 'name'), prompt: "Choose a value" %>
+  <%= f.input :type_id, collection: Type.all(order: 'name'), prompt: "Choose a value" %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                schedules_path, :class => 'btn' %>
+  </div>
+<% end %>

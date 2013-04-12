@@ -4,8 +4,31 @@
 </div>
 
 <%= search_form_for @search do |f| %>
+  <%= f.label :Activity %>
+  <%= f.collection_select :activity_id_in, Activity.all, :id, :name, {}, { size: Activity.all.length, multiple: true, class: 'chzn-select' } %>
+  <%= f.label :Session %>
+  <%= f.collection_select :program_id_in, Program.all, :id, :name, {}, { size: Program.all.length, multiple: true, class: 'chzn-select' } %>
+  <%= f.label :Level %>
+  <%= f.collection_select :level_id_in, Level.all, :id, :name, {}, { size: Level.all.length, multiple: true, class: 'chzn-select' } %>
+  <%= f.label :Type %>
+  <%= f.collection_select :type_id_in, Type.all, :id, :name, {}, { size: Type.all.length, multiple: true, class: 'chzn-select' } %>
+  <br/>
+  <%= f.label :Location %>
+  <%= f.collection_select :location_id_in, Location.all, :id, :name, {}, { size: Location.all.length, multiple: true, class: 'chzn-select' } %>
+  <%= f.label :Facility %>
+  <%= f.collection_select :facility_id_in, Facility.all, :id, :name, {}, { size: Facility.all.length, multiple: true, class: 'chzn-select' } %>
   <%= f.label :Zone %>
   <%= f.collection_select :zone_id_in, Zone.all, :id, :name, {}, { size: Zone.all.length, multiple: true, class: 'chzn-select' } %>
+  <%= f.label :Teacher %>
+  <%= f.collection_select :teacher_id_in, Teacher.all, :id, :full_name, {}, { size: Teacher.all.length, multiple: true, class: 'chzn-select' } %>
+  <br/>
+  <%= f.label :start_date_gteq, "Date from" %>
+  <%= f.text_field :start_date_gteq %>
+  <%= f.label :start_date_lteq, "Date to" %>
+  <%= f.text_field :start_date_lteq %>
+
+
+
   <!-- <%= f.label :zone_name_cont, "Zone" %> -->
   <!-- <%= f.text_field :zone_name_cont %> -->
   <div><%= f.submit "Search" %></div>
@@ -15,7 +38,7 @@
 <p>Current User's Location is <%= current_user.location.id if current_location %></p>
 <p>Current User's Location is <%= current_location.id if current_location %></p>
 
-<table id="datatable" class="table table-striped">
+<table id="datatable" class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Location</th>
@@ -69,3 +92,7 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_schedule_path,
             :class => 'btn btn-primary' %>
+
+<%= link_to 'AutoClass', { :controller => 'autoclasses', :action => 'autoclass' }, :class => 'btn' %>
+
+

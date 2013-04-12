@@ -7,13 +7,13 @@ gem 'rails', '3.2.11'
 
 gem 'pg'
 
+gem 'thin'
+
 group :development do
-  gem 'rails-erd'
-  gem 'ruby_parser'
-  
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'pry'
 end
 
 # Gems used only for assets and not required
@@ -30,6 +30,7 @@ group :assets do
   gem 'therubyracer', '~> 0.10.2'
   gem 'less-rails'
   gem 'twitter-bootstrap-rails', '2.1.7'
+  gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
   gem 'chosen-rails'
   gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
@@ -42,9 +43,13 @@ gem 'devise'
 
 gem 'declarative_authorization'
 
+gem 'client_side_validations', '3.2.1', :git => 'https://github.com/bcardarella/client_side_validations.git'
+
 gem 'simple_form'
 
 gem 'ransack'
+
+gem 'validates_timeliness'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,5 +1,9 @@
 Aquakids::Application.routes.draw do
   
+  get "autoclasses/autoclass"
+  
+  post "autoclasses/create_schedules"
+
   root :to => "static#home"
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}

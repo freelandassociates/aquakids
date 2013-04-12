@@ -12,12 +12,44 @@
  *= require chosen
  *= require jquery.ui.core
  *= require jquery.ui.theme
- *= require dataTables/jquery.dataTables
+ *= require bootstrap-datepicker
+ *= require dataTables/jquery.dataTables.bootstrap
+ *= require dataTables/extras/TableTools
+ *= require dataTables/extras/TableTools_JUI
  *= require_tree .
  */
 
 
-#datatable td, th {
-	font-size: 11px;
-	white-space: nowrap;
+/*#datatable td, th {*/
+	/*font-size: 11px;*/
+	/*white-space: nowrap;*/
+/*}*/
+
+div.dataTables_length label {
+    width: 460px;
+    float: left;
+    text-align: left;
+}
+
+div.dataTables_length select {
+    width: 75px;
+}
+
+div.dataTables_filter label {
+    float: right;
+    width: 460px;
+}
+
+div.dataTables_info {
+    padding-top: 8px;
+}
+
+div.dataTables_paginate {
+    float: right;
+    margin: 0;
+}
+
+table {
+    margin: 1em 0;
+    clear: both;
 }

@@ -20,12 +20,34 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Aquakids</a>
+        <%= link_to "Aquakids", schedules_path, :class => "brand" %>
         <div class="nav-collapse">
           <ul class="nav">
-            <li><%= link_to "Menu 1" %></li>
-            <li><%= link_to "Menu 2" %></li>
-            <li><%= link_to "Menu 3" %></li>
+
+
+            <li class="dropdown">
+              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Classes <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                <li role="presentation"><%= link_to 'AutoClass', autoclasses_autoclass_path %> </li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a id="drop2" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Setup <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                <li role="presentation"><%= link_to 'Locations', locations_path %> </li>
+                <li role="presentation"><%= link_to 'Pools', facilities_path %> </li>
+                <li role="presentation"><%= link_to 'Zones', zones_path %> </li>
+                <li role="presentation"><%= link_to 'Activities', activities_path %> </li>
+                <li role="presentation"><%= link_to 'Sessions', programs_path %> </li>
+                <li role="presentation"><%= link_to 'Level', levels_path %> </li>
+                <li role="presentation"><%= link_to 'Types', types_path %> </li>
+                <li role="presentation"><%= link_to 'Teachers', teachers_path %> </li>
+              </ul>
+            </li>
+
           </ul>
         </div>
       </div>
@@ -47,14 +69,12 @@
   	  <%= link_to 'Edit profile', edit_user_registration_path %> |
   	  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
   	<% else %>
-  	  <%= link_to "Sign up", new_user_registration_path %> |
-  	  <%= link_to "Login", new_user_session_path %>
+  	  <%= link_to "Sign up", new_user_registration_path, :class => 'btn' %> 
+  	  <%= link_to "Login", new_user_session_path, :class => 'btn' %>
   	<% end %>
   </div>
 
   <!-- Devise flash messages -->
-  <!-- <p class="notice"><%= notice %></p> -->
-  <!-- <p class="alert"><%= alert %></p> -->
 
   <%= yield %> 
 

@@ -11,8 +11,10 @@ en:
     error_notification:
       default_message: "Please review the problems below:"
     # Labels and hints examples
-    # labels:
-    #   defaults:
+    #   labels:
+    #     program: 
+    #       name: 'Session'
+    # #   defaults:
     #     password: 'Password'
     #   user:
     #     new:

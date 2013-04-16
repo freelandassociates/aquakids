@@ -1,0 +1,28 @@
+#new_autoclass div.control-group {
+	float: left;
+//	border: dashed 1px cornflowerblue;
+}
+
+#autoclass_max_classes, #autoclass_size  {
+	width: 80px;
+}
+
+#autoclass_start_date, #autoclass_stop_date {
+	width: 80px;
+}
+
+div.autoclass_start_at_time {
+	clear: both;
+}
+
+#autoclass_start_at_time, #autoclass_class_length, #autoclass_stop_by_time {
+	width: 80px;
+}
+
+div.autoclass_activity_id, div.autoclass_day_of_week {
+	clear: both;
+}
+
+#new_autoclass div.form-actions {
+ 	clear: both;
+}

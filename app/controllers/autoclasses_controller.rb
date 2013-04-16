@@ -2,60 +2,54 @@ class AutoclassesController < ApplicationController
 
   def autoclass
     @autoclass = Autoclass.new
-    @autoclass.start_at_time = Time.now
   end
 
   def create_schedules
     # Loop for a maximum number of times as defined in max_classes parameter
     @autoclass = Autoclass.new(params[:autoclass])
-    #@max_classes = params[:autoclass][:max_classes]
-    binding.pry
     if @autoclass.valid?
       # Updating stuff goes here..
       logger.info "********** UPDATING..."
       # Loop for as many times specified in max classes..
-      for i in 1..@autoclass[:max_classes].to_i
+      for i in 1..@autoclass.max_classes.to_i do
         # Create a new Schedule object
-        @schedule = Schedule.new(@autoclass)
-        binding.pry
-        # Set start and end times
-        # Set teacher
+        @schedule = Schedule.new
+        @schedule.day_of_week=@autoclass.day_of_week
+        @schedule.size=@autoclass.size
+        @schedule.start_date=@autoclass.start_date
+        @schedule.start_time=@autoclass.start_at_time
+        @schedule.start_time=@schedule.start_time + (@autoclass.class_length.to_i * (i - 1) * 60)
+        @schedule.stop_date=@autoclass.stop_date
+        @schedule.stop_time=@schedule.start_time + (@autoclass.class_length.to_i * 60)
+        @schedule.level_id=@autoclass.level_id
+        @schedule.activity_id=@autoclass.activity_id
+        @schedule.type_id=@autoclass.type_id
+        @schedule.program_id=@autoclass.program_id
+        @schedule.teacher_id=@autoclass.teacher_id
+        @schedule.location_id=@autoclass.location_id
+        @schedule.facility_id=@autoclass.facility_id
+        @schedule.zone_id=@autoclass.zone_id
+
         # If calculated end time is less than stop by time, save the schedule object
-        #   if @schedule.save
-        #     logger.info "CREATED: #{@schedule.attributes}"
-        #   else
-        #     logger.debug "ERRORS: #{@schedule.errors.messages}"
-        #   end
+        if @schedule.stop_time.strftime('%H:%M') <= @autoclass.stop_by_time
+          if @schedule.save
+            logger.info "CREATED: #{@schedule.attributes}"
+          else
+            logger.debug "ERRORS: #{@schedule.errors.messages}"
+          end
+        else
         # Otherwise, quit the loop and stop writing schedules
-        # Redirect back to schedule page
-        redirect_to zschedules_path, :notice => "#{i} new schedules created.."
+          i = i - 1
+          break
+        end
       end
+      # Redirect back to schedule page
+      redirect_to schedules_path, :notice => "#{i} new schedules created.."
     else
       logger.info "********** RENDERING..."
       render :autoclass
     end
-    # if @max_classes.to_i > 15
-    #   render action: "autoclass"
-    # end
-    # for i in 1..@max_classes.to_i
-    #   # Create a new Schedule object
-    #   @schedule = Schedule.new(params[:schedule])
-    #   # Set start and end times
-    #   # If end time is less than stop_by time then save schedule,
-    #   if @schedule.save
-    #     logger.info "CREATED: #{@schedule.attributes}"
-    #   else
-    #     logger.debug "ERRORS: #{@schedule.errors.messages}"
-    #   end 
-    #   # otherwise, quit the loop..
-    #   # if i > 2 then
-    #   #   break
-    #   # end
-    # end
-    # @max_classes = params[:schedule][:max_classes]
-    #logger.info "Creating schedules"
-    #logger.debug "Max Classes: #{@max_classes}"
-    #redirect_to zschedules_path, :notice => "#{@max_classes} schedules created.."
+
   end
 
 end

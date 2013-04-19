@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401204534) do
+ActiveRecord::Schema.define(:version => 20130418192111) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -37,9 +37,8 @@ ActiveRecord::Schema.define(:version => 20130401204534) do
 
   create_table "facilities", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "location_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "levels", :force => true do |t|
@@ -177,6 +176,17 @@ ActiveRecord::Schema.define(:version => 20130401204534) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "versions", :force => true do |t|
+    t.string   "item_type",  :null => false
+    t.integer  "item_id",    :null => false
+    t.string   "event",      :null => false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
 
   create_table "zones", :force => true do |t|
     t.string   "name"

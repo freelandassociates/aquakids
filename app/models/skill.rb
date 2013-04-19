@@ -1,4 +1,6 @@
 class Skill < ActiveRecord::Base
+  has_paper_trail
+  
   belongs_to :level
   has_many :attainments
   has_many :registrations, :through => :attainments

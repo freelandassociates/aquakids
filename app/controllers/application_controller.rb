@@ -7,11 +7,19 @@ class ApplicationController < ActionController::Base
 	  Authorization.current_user = current_user
 	end
 
-  around_filter :scope_current_location
-
   def after_sign_in_path_for(user)
   	schedules_path 
   end
+
+  def after_sign_out_path_for(user)
+    root_path 
+  end
+
+  def user_for_paper_trail
+    current_user
+  end
+
+around_filter :scope_current_location
 
   def current_location # Returns Location object of current user
     current_user.location if current_user

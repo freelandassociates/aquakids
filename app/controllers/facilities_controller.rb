@@ -2,7 +2,7 @@ class FacilitiesController < ApplicationController
   # GET /facilities
   # GET /facilities.json
   def index
-    @facilities = Facility.all
+    @facilities = Facility.all(:order => :name)
 
     respond_to do |format|
       format.html # index.html.erb

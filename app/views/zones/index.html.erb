@@ -5,18 +5,18 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated_by) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @zones.each do |zone| %>
       <tr>
-        <td><%= link_to zone.id, zone_path(zone) %></td>
         <td><%= zone.name %></td>
-        <td><%=l zone.created_at %></td>
+        <td><%=l zone.updated_at, :format => :short %></td>
+        <td><%= User.find(zone.versions.last.whodunnit).username if zone.versions.count > 0 %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_zone_path(zone), :class => 'btn btn-mini' %>

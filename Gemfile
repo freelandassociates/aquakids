@@ -33,8 +33,9 @@ group :assets do
   gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
   gem 'chosen-rails'
-  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  # gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
+  gem 'kendoui-rails'
 end
 
 gem 'jquery-rails'
@@ -50,6 +51,8 @@ gem 'simple_form'
 gem 'ransack'
 
 gem 'validates_timeliness'
+
+gem 'paper_trail'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

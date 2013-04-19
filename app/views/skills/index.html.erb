@@ -5,20 +5,20 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:level_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:level) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated_by) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @skills.each do |skill| %>
       <tr>
-        <td><%= link_to skill.id, skill_path(skill) %></td>
         <td><%= skill.name %></td>
-        <td><%= skill.level_id %></td>
-        <td><%=l skill.created_at %></td>
+        <td><%= skill.level.name %></td>
+        <td><%=l skill.updated_at, :format => :short %></td>
+        <td><%= User.find(skill.versions.last.whodunnit).username if skill.versions.count > 0 %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_skill_path(skill), :class => 'btn btn-mini' %>

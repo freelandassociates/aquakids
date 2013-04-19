@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+  has_paper_trail
   has_many :schedules
   has_many :users
   

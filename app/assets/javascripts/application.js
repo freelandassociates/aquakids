@@ -20,6 +20,7 @@
 //= require dataTables/extras/ZeroClipboard.js
 //= require dataTables/extras/TableTools
 //= require rails.validations
+//= require kendo/kendo.web.min
 //= require_tree .
 
 

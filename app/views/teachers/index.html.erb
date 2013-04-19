@@ -5,10 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:first_name) %></th>
-      <th><%= model_class.human_attribute_name(:middle_name) %></th>
-      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:full_name) %></th>
       <th><%= model_class.human_attribute_name(:address_1) %></th>
       <th><%= model_class.human_attribute_name(:address_2) %></th>
       <th><%= model_class.human_attribute_name(:city) %></th>
@@ -19,17 +16,15 @@
       <th><%= model_class.human_attribute_name(:work_phone) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:notes) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated_by) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @teachers.each do |teacher| %>
       <tr>
-        <td><%= link_to teacher.id, teacher_path(teacher) %></td>
-        <td><%= teacher.first_name %></td>
-        <td><%= teacher.middle_name %></td>
-        <td><%= teacher.last_name %></td>
+        <td><%= teacher.full_name %></td>
         <td><%= teacher.address_1 %></td>
         <td><%= teacher.address_2 %></td>
         <td><%= teacher.city %></td>
@@ -40,7 +35,8 @@
         <td><%= teacher.work_phone %></td>
         <td><%= teacher.email %></td>
         <td><%= teacher.notes %></td>
-        <td><%=l teacher.created_at %></td>
+        <td><%=l teacher.created_at, :format => :short %></td>
+        <td><%= User.find(teacher.versions.last.whodunnit).username if teacher.versions.count > 0 %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_teacher_path(teacher), :class => 'btn btn-mini' %>

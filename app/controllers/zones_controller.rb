@@ -2,7 +2,7 @@ class ZonesController < ApplicationController
   # GET /zones
   # GET /zones.json
   def index
-    @zones = Zone.all
+    @zones = Zone.all(:order => :name)
 
     respond_to do |format|
       format.html # index.html.erb

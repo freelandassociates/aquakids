@@ -5,18 +5,18 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated_by) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @activities.each do |activity| %>
       <tr>
-        <td><%= link_to activity.id, activity_path(activity) %></td>
         <td><%= activity.name %></td>
-        <td><%=l activity.created_at %></td>
+        <td><%=l activity.updated_at, :format => :short %></td>
+        <td><%= User.find(activity.versions.last.whodunnit).username if activity.versions.count > 0 %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_activity_path(activity), :class => 'btn btn-mini' %>

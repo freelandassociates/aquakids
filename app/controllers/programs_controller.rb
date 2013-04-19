@@ -2,7 +2,7 @@ class ProgramsController < ApplicationController
   # GET /programs
   # GET /programs.json
   def index
-    @programs = Program.all
+    @programs = Program.all(:order => :name)
 
     respond_to do |format|
       format.html # index.html.erb

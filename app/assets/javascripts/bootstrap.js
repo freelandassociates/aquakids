@@ -18,11 +18,17 @@ $(function() {
 //                                 });
 //});
 
-$(document).ready( function () {
-    $('#datatable').dataTable( {
-        "sDom": 'T<"clear">lfrtip',
-        "oTableTools": {
-            "sSwfPath": "/TableTools/swf/copy_csv_xls_pdf.swf"
-        }
-    } );
-} );
+// $(document).ready( function () {
+//     $('#datatable').dataTable( {
+//         "sDom": 'T<"clear">lfrtip',
+//         "oTableTools": {
+//             "sSwfPath": "/TableTools/swf/copy_csv_xls_pdf.swf"
+//         }
+//     } );
+// } );
+
+$(document).ready(function() {
+    $("#datatable").kendoGrid({
+        height: 430
+    });
+});

@@ -15,10 +15,6 @@
 //= require twitter/bootstrap
 //= require bootstrap-datepicker
 //= require chosen-jquery
-//= require dataTables/jquery.dataTables
-//= require dataTables/jquery.dataTables.bootstrap
-//= require dataTables/extras/ZeroClipboard.js
-//= require dataTables/extras/TableTools
 //= require rails.validations
 //= require kendo/kendo.web.min
 //= require_tree .

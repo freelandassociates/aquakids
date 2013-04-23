@@ -1,6 +1,6 @@
 <%- model_class = Schedule -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1>Classes</h1>
 </div>
 
 <%= search_form_for @search do |f| %>
@@ -31,40 +31,39 @@
 
   <!-- <%= f.label :zone_name_cont, "Zone" %> -->
   <!-- <%= f.text_field :zone_name_cont %> -->
-  <div><%= f.submit "Search" %></div>
+  <div><%= f.submit "Search", :class => 'btn' %></div>
 <% end %>
 
-
-<p>Current User's Location is <%= current_user.location.id if current_location %></p>
-<p>Current User's Location is <%= current_location.id if current_location %></p>
-
-<table id="datatable" class="table table-striped table-bordered">
+<%= form_tag copy_classes_schedules_path, method: :get do %>
+<table id="datatable">
   <thead>
     <tr>
-      <th>Location</th>
-      <th>Facility</th>
-      <th>Zone</th>
-      <th>Session</th>
-      <th>Start Date</th>
-      <th>Stop Date</th>
-      <th>Lessons</th>
-      <th>Start Time</th>
-      <th>Stop Time</th>
-      <th>Size</th>
-      <th>#</th>
-      <th>Level</th>
-      <th>Absences</th>
-      <th>Specials</th>
-      <th>Type</th>
-      <th>Teacher</th>
-      <th>Comments</th>
-      <th>Class #</th>
-      <th>Activity</th>
+      <th data-field="checkbox"><input type="checkbox" name="selectall" id="selectall"></th>
+      <th data-field="location">Location</th>
+      <th data-field="facility">Facility</th>
+      <th data-field="zone">Zone</th>
+      <th data-field="session">Session</th>
+      <th data-field="startdate">Start Date</th>
+      <th data-field="stopdate">Stop Date</th>
+      <th data-field="lessons">Lessons</th>
+      <th data-field="starttime">Start Time</th>
+      <th data-field="stoptime">Stop Time</th>
+      <th data-field="size">Size</th>
+      <th data-field="number">#</th>
+      <th data-field="level">Level</th>
+      <th data-field="absences">Absences</th>
+      <th data-field="specials">Specials</th>
+      <th data-field="type">Type</th>
+      <th data-field="teacher">Teacher</th>
+      <th data-field="comments">Comments</th>
+      <th data-field="class">Class #</th>
+      <th data-field="activity">Activity</th>
     </tr>
   </thead>
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
+        <td><%= check_box_tag "schedule_ids[]", schedule.id %></td>
         <td><%= schedule.location.name %></td>
         <td><%= schedule.facility.name %></td>
         <td><%= schedule.zone.name %></td>
@@ -80,7 +79,7 @@
         <td></td>
         <td></td>
         <td><%= schedule.type.name %></td>
-        <td><%= schedule.teacher.first_name + ' ' + schedule.teacher.last_name %></td>
+        <td><%= schedule.teacher.first_name + ' ' + schedule.teacher.middle_name + ' ' + schedule.teacher.last_name %></td>
         <td><%= schedule.comments %></td>
         <td><%= schedule.id %></td>
         <td><%= schedule.activity.name %></td>        
@@ -94,5 +93,9 @@
             :class => 'btn btn-primary' %>
 
 <%= link_to 'AutoClass', { :controller => 'autoclasses', :action => 'autoclass' }, :class => 'btn' %>
+
+<%= submit_tag "CopyClass", :id => "copyclass", :disabled => true, :class => 'btn' %>
+
+<% end %>
 
 

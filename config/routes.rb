@@ -20,8 +20,13 @@ Aquakids::Application.routes.draw do
 
   resources :levels
 
-  resources :schedules
-
+  resources :schedules do
+    collection do
+      get :copy_classes
+      put :process_copy_classes
+    end
+  end
+  
   resources :zones
 
   resources :facilities

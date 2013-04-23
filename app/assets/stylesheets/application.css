@@ -10,45 +10,47 @@
  *
  *= require kendo/kendo.common.min
  *= require kendo/kendo.default.min
- *= require_self
  *= require chosen
  *= require jquery.ui.core
  *= require jquery.ui.theme
  *= require bootstrap-datepicker
+ *= require_self
  *= require_tree .
  */
 
 
-/*#datatable td, th {*/
-	/*font-size: 11px;*/
-	/*white-space: nowrap;*/
-/*}*/
-
-div.dataTables_length label {
-    width: 460px;
-    float: left;
-    text-align: left;
+table td {
+    padding: 0em;
 }
 
-div.dataTables_length select {
-    width: 75px;
+.k-header {
+    white-space: nowrap;
+    font-size: 11px;
 }
 
-div.dataTables_filter label {
-    float: right;
-    width: 460px;
+.k-grid {
+    margin: 0px 0px 10px 0px;
 }
 
-div.dataTables_info {
-    padding-top: 8px;
+.k-grid td {
+    font-size: 11px;
+    white-space: nowrap;
+    padding: 2px 4px;
 }
 
-div.dataTables_paginate {
-    float: right;
-    margin: 0;
+.k-grid-content {
+    height: 100%;
 }
 
-table {
-    margin: 1em 0;
-    clear: both;
+.k-link {
+    font-weight: bold;   
 }
+
+.k-link:hover {
+    font-size: 11px;
+    text-decoration: none;
+    background: lightgray;
+}
+
+
+

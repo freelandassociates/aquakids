@@ -11,24 +11,64 @@ $(function() {
                                 });
 });
 
-//$(function() {
-//    return $('#datatable').dataTable({
-//                                 "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
-//                                 "sPaginationType": "bootstrap"
-//                                 });
-//});
 
-// $(document).ready( function () {
-//     $('#datatable').dataTable( {
-//         "sDom": 'T<"clear">lfrtip',
-//         "oTableTools": {
-//             "sSwfPath": "/TableTools/swf/copy_csv_xls_pdf.swf"
-//         }
-//     } );
-// } );
+// $(document).ready(function () {
+//     var crudServiceBaseUrl = "/schedules",
+//         dataSource = new kendo.data.DataSource({
+//             transport: {
+//                 read:  {
+//                     url: crudServiceBaseUrl,
+//                     dataType: "json"
+//                 },
+//                 update: {
+//                     url: function(expense) {
+//                         return crudServiceBaseUrl + "/" + schedule.id;
+//                     },
+//                     dataType: "json",
+//                     contentType: "application/json",
+//                     type: "PUT"
+//                 },
+//                 destroy: {
+//                     url: function(expense) {
+//                         return crudServiceBaseUrl + "/" + schedule.id
+//                     },
+//                     dataType: "json",
+//                     type: "DELETE"
+//                 },
+//                 create: {
+//                     url: crudServiceBaseUrl,
+//                     dataType: "json",
+//                     contentType: "application/json",
+//                     type: "POST"
+//                 },
+//                 parameterMap: function(schedule, type) {
+//                     if (type === "create" || type === "update") {
+//                         return JSON.stringify({ schedule: schedule });
+//                     }
+//                 }
+//             },
+//             pageSize: 30,
+//             schema: {
+//                 model: {
+//                     id: "id",
+//                     fields: {
+//                         location: { editable: true },
+//                         facility: { type: "number", validation: { required: true } }
+//                     }
+//                 }
+//             }
+//         });
 
-$(document).ready(function() {
-    $("#datatable").kendoGrid({
-        height: 430
-    });
-});
+//     $("#grid").kendoGrid({
+//         dataSource: dataSource,
+//         navigatable: true,
+//         pageable: true,
+//         height: 400,
+//         toolbar: ["create", "save", "cancel"],
+//         columns: [
+//             { field: "location_id", width: "150px" },
+//             { field: "facility", format: "{0:c}", width: "150px" },
+//             { command: "destroy", title: " ", width: "110px" }],
+//         editable: true
+//     });
+// });

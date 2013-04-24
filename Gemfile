@@ -27,8 +27,8 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 
-  gem 'therubyracer', '~> 0.10.2'
-  gem 'less-rails'
+  # gem 'therubyracer', '~> 0.10.2'
+  # gem 'less-rails'
   # gem 'twitter-bootstrap-rails', '2.1.7'
   # gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
@@ -36,6 +36,9 @@ group :assets do
   # gem 'jquery-ui-rails'
   # gem 'kendoui-rails'
 end
+
+gem 'therubyracer', '~> 0.10.2'
+gem 'less-rails'
 
 gem 'twitter-bootstrap-rails', '2.1.7'
 

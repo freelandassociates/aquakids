@@ -12,6 +12,29 @@ class CopyclassesController < ApplicationController
     @copyclass = Copyclass.new(params[:copyclass])
     if @copyclass.valid?
       logger.info "***** VALID ******"
+      @schedules.each do |schedule|
+        @existing_schedule = Schedule.find(schedule)
+        @new_schedule = Schedule.new
+        @new_schedule.size=@existing_schedule.size
+        @new_schedule.start_date=@existing_schedule.start_date  + (@copyclass.date_offset.to_i) 
+        @new_schedule.start_time=@existing_schedule.start_time + (@copyclass.time_offset.to_i * 60)
+        @new_schedule.day_of_week=@existing_schedule.day_of_week + (@copyclass.date_offset.to_i)
+        @new_schedule.stop_date=@existing_schedule.stop_date + (@copyclass.date_offset.to_i) 
+        @new_schedule.stop_time=@existing_schedule.stop_time + (@copyclass.time_offset.to_i * 60)
+        @new_schedule.level_id=@existing_schedule.level_id
+        @new_schedule.activity_id=@existing_schedule.activity_id
+        @new_schedule.type_id=@existing_schedule.type_id
+        @new_schedule.program_id=@copyclass.program
+        @new_schedule.teacher_id=@existing_schedule.teacher_id
+        @new_schedule.location_id=@existing_schedule.location_id
+        @new_schedule.facility_id=@existing_schedule.facility_id
+        @new_schedule.zone_id=@existing_schedule.zone_id
+        if @new_schedule.save
+          logger.info "CREATED: #{@new_schedule.attributes}"
+        else
+          logger.debug "ERRORS: #{@new_schedule.errors.messages}"
+        end
+      end
       i = params[:schedule_ids].size
       redirect_to schedules_path, :notice => "#{i} new class(es) copied."    
     else

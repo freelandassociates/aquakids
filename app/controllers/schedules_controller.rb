@@ -83,8 +83,4 @@ class SchedulesController < ApplicationController
     end
   end
 
-  def copy_classes
-    @schedules = Schedule.find(params[:schedule_ids])
-  end
-
 end

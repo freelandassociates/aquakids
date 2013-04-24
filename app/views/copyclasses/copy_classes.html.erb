@@ -1,0 +1,26 @@
+<%- model_class = Copyclass -%>
+<div class="page-header">
+  <h1>CopyClass</h1>
+</div>
+<%= simple_form_for @copyclass, :validate => false, url: { action: :copy_classes_update }, :html => { :class => 'form-horizontal', :method => :put } do |f| %>
+	
+	<ul>
+		<% @schedules.each do |schedule| %>
+			<li>
+				<%= hidden_field_tag "schedule_ids[]", schedule.id %>
+				<%= schedule.id %>
+			</li>
+		<% end %> 
+	</ul>
+
+  <%= f.input :program, collection: Program.all(), label: "Session", include_blank: false %>
+  <%= f.input :date_offset, label: "Date Offset (days)" %>
+  <%= f.input :time_offset, label: "Time Offset (mins)" %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                schedules_path, :class => 'btn' %>
+  </div>
+<% end %>
+

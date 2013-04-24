@@ -4,6 +4,13 @@ Aquakids::Application.routes.draw do
   
   post "autoclasses/create_schedules"
 
+  resources :copyclasses do
+    collection do
+      get :copy_classes
+      put :copy_classes_update
+    end
+  end
+
   root :to => "static#home"
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
@@ -20,12 +27,7 @@ Aquakids::Application.routes.draw do
 
   resources :levels
 
-  resources :schedules do
-    collection do
-      get :copy_classes
-      put :process_copy_classes
-    end
-  end
+  resources :schedules 
   
   resources :zones
 

@@ -8,8 +8,6 @@ class AutoclassesController < ApplicationController
     # Loop for a maximum number of times as defined in max_classes parameter
     @autoclass = Autoclass.new(params[:autoclass])
     if @autoclass.valid?
-      # Updating stuff goes here..
-      logger.info "********** UPDATING..."
       # Loop for as many times specified in max classes..
       for i in 1..@autoclass.max_classes.to_i do
         # Create a new Schedule object
@@ -44,9 +42,8 @@ class AutoclassesController < ApplicationController
         end
       end
       # Redirect back to schedule page
-      redirect_to schedules_path, :notice => "#{i} new schedules created.."
+      redirect_to schedules_path, :notice => "#{i} new class(es) created."
     else
-      logger.info "********** RENDERING..."
       render :autoclass
     end
 

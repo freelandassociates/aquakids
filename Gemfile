@@ -29,14 +29,21 @@ group :assets do
 
   gem 'therubyracer', '~> 0.10.2'
   gem 'less-rails'
-  gem 'twitter-bootstrap-rails', '2.1.7'
-  gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+  # gem 'twitter-bootstrap-rails', '2.1.7'
+  # gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
-  gem 'chosen-rails'
-  # gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
-  gem 'jquery-ui-rails'
-  gem 'kendoui-rails'
+  # gem 'chosen-rails'
+  # gem 'jquery-ui-rails'
+  # gem 'kendoui-rails'
 end
+
+gem 'twitter-bootstrap-rails', '2.1.7'
+
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
+gem 'chosen-rails'
+gem 'jquery-ui-rails'
+gem 'kendoui-rails'
 
 gem 'jquery-rails'
 

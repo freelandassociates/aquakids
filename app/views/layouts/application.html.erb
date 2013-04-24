@@ -9,7 +9,10 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+  <%= request.host %>
+  <% if request.host != 'localhost' %>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+  <% end %>
 </head>
 <body>
 
@@ -77,7 +80,6 @@
   </div>
 
   <!-- Devise flash messages -->
-
   <%= yield %> 
 
 </div>

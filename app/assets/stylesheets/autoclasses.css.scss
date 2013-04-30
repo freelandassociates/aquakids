@@ -1,3 +1,4 @@
+
 #new_autoclass div.control-group {
 	float: left;
 //	border: dashed 1px cornflowerblue;
@@ -11,11 +12,30 @@
 	width: 80px;
 }
 
+
+
 div.autoclass_start_at_time {
 	clear: both;
 }
 
-#autoclass_start_at_time, #autoclass_class_length, #autoclass_stop_by_time {
+div.autoclass_class_length {
+	width: 274px;
+}
+
+div.autoclass_class_length p.help-block {
+		font-size: 14px;
+		color: #333;
+		width: 30px;
+		vertical-align: middle;
+		padding-left: 5px;
+		display: inline;
+}
+
+#autoclass_class_length {
+	width: 30px;
+}
+
+#autoclass_start_at_time, #autoclass_stop_by_time {
 	width: 80px;
 }
 

@@ -8,16 +8,16 @@
   <%= f.input :start_date, as: :string %>
   <%= f.input :stop_date, as: :string %>
   <%= f.input :start_at_time %>
-  <%= f.input :class_length %>
+  <%= f.input :class_length, :hint => "min." %>
   <%= f.input :stop_by_time %>
   <%= f.input :day_of_week, collection: Date::DAYNAMES.zip((0..6).to_a), prompt: "Select day of week" %>
-  <%= f.input :activity_id, collection: Activity.all(order: 'name'), prompt: "Choose a value" %>
-  <%= f.input :program_id, label: "Session", collection: Program.all(order: 'name'), prompt: "Choose a value" %>
-  <%= f.input :location_id, collection: Location.all(order: 'name'), prompt: "Choose a value" %>
-  <%= f.input :facility_id, label: "Pool", collection: Facility.all(order: 'name'), prompt: "Choose a value" %>
-  <%= f.input :zone_id, collection: Zone.all(order: 'name'), prompt: "Choose a value" %>
-  <%= f.input :level_id, collection: Level.all(order: 'name'), prompt: "Choose a value" %>
-  <%= f.input :type_id, collection: Type.all(order: 'name'), prompt: "Choose a value" %>
+  <%= f.input :activity_id, collection: Activity.all(order: 'id'), prompt: "Choose a value" %>
+  <%= f.input :program_id, label: "Session", collection: Program.all(order: 'id'), prompt: "Choose a value" %>
+  <%= f.input :location_id, collection: Location.all(order: 'id'), prompt: "Choose a value" %>
+  <%= f.input :facility_id, label: "Pool", collection: Facility.all(order: 'id'), prompt: "Choose a value" %>
+  <%= f.input :zone_id, collection: Zone.all(order: 'id'), prompt: "Choose a value" %>
+  <%= f.input :level_id, collection: Level.all(order: 'id'), prompt: "Choose a value" %>
+  <%= f.input :type_id, collection: Type.all(order: 'id'), prompt: "Choose a value" %>
   <%= f.input :teacher_id, collection: Teacher.all(order: 'last_name'), label_method: :full_name, prompt: "Choose a value" %>
 
   <div class="form-actions">

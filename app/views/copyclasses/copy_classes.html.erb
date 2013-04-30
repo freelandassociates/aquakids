@@ -8,7 +8,6 @@
 		<% @schedules.each do |schedule| %>
 			<li>
 				<%= hidden_field_tag "schedule_ids[]", schedule.id %>
-				<%= schedule.id %>
 			</li>
 		<% end %> 
 	</ul>

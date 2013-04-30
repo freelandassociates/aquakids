@@ -1,3 +1,9 @@
+#new_copyclass ul {
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
+}
+
 #schedule_date_offset, #schedule_time_offset {
 	width: 50px;
 }

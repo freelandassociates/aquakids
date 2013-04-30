@@ -15,7 +15,7 @@
   <br/>
   <%= f.label :Location %>
   <%= f.collection_select :location_id_in, Location.all, :id, :name, {}, { size: Location.all.length, multiple: true, class: 'chzn-select' } %>
-  <%= f.label :Facility %>
+  <%= f.label :Pool %>
   <%= f.collection_select :facility_id_in, Facility.all, :id, :name, {}, { size: Facility.all.length, multiple: true, class: 'chzn-select' } %>
   <%= f.label :Zone %>
   <%= f.collection_select :zone_id_in, Zone.all, :id, :name, {}, { size: Zone.all.length, multiple: true, class: 'chzn-select' } %>
@@ -26,8 +26,14 @@
   <%= f.text_field :start_date_gteq %>
   <%= f.label :start_date_lteq, "Date to" %>
   <%= f.text_field :start_date_lteq %>
+  <%= f.label :start_time_gteq, "Start time" %>
+  <%= f.text_field :start_time_gteq, :placeholder => "HH:MM", :value => (@search.start_time_gteq.blank? ? '' : @search.start_time_gteq.strftime('%I:%M %p')) %>
+  <%= f.label :stop_time_lteq, "Stop time" %>
+  <%= f.text_field :stop_time_lteq, :placeholder => "HH:MM", :value => (@search.stop_time_lteq.blank? ? '' : @search.stop_time_lteq.strftime('%I:%M %p')) %>
+  <%= f.label :id_eq, "Class#" %>
+  <%= f.text_field :id_eq %>
 
-
+<!-- @search.stop_time_lteq.strftime('%H:%M') -->
 
   <!-- <%= f.label :zone_name_cont, "Zone" %> -->
   <!-- <%= f.text_field :zone_name_cont %> -->
@@ -39,9 +45,6 @@
   <thead>
     <tr>
       <th data-field="checkbox"><input type="checkbox" name="selectall" id="selectall"></th>
-      <th data-field="location">Location</th>
-      <th data-field="facility">Facility</th>
-      <th data-field="zone">Zone</th>
       <th data-field="session">Session</th>
       <th data-field="startdate">Start Date</th>
       <th data-field="stopdate">Stop Date</th>
@@ -51,28 +54,28 @@
       <th data-field="size">Size</th>
       <th data-field="number">#</th>
       <th data-field="level">Level</th>
-      <th data-field="absences">Absences</th>
-      <th data-field="specials">Specials</th>
+      <th data-field="absences">Abs</th>
+      <th data-field="specials">Spec</th>
       <th data-field="type">Type</th>
       <th data-field="teacher">Teacher</th>
+      <th data-field="zone">Zone</th>
       <th data-field="comments">Comments</th>
-      <th data-field="class">Class #</th>
+      <th data-field="class">Class#</th>
       <th data-field="activity">Activity</th>
+      <th data-field="location">Location</th>
+      <th data-field="facility">Pool</th>
     </tr>
   </thead>
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
         <td><%= check_box_tag "schedule_ids[]", schedule.id %></td>
-        <td><%= schedule.location.name %></td>
-        <td><%= schedule.facility.name %></td>
-        <td><%= schedule.zone.name %></td>
         <td><%= schedule.program.name %></td>
         <td><%= schedule.start_date %></td>
         <td><%= schedule.stop_date %></td>
         <td><%= Date::DAYNAMES[schedule.day_of_week] %></td>
-        <td><%= schedule.start_time.strftime("%H:%M") %></td>
-        <td><%= schedule.stop_time.strftime("%H:%M") %></td>
+        <td><%= schedule.start_time.strftime("%I:%M %p") %></td>
+        <td><%= schedule.stop_time.strftime("%I:%M %p") %></td>
         <td><%= schedule.size %></td>
         <td></td>
         <td><%= schedule.level.name %></td>
@@ -80,9 +83,12 @@
         <td></td>
         <td><%= schedule.type.name %></td>
         <td><%= schedule.teacher.first_name + ' ' + schedule.teacher.middle_name + ' ' + schedule.teacher.last_name %></td>
+        <td><%= schedule.zone.name %></td>
         <td><%= schedule.comments %></td>
         <td><%= schedule.id %></td>
         <td><%= schedule.activity.name %></td>        
+        <td><%= schedule.location.name %></td>
+        <td><%= schedule.facility.name %></td>
       </tr>
     <% end %>
   </tbody>

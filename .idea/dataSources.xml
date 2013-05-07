@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" hash="1307846729">
-    <data-source source="LOCAL" name="Rails aquakids: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="d903730d-5c6e-4c30-ac7d-8a939cd6c6c1">
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:aquakids_production</jdbc-url>
-      <user-name>aquakids</user-name>
-      <libraries>
-        <library>
-          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>
-        </library>
-        <library>
-          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-9.1-901.jdbc3.jar</url>
-        </library>
-      </libraries>
-    </data-source>
     <data-source source="LOCAL" name="Rails aquakids: development" product="PostgreSQL" version="9.2.2" jdbc-version="3.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.1 JDBC3 (build 901)" uuid="27532f90-6b04-41d7-a73c-04b4e7a827ab">
       <identifier-quote-string>&quot;</identifier-quote-string>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
@@ -35,6 +22,32 @@
       <jdbc-url>jdbc:postgresql://127.0.0.1/aquakids_test</jdbc-url>
       <user-name>Paul</user-name>
       <user-password>dfc9dfcbdfccdfccdfd8dfcfdfd3dfd9</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>
+        </library>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-9.1-901.jdbc3.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails aquakids: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="50418c30-1fa4-403d-89dc-5cbf29af5f93">
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:aquakids_production</jdbc-url>
+      <user-name>aquakids</user-name>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>
+        </library>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-9.1-901.jdbc3.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails aquakids: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="d903730d-5c6e-4c30-ac7d-8a939cd6c6c1">
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:aquakids_production</jdbc-url>
+      <user-name>aquakids</user-name>
       <libraries>
         <library>
           <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>

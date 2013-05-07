@@ -4,6 +4,8 @@ Aquakids::Application.routes.draw do
   
   post "autoclasses/create_schedules"
 
+  get "/schedules/ransack_search"
+
   resources :copyclasses do
     collection do
       get :copy_classes

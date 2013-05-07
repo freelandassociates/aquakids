@@ -1,8 +1,9 @@
 // if any "chosen" select control changes, submit the search form..
 $(function() {
-	return $('.chzn-select').chosen().change(function() {
-	return $('#schedule_search').submit();
-	});
+    return $('.chzn-select').chosen().change(function() {
+        var qsrl = $("#schedule_search").serialize();
+        $("#datatable").data("kendoGrid").dataSource.read(qsrl);
+    });
 });
 
 $(function() {
@@ -31,39 +32,285 @@ $(function() {
 });
 });
 
-$(document).ready(function() {
-    $("#datatable").kendoGrid({
-        height: 390,
-        scrollable: true,
-        sortable: true,
-        reorderable: true,
-        selectable: "row",
-        resizable: true,
-        columns: [
-            {field: "checkbox",      width: 27, sortable: false },
-            {field: "session",      width: 105 },
-            {field: "startdate",      width: 90 },
-            {field: "stopdate",      width: 90 },
-            {field: "lessons",      width: 100 },
-            {field: "starttime",      width: 90 },
-            {field: "stoptime",      width: 90 },
-            {field: "size",      width: 50 },
-            {field: "number",      width: 40 },
-            {field: "level",      width: 90 },
-            {field: "absences",      width: 50 },
-            {field: "specials",      width: 55 },
-            {field: "type",      width: 100 },
-            {field: "teacher",      width: 120 },
-            {field: "zone",      width: 60 },
-            {field: "comments",      width: 150 },
-            {field: "class",      width: 70 },
-            {field: "activity",      width: 130 },
-            {field: "location",      width: 100 },
-            {field: "facility",      width: 100 }
-            ]
+// Declare arrays to hold the lookup information.
+var levels = [];
+var activities = [];
+var programs = [];
+var facilities = [];
+var types = [];
+var locations = [];
+var zones = [];
+var teachers = [];
+
+// Load the lookup arrays from the database.
+$.getJSON("/levels.json",       function(data)  { levels = data; });
+$.getJSON("/activities.json",   function(data)  { activities = data; });
+$.getJSON("/programs.json",     function(data)  { programs = data; });
+$.getJSON("/facilities.json",   function(data)  { facilities = data; });
+$.getJSON("/types.json",        function(data)  { types = data; });
+$.getJSON("/locations.json",    function(data)  { locations = data; });
+$.getJSON("/zones.json",        function(data)  { zones = data; });
+$.getJSON("/teachers.json",     function(data)  { teachers = data; });
+
+
+$(document).ready(function () {
+
+        var qsrl = $("#schedule_search").serialize();
+        var crudServiceBaseUrl = "/schedules",
+            dataSource = new kendo.data.DataSource({
+                transport: {
+                    read:  {
+                        url: function(schedule) {
+                            return crudServiceBaseUrl + "/ransack_search?" + $("#schedule_search").serialize();
+                        },
+                        dataType: "json"
+                    },
+                    update: {
+                        url: function(schedule) {
+                            return crudServiceBaseUrl + "/" + schedule.id;
+                        },
+                        dataType: "json",
+                        contentType: "application/json",
+                        type: "PUT"
+                    },
+                    destroy: {
+                        url: function(schedule) {
+                            return crudServiceBaseUrl + "/" + schedule.id
+                        },
+                        dataType: "json",
+                        type: "DELETE"
+                    },
+                    create: {
+                        url: crudServiceBaseUrl,
+                        dataType: "json",
+                        contentType: "application/json",
+                        type: "POST"
+                    },
+                    parameterMap: function(schedule, type) {
+                        if (type === "create" || type === "update") {
+                            return JSON.stringify({ schedule: schedule });
+                        }
+                    }
+                },
+                autoSync: true,
+                schema: {
+                    parse:function (response) {
+                        $.each(response, function (idx, elem) {
+                            if (elem.start_time && typeof elem.start_time === "string") {
+                                elem.start_time = kendo.parseDate(elem.start_time, "yyyy-MM-ddTHH:mm:ssZ");
+                            }
+                            if (elem.stop_time && typeof elem.stop_time === "string") {
+                                elem.stop_time = kendo.parseDate(elem.stop_time, "yyyy-MM-ddTHH:mm:ssZ");
+                            }
+                        });
+                        return response;
+                    },
+                    model: {
+                        id: "id",
+                        fields: {
+                            checkbox: { editable: false },
+                            program_id: { field: "program_id", defaultValue: 1 },
+                            start_date: { editable: false },
+                            stop_date: { editable: false },
+                            lessons: { editable: false },
+                            start_time: { editable: false },
+                            start_time_formatted: { editable: false },
+                            stop_time: { editable: false },
+                            size: { editable: false },
+                            number: { editable: false },
+                            level_id: { field: "level_id", defaultValue: 1 },
+                            absences: { editable: false },
+                            specials: { editable: false },
+                            type_id: { field: "type_id", defaultValue: 1 },
+                            teacher_id: { field: "teacher_id", defaultValue: 1 },
+                            zone_id: { field: "zone_id", defaultValue: 1 },
+                            comments: { editable: true },
+                            id: { editable: false },
+                            activity_id: { field: "activity_id", defaultValue: 1 },
+                            location_id: { field: "location_id", defaultValue: 1 },
+                            facility_id: { field: "facility_id", defaultValue: 1 }
+                        }
+                    }
+                }
+            });
+
+        $("#datatable").kendoGrid({
+            dataSource: dataSource,
+            height: 390,
+            scrollable: true,
+            sortable: true,
+            reorderable: true,
+            selectable: "row",
+            resizable: true,
+            columns: [
+                {field: "checkbox",         title: " ",             width: 27, sortable: false },
+                {field: "program_id",       title: "Session",       width: 105, editor: programDropDownEditor, template: "#=getProgramName(program_id)#" },
+                {field: "start_date",       title: "Start Date",    width: 90 },
+                {field: "stop_date",        title: "Stop Date",     width: 90 },
+                {field: "lessons",          title: "Lessons",       width: 100 },
+                {field: "start_time",       title: "Start Time",    format:"{0:hh:mm tt}",   width: 90 },
+                {field: "stop_time",        title: "Stop Time",     format:"{0:hh:mm tt}",   width: 90 },
+                {field: "size",             title: "Size",          width: 50 },
+                {field: "number",           title: "#",             width: 40 },
+                {field: "level_id",         title: "Level",         width: 90, editor: levelDropDownEditor, template: "#=getLevelName(level_id)#"},
+                {field: "absences",         title: "Abs",           width: 50 },
+                {field: "specials",         title: "Spec",          width: 55 },
+                {field: "type_id",          title: "Type",          width: 100, editor: typeDropDownEditor, template: "#=getTypeName(type_id)#" },
+                {field: "teacher_id",       title: "Teacher",       width: 120, editor: teacherDropDownEditor, template: "#=getTeacherName(teacher_id)#" },
+                {field: "zone_id",          title: "Zone",          width: 60, editor: zoneDropDownEditor, template: "#=getZoneName(zone_id)#" },
+                {field: "comments",         title: "Comments",      width: 150 },
+                {field: "id",               title: "Class#",        width: 70 },
+                {field: "activity_id",      title: "Activity",      width: 130, editor: activityDropDownEditor, template: "#=getActivityName(activity_id)#" },
+                {field: "location_id",      title: "Location",      width: 100, editor: locationDropDownEditor, template: "#=getLocationName(location_id)#" },
+                {field: "facility_id",      title: "Pool",          width: 100, editor: facilityDropDownEditor, template: "#=getFacilityName(facility_id)#" }],
+            editable: true
+        });
+
+});
+
+// Levels 
+function getLevelName(level_id_param) {
+    for (var idx = 0, length = levels.length; idx < length; idx++) {
+      if (levels[idx].level_id === level_id_param) {
+        return levels[idx].level_name;
+    }
+}
+}
+
+function levelDropDownEditor(container, options) {
+    $('<input required data-text-field="level_name" data-value-field="level_id" data-bind="value:' + options.field + '"/>')
+    .appendTo(container)
+    .kendoDropDownList({
+        autoBind: false,
+        dataSource: levels
     });
+}
 
+// Activities 
+function getActivityName(activity_id_param) {
+    for (var idx = 0, length = activities.length; idx < length; idx++) {
+      if (activities[idx].activity_id === activity_id_param) {
+        return activities[idx].activity_name;
+    }
+}
+}
 
+function activityDropDownEditor(container, options) {
+    $('<input required data-text-field="activity_name" data-value-field="activity_id" data-bind="value:' + options.field + '"/>')
+    .appendTo(container)
+    .kendoDropDownList({
+        autoBind: false,
+        dataSource: activities
+    });
+}
+
+// Programs 
+function getProgramName(program_id_param) {
+    for (var idx = 0, length = programs.length; idx < length; idx++) {
+      if (programs[idx].program_id === program_id_param) {
+        return programs[idx].program_name;
+    }
+}
+}
+
+function programDropDownEditor(container, options) {
+    $('<input required data-text-field="program_name" data-value-field="program_id" data-bind="value:' + options.field + '"/>')
+    .appendTo(container)
+    .kendoDropDownList({
+        autoBind: false,
+        dataSource: programs
+    });
+}
+
+// Facilities 
+function getFacilityName(facility_id_param) {
+    for (var idx = 0, length = facilities.length; idx < length; idx++) {
+      if (facilities[idx].facility_id === facility_id_param) {
+        return facilities[idx].facility_name;
+    }
+}
+}
+
+function facilityDropDownEditor(container, options) {
+    $('<input required data-text-field="facility_name" data-value-field="facility_id" data-bind="value:' + options.field + '"/>')
+    .appendTo(container)
+    .kendoDropDownList({
+        autoBind: false,
+        dataSource: facilities
+    });
+}
+
+// Types 
+function getTypeName(type_id_param) {
+    for (var idx = 0, length = types.length; idx < length; idx++) {
+      if (types[idx].type_id === type_id_param) {
+        return types[idx].type_name;
+    }
+}
+}
+
+function typeDropDownEditor(container, options) {
+    $('<input required data-text-field="type_name" data-value-field="type_id" data-bind="value:' + options.field + '"/>')
+    .appendTo(container)
+    .kendoDropDownList({
+        autoBind: false,
+        dataSource: types
+    });
+}
+
+// Teachers 
+function getTeacherName(teacher_id_param) {
+    for (var idx = 0, length = teachers.length; idx < length; idx++) {
+      if (teachers[idx].teacher_id === teacher_id_param) {
+        return teachers[idx].teacher_name;
+    }
+}
+}
+
+function teacherDropDownEditor(container, options) {
+    $('<input required data-text-field="teacher_name" data-value-field="teacher_id" data-bind="value:' + options.field + '"/>')
+    .appendTo(container)
+    .kendoDropDownList({
+        autoBind: false,
+        dataSource: teachers
+    });
+}
+
+// Zones 
+function getZoneName(zone_id_param) {
+    for (var idx = 0, length = zones.length; idx < length; idx++) {
+      if (zones[idx].zone_id === zone_id_param) {
+        return zones[idx].zone_name;
+    }
+}
+}
+
+function zoneDropDownEditor(container, options) {
+    $('<input required data-text-field="zone_name" data-value-field="zone_id" data-bind="value:' + options.field + '"/>')
+    .appendTo(container)
+    .kendoDropDownList({
+        autoBind: false,
+        dataSource: zones
+    });
+}
+
+// Locations 
+function getLocationName(location_id_param) {
+    for (var idx = 0, length = locations.length; idx < length; idx++) {
+      if (locations[idx].location_id === location_id_param) {
+        return locations[idx].location_name;
+    }
+}
+}
+
+function locationDropDownEditor(container, options) {
+    $('<input required data-text-field="location_name" data-value-field="location_id" data-bind="value:' + options.field + '"/>')
+    .appendTo(container)
+    .kendoDropDownList({
+        autoBind: false,
+        dataSource: locations
+    });
+}
 
     // Toggle all check boxes on and off..
     var checked = false;   
@@ -93,17 +340,3 @@ $(document).ready(function() {
             }
     });
     
-});
-
-
-
-
-
-// $(function() {
-//     return $('#selectall').onclick(function() {
-//         alert("Boo!")
-//         $(":checkbox").prop("checked", true);        
-//     });
-// });
-
-

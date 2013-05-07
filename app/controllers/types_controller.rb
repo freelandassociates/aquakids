@@ -6,7 +6,7 @@ class TypesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @types }
+      format.json { render json: @types, root: false }
     end
   end
 

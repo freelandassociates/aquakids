@@ -41,58 +41,8 @@
 <% end %>
 
 <%= form_tag copy_classes_copyclasses_path, method: :get do %>
-<table id="datatable">
-  <thead>
-    <tr>
-      <th data-field="checkbox"><input type="checkbox" name="selectall" id="selectall"></th>
-      <th data-field="session">Session</th>
-      <th data-field="startdate">Start Date</th>
-      <th data-field="stopdate">Stop Date</th>
-      <th data-field="lessons">Lessons</th>
-      <th data-field="starttime">Start Time</th>
-      <th data-field="stoptime">Stop Time</th>
-      <th data-field="size">Size</th>
-      <th data-field="number">#</th>
-      <th data-field="level">Level</th>
-      <th data-field="absences">Abs</th>
-      <th data-field="specials">Spec</th>
-      <th data-field="type">Type</th>
-      <th data-field="teacher">Teacher</th>
-      <th data-field="zone">Zone</th>
-      <th data-field="comments">Comments</th>
-      <th data-field="class">Class#</th>
-      <th data-field="activity">Activity</th>
-      <th data-field="location">Location</th>
-      <th data-field="facility">Pool</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @schedules.each do |schedule| %>
-      <tr>
-        <td><%= check_box_tag "schedule_ids[]", schedule.id %></td>
-        <td><%= schedule.program.name %></td>
-        <td><%= schedule.start_date %></td>
-        <td><%= schedule.stop_date %></td>
-        <td><%= Date::DAYNAMES[schedule.day_of_week] %></td>
-        <td><%= schedule.start_time.strftime("%I:%M %p") %></td>
-        <td><%= schedule.stop_time.strftime("%I:%M %p") %></td>
-        <td><%= schedule.size %></td>
-        <td></td>
-        <td><%= schedule.level.name %></td>
-        <td></td>
-        <td></td>
-        <td><%= schedule.type.name %></td>
-        <td><%= schedule.teacher.first_name + ' ' + schedule.teacher.middle_name + ' ' + schedule.teacher.last_name %></td>
-        <td><%= schedule.zone.name %></td>
-        <td><%= schedule.comments %></td>
-        <td><%= schedule.id %></td>
-        <td><%= schedule.activity.name %></td>        
-        <td><%= schedule.location.name %></td>
-        <td><%= schedule.facility.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div id="datatable"></div>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_schedule_path,

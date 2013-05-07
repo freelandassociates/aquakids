@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @activities }
+      format.json { render json: @activities, root: false   }
     end
   end
 

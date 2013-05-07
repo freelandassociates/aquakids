@@ -6,7 +6,7 @@ class ProgramsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @programs }
+      format.json { render json: @programs, root: false   }
     end
   end
 

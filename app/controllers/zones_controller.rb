@@ -6,7 +6,7 @@ class ZonesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @zones }
+      format.json { render json: @zones, root: false }
     end
   end
 

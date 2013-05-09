@@ -15,8 +15,9 @@ $(function() {
 
 $(function() {
 	return $('#q_start_date_gteq').bind('changeDate', function() {
-	return $('#schedule_search').submit();
-});
+        var qsrl = $("#schedule_search").serialize();
+        $("#datatable").data("kendoGrid").dataSource.read(qsrl);
+    });
 });
 
 $(function() {
@@ -28,8 +29,9 @@ $(function() {
 
 $(function() {
 	return $('#q_start_date_lteq').bind('changeDate', function() {
-	return $('#schedule_search').submit();
-});
+        var qsrl = $("#schedule_search").serialize();
+        $("#datatable").data("kendoGrid").dataSource.read(qsrl);
+    });
 });
 
 // Declare arrays to hold the lookup information.
@@ -110,17 +112,23 @@ $(document).ready(function () {
                         fields: {
                             checkbox: { editable: false },
                             program_id: { field: "program_id", defaultValue: 1 },
-                            start_date: { editable: false },
-                            stop_date: { editable: false },
-                            lessons: { editable: false },
-                            start_time: { editable: false },
-                            start_time_formatted: { editable: false },
-                            stop_time: { editable: false },
-                            size: { editable: false },
-                            number: { editable: false },
+                            start_date: { editable: true },
+                            stop_date: { editable: true },
+                            // lessons: { editable: false },
+                            start_time: { editable: true },
+                            stop_time: { editable: true },
+                            size: { editable: true },
+                            sunday: { editable: true },
+                            monday: { editable: true },
+                            tuesday: { editable: true },
+                            wednesday: { editable: true },
+                            thursday: { editable: true },
+                            friday: { editable: true },
+                            saturday: { editable: true },
+                            // number: { editable: false },
                             level_id: { field: "level_id", defaultValue: 1 },
-                            absences: { editable: false },
-                            specials: { editable: false },
+                            // absences: { editable: false },
+                            // specials: { editable: false },
                             type_id: { field: "type_id", defaultValue: 1 },
                             teacher_id: { field: "teacher_id", defaultValue: 1 },
                             zone_id: { field: "zone_id", defaultValue: 1 },
@@ -145,16 +153,23 @@ $(document).ready(function () {
             columns: [
                 {field: "checkbox",         title: " ",             width: 27, sortable: false },
                 {field: "program_id",       title: "Session",       width: 105, editor: programDropDownEditor, template: "#=getProgramName(program_id)#" },
-                {field: "start_date",       title: "Start Date",    width: 90 },
-                {field: "stop_date",        title: "Stop Date",     width: 90 },
-                {field: "lessons",          title: "Lessons",       width: 100 },
-                {field: "start_time",       title: "Start Time",    format:"{0:hh:mm tt}",   width: 90 },
-                {field: "stop_time",        title: "Stop Time",     format:"{0:hh:mm tt}",   width: 90 },
+                {field: "start_date",       title: "Start Date",    format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },
+                {field: "stop_date",        title: "Stop Date",     format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },
+                // {field: "lessons",          title: "Lessons",       width: 100 },
+                {field: "start_time",       title: "Start Time",    format:"{0:hh:mm tt}",   width: 90, editor: timeTurner },
+                {field: "stop_time",        title: "Stop Time",     format:"{0:hh:mm tt}",   width: 90, editor: timeTurner },
                 {field: "size",             title: "Size",          width: 50 },
-                {field: "number",           title: "#",             width: 40 },
+                {field: "sunday",             title: "Su",          width: 28 },
+                {field: "monday",             title: "Mo",          width: 28 },
+                {field: "tuesday",             title: "Tu",          width: 28 },
+                {field: "wednesday",             title: "We",          width: 28 },
+                {field: "thursday",             title: "Th",          width: 28 },
+                {field: "friday",             title: "Fr",          width: 28 },
+                {field: "saturday",             title: "Sa",          width: 28 },
+                // {field: "number",           title: "#",             width: 40 },
                 {field: "level_id",         title: "Level",         width: 90, editor: levelDropDownEditor, template: "#=getLevelName(level_id)#"},
-                {field: "absences",         title: "Abs",           width: 50 },
-                {field: "specials",         title: "Spec",          width: 55 },
+                // {field: "absences",         title: "Abs",           width: 50 },
+                // {field: "specials",         title: "Spec",          width: 55 },
                 {field: "type_id",          title: "Type",          width: 100, editor: typeDropDownEditor, template: "#=getTypeName(type_id)#" },
                 {field: "teacher_id",       title: "Teacher",       width: 120, editor: teacherDropDownEditor, template: "#=getTeacherName(teacher_id)#" },
                 {field: "zone_id",          title: "Zone",          width: 60, editor: zoneDropDownEditor, template: "#=getZoneName(zone_id)#" },
@@ -167,6 +182,18 @@ $(document).ready(function () {
         });
 
 });
+
+function dateEditor(container, options) {
+    $('<input data-text-field="' + options.field + '" data-value-field="' + options.field + '" data-bind="value:' + options.field + '"data-format="' + options.format + '"/>')
+        .appendTo(container)
+        .kendoDatePicker({});
+}
+
+function timeTurner(container, options) {
+    $('<input data-text-field="' + options.field + '" data-value-field="' + options.field + '" data-bind="value:' + options.field + '"data-format="' + options.format + '"/>')
+        .appendTo(container)
+        .kendoTimePicker({});
+}
 
 // Levels 
 function getLevelName(level_id_param) {
@@ -313,30 +340,29 @@ function locationDropDownEditor(container, options) {
 }
 
     // Toggle all check boxes on and off..
-    var checked = false;   
+    var checked = false;
     $('#selectall').click(function() {
-        if (checked) 
+        if (checked)
             {
                 $(":checkbox").prop("checked", false);
-                checked = false; 
+                checked = false;
             }
         else
             {
                 $(":checkbox").prop("checked", true);
-                checked = true; 
-            }       
+                checked = true;
+            }
     });
 
     // Every time a checkbox is clicked, count the number of checked boxes and enable
     // or disable the CopyClass button accordingly..
     $(":checkbox").click(function() {
-        if ($("input:checkbox:checked").length > 0) 
+        if ($("input:checkbox:checked").length > 0)
             {
-                document.getElementById("copyclass").disabled=false; 
+                document.getElementById("copyclass").disabled=false;
             }
         else
             {
                 document.getElementById("copyclass").disabled=true;
             }
     });
-    

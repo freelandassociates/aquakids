@@ -2,9 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#schedule_search {
+	display: inline-block;
+}
+
+#schedule_search div.schedule_filter_field {
+	border: 1px solid gray;
+	width: 300px;
+	float:left;
+}
+
+#schedule_search div.schedule_filter_field label {
+	border: 1px solid red;
+	width: 70px;
+	text-align: right;
+	vertical-align: top;
+	margin-top: 3px;
+	font-size: 13px;
+	display: inline-block;
+}
+
+#schedule_search input {
+	// margin-bottom: 8px;
+}
+
+// #schedule_search div.chzn-container {
+// 	height: 22px;
+// }
+
+// #schedule_search div.chzn-choices {
+// 	background-color: pink;
+// }
+
 #schedule_search #q_id_eq {
 	width: 30px;
+	margin-bottom: 3px;
 }
+
+#schedule_search #q_start_date_gteq, #schedule_search #q_start_date_lteq {
+	margin-bottom: 3px;
+}
+
+#schedule_search #q_start_time_gteq, #schedule_search #q_stop_time_lteq {
+	margin-bottom: 3px;
+}
+
+
+
 
 label {
   display: inline;

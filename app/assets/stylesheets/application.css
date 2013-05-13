@@ -32,7 +32,7 @@ table td {
 .k-header {
     white-space: nowrap;
     font-size: 11px;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 .k-grid {
@@ -51,6 +51,11 @@ table td {
 
 .k-link {
     font-weight: bold;   
+}
+
+
+.k-list-container {
+    font-weight: normal;
 }
 
 .k-link:hover {

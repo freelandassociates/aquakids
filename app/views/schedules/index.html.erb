@@ -4,39 +4,60 @@
 </div>
 
 <%= search_form_for @search do |f| %>
-  <%= f.label :Activity %>
-  <%= f.collection_select :activity_id_in, Activity.all, :id, :name, {}, { size: Activity.all.length, multiple: true, class: 'chzn-select' } %>
-  <%= f.label :Session %>
-  <%= f.collection_select :program_id_in, Program.all, :id, :name, {}, { size: Program.all.length, multiple: true, class: 'chzn-select' } %>
-  <%= f.label :Level %>
-  <%= f.collection_select :level_id_in, Level.all, :id, :name, {}, { size: Level.all.length, multiple: true, class: 'chzn-select' } %>
-  <%= f.label :Type %>
-  <%= f.collection_select :type_id_in, Type.all, :id, :name, {}, { size: Type.all.length, multiple: true, class: 'chzn-select' } %>
-  <br/>
-  <%= f.label :Location %>
-  <%= f.collection_select :location_id_in, Location.all, :id, :name, {}, { size: Location.all.length, multiple: true, class: 'chzn-select' } %>
-  <%= f.label :Pool %>
-  <%= f.collection_select :facility_id_in, Facility.all, :id, :name, {}, { size: Facility.all.length, multiple: true, class: 'chzn-select' } %>
-  <%= f.label :Zone %>
-  <%= f.collection_select :zone_id_in, Zone.all, :id, :name, {}, { size: Zone.all.length, multiple: true, class: 'chzn-select' } %>
-  <%= f.label :Teacher %>
-  <%= f.collection_select :teacher_id_in, Teacher.all, :id, :full_name, {}, { size: Teacher.all.length, multiple: true, class: 'chzn-select' } %>
-  <br/>
-  <%= f.label :start_date_gteq, "Date from" %>
-  <%= f.text_field :start_date_gteq %>
-  <%= f.label :start_date_lteq, "Date to" %>
-  <%= f.text_field :start_date_lteq %>
-  <%= f.label :start_time_gteq, "Start time" %>
-  <%= f.text_field :start_time_gteq, :placeholder => "HH:MM", :value => (@search.start_time_gteq.blank? ? '' : @search.start_time_gteq.strftime('%I:%M %p')) %>
-  <%= f.label :stop_time_lteq, "Stop time" %>
-  <%= f.text_field :stop_time_lteq, :placeholder => "HH:MM", :value => (@search.stop_time_lteq.blank? ? '' : @search.stop_time_lteq.strftime('%I:%M %p')) %>
-  <%= f.label :id_eq, "Class#" %>
-  <%= f.text_field :id_eq %>
+  <div class="schedule_filter_field">
+    <%= f.label :Activity %>
+    <%= f.collection_select :activity_id_in, Activity.all, :id, :name, {}, { size: Activity.all.length, multiple: true, class: 'chzn-select' } %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :Session %>
+    <%= f.collection_select :program_id_in, Program.all, :id, :name, {}, { size: Program.all.length, multiple: true, class: 'chzn-select' } %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :Level %>
+    <%= f.collection_select :level_id_in, Level.all, :id, :name, {}, { size: Level.all.length, multiple: true, class: 'chzn-select' } %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :Type %>
+    <%= f.collection_select :type_id_in, Type.all, :id, :name, {}, { size: Type.all.length, multiple: true, class: 'chzn-select' } %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :Location %>
+    <%= f.collection_select :location_id_in, Location.all, :id, :name, {}, { size: Location.all.length, multiple: true, class: 'chzn-select' } %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :Pool %>
+    <%= f.collection_select :facility_id_in, Facility.all, :id, :name, {}, { size: Facility.all.length, multiple: true, class: 'chzn-select' } %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :Zone %>
+    <%= f.collection_select :zone_id_in, Zone.all, :id, :name, {}, { size: Zone.all.length, multiple: true, class: 'chzn-select' } %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :Teacher %>
+    <%= f.collection_select :teacher_id_in, Teacher.all, :id, :full_name, {}, { size: Teacher.all.length, multiple: true, class: 'chzn-select' } %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :id_eq, "Class#" %>
+    <%= f.text_field :id_eq %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :start_date_gteq, "Date from" %>
+    <%= f.text_field :start_date_gteq %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :start_date_lteq, "Date to" %>
+    <%= f.text_field :start_date_lteq %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :start_time_gteq, "Start time" %>
+    <%= f.text_field :start_time_gteq, :placeholder => "HH:MM", :value => (@search.start_time_gteq.blank? ? '' : @search.start_time_gteq.strftime('%I:%M %p')) %>
+  </div>
+  <div class="schedule_filter_field">
+    <%= f.label :stop_time_lteq, "Stop time" %>
+    <%= f.text_field :stop_time_lteq, :placeholder => "HH:MM", :value => (@search.stop_time_lteq.blank? ? '' : @search.stop_time_lteq.strftime('%I:%M %p')) %>
+  </div>
 
-<!-- @search.stop_time_lteq.strftime('%H:%M') -->
 
-  <!-- <%= f.label :zone_name_cont, "Zone" %> -->
-  <!-- <%= f.text_field :zone_name_cont %> -->
   <div><%= f.submit "Search", :class => 'btn' %></div>
 <% end %>
 

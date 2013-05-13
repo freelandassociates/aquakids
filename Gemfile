@@ -34,7 +34,7 @@ group :assets do
 
   gem 'chosen-rails'
   gem 'jquery-ui-rails'
-  gem 'kendoui-rails'
+  # gem 'kendoui-rails'
 end
 
 gem 'jquery-rails'
@@ -54,6 +54,8 @@ gem 'validates_timeliness'
 gem 'paper_trail'
 
 gem 'active_model_serializers'
+
+gem 'kendoui-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

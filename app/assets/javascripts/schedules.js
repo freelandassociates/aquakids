@@ -150,6 +150,7 @@ $(document).ready(function () {
             reorderable: true,
             selectable: "row",
             resizable: true,
+            editable: "inline",
             columns: [
                 {field: "checkbox",         title: " ",             width: 27, sortable: false },
                 {field: "program_id",       title: "Session",       width: 105, editor: programDropDownEditor, template: "#=getProgramName(program_id)#" },
@@ -159,7 +160,7 @@ $(document).ready(function () {
                 {field: "start_time",       title: "Start Time",    format:"{0:hh:mm tt}",   width: 90, editor: timeTurner },
                 {field: "stop_time",        title: "Stop Time",     format:"{0:hh:mm tt}",   width: 90, editor: timeTurner },
                 {field: "size",             title: "Size",          width: 50 },
-                {field: "sunday",             title: "Su",          width: 28 },
+                {field: "sunday",             title: "Su",          width: 28, template  :"<input type='checkbox' name='selected' checked='checked' />", attributes:{ class:"ob-fld-boolean" } },
                 {field: "monday",             title: "Mo",          width: 28 },
                 {field: "tuesday",             title: "Tu",          width: 28 },
                 {field: "wednesday",             title: "We",          width: 28 },

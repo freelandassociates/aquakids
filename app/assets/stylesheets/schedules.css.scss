@@ -7,51 +7,63 @@
 }
 
 #schedule_search div.schedule_filter_field {
-	border: 1px solid gray;
-	width: 300px;
+	// border: 1px solid gray;
 	float:left;
 }
 
+#schedule_search div.schedule_filter_field_wide {
+	width: 170px;
+}
+
+#schedule_search div.schedule_filter_field_medium {
+	width: 108px;
+}
+
+#schedule_search div.schedule_filter_field_narrow {
+	width: 49px;
+}
+
 #schedule_search div.schedule_filter_field label {
-	border: 1px solid red;
-	width: 70px;
-	text-align: right;
+	// border: 1px solid red;
 	vertical-align: top;
-	margin-top: 3px;
-	font-size: 13px;
+	margin: 0px;
+	font-size: 12px;
+	height: 15px;
 	display: inline-block;
 }
 
-#schedule_search input {
-	// margin-bottom: 8px;
+#schedule_search div.chzn-container {
+	width: 165px !important;
 }
-
-// #schedule_search div.chzn-container {
-// 	height: 22px;
-// }
-
-// #schedule_search div.chzn-choices {
-// 	background-color: pink;
-// }
 
 #schedule_search #q_id_eq {
 	width: 30px;
+	height: 19px;
 	margin-bottom: 3px;
 }
 
-#schedule_search #q_start_date_gteq, #schedule_search #q_start_date_lteq {
-	margin-bottom: 3px;
+// #schedule_search #q_start_date_gteq, #schedule_search #q_start_date_lteq,
+// #schedule_search #q_start_time_gteq, #schedule_search #q_stop_time_lteq {
+// 	width: 90px;
+// 	margin-bottom: 3px;
+// 	height: 19px;
+// }
+
+#schedule_search .k-datepicker {
+	width: 103px;
+	// margin-bottom: 3px;
+	// height: 32px;
 }
 
-#schedule_search #q_start_time_gteq, #schedule_search #q_stop_time_lteq {
-	margin-bottom: 3px;
+#schedule_search .k-timepicker {
+	width: 103px;
+	// margin-bottom: 3px;
+	// height: 32px;
 }
 
-
-
-
-label {
-  display: inline;
+#schedule_search #schedule_filter_buttons {
+	clear: both;
+	// background-color: gray;
 }
 
 #schedule_ids_ {

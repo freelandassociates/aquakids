@@ -6,29 +6,57 @@ $(function() {
     });
 });
 
+// $(function() {
+//     return $('#q_start_date_gteq').datepicker({
+//                                           format: 'yyyy-mm-dd',
+//                                           autoclose: true
+//                                           });
+// });
+
 $(function() {
-	return $('#q_start_date_gteq').datepicker({
-                                          format: 'yyyy-mm-dd',
-                                          autoclose: true
-                                          });
+	return $('#q_start_date_gteq').kendoDatePicker({
+        format: "yyyy-MM-dd"
+    });
 });
 
 $(function() {
-	return $('#q_start_date_gteq').bind('changeDate', function() {
+	return $('#q_start_date_gteq').bind('change', function() {
         var qsrl = $("#schedule_search").serialize();
         $("#datatable").data("kendoGrid").dataSource.read(qsrl);
     });
 });
 
 $(function() {
-	return $('#q_start_date_lteq').datepicker({
-                                          format: 'yyyy-mm-dd',
-                                          autoclose: true
-                                          });
+	return $('#q_start_date_lteq').kendoDatePicker({
+        format: "yyyy-MM-dd"
+    });
 });
 
 $(function() {
-	return $('#q_start_date_lteq').bind('changeDate', function() {
+	return $('#q_start_date_lteq').bind('change', function() {
+        var qsrl = $("#schedule_search").serialize();
+        $("#datatable").data("kendoGrid").dataSource.read(qsrl);
+    });
+});
+
+
+$(function() {
+    return $('#q_start_time_gteq').kendoTimePicker({});
+});
+
+$(function() {
+    return $('#q_start_time_gteq').bind('change', function() {
+        var qsrl = $("#schedule_search").serialize();
+        $("#datatable").data("kendoGrid").dataSource.read(qsrl);
+    });
+});
+
+$(function() {
+    return $('#q_stop_time_lteq').kendoTimePicker({});
+});
+
+$(function() {
+    return $('#q_stop_time_lteq').bind('change', function() {
         var qsrl = $("#schedule_search").serialize();
         $("#datatable").data("kendoGrid").dataSource.read(qsrl);
     });

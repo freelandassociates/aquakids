@@ -17,7 +17,7 @@ class SchedulesController < ApplicationController
     # @schedules = Schedule.all
     @search = Schedule.search(params[:q])
     #@search = Schedule.search(:id_eq => 0)
-    @schedules = @search.result
+    @schedules = @search.result.order('start_date, start_time')
 
     respond_to do |format|
       format.html # index.html.erb

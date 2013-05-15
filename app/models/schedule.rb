@@ -14,8 +14,8 @@ class Schedule < ActiveRecord::Base
 
   validates :size, :numericality => { :only_integer => true }
 
-  attr_accessible :comments, :day_of_week, :size, :start_date, :start_time, :stop_date, :stop_time, :level_id, :activity_id, :type_id, :program_id, :teacher_id, :location_id, :facility_id, :zone_id, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday
-
+  attr_accessible :comments, :day_of_week, :size, :start_date, :start_time, :stop_date, :stop_time, :level_id, :activity_id, :type_id, :program_id, :teacher_id, :location_id, :facility_id, :zone_id, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :days
+  
   def self.default_scope
     # Case statement on location_id... needs refactoring but will work for now
      case User.current.location_id 
@@ -35,5 +35,19 @@ class Schedule < ActiveRecord::Base
         nil
       end
   end
+
+  # def days
+  #   str = ""
+  #   str += "0" if sunday
+  #   str += "1" if monday
+  #   str += "2" if tuesday
+  #   str += "3" if wednesday
+  #   str += "4" if thursday
+  #   str += "5" if friday
+  #   str += "6" if saturday
+
+  #   return str
+  # end
+
 
 end

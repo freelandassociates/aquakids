@@ -1,5 +1,8 @@
 Aquakids::Application.routes.draw do
   
+  resources :days
+
+
   get "autoclasses/autoclass"
   
   post "autoclasses/create_schedules"

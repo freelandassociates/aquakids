@@ -25,6 +25,10 @@
     <%= f.text_field :stop_time_lteq, :placeholder => "HH:MM", :value => (@search.stop_time_lteq.blank? ? '' : @search.stop_time_lteq.strftime('%I:%M %p')) %>
   </div>
   <div class="schedule_filter_field schedule_filter_field_wide">
+    <%= f.label :Day_of_Week %>
+    <%= f.collection_select :day_of_week_in, Day.all, :id, :name, {}, { size: Day.all.length, multiple: true, class: 'chzn-select'  } %>
+  </div>
+  <div class="schedule_filter_field schedule_filter_field_wide">
     <%= f.label :Level %>
     <%= f.collection_select :level_id_in, Level.all, :id, :name, {}, { size: Level.all.length, multiple: true, class: 'chzn-select' } %>
   </div>

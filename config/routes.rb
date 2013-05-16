@@ -1,13 +1,13 @@
 Aquakids::Application.routes.draw do
   
-  resources :days
-
+  get "schedules/classes"
 
   get "autoclasses/autoclass"
   
   post "autoclasses/create_schedules"
-
+  
   get "/schedules/ransack_search"
+  get "/schedules/ransack_read_only_search"
 
   resources :copyclasses do
     collection do
@@ -43,6 +43,8 @@ Aquakids::Application.routes.draw do
   resources :children
 
   resources :parents
+
+  resources :days
 
 
   # The priority is based upon order of creation:

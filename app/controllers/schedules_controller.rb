@@ -2,14 +2,35 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    # @schedules = Schedule.all
     @search = Schedule.search(params[:q])
-    #@search = Schedule.search(:id_eq => 0)
     @schedules = @search.result
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @schedules, root: false }
+      format.json { render json: @schedules, root: false, :each_serializer => ScheduleReadOnlySerializer }
+    end
+  end
+
+  def ransack_read_only_search
+    # @schedules = Schedule.all
+    @search = Schedule.search(params[:q])
+    #@search = Schedule.search(:id_eq => 0)
+    @schedules = @search.result.order('start_date, start_time')
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @schedules, root: false, :each_serializer => ScheduleReadOnlySerializer }
+    end
+  end
+
+
+  def classes
+    @search = Schedule.search(params[:q])
+    @schedules = @search.result
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @schedules, root: false}
     end
   end
 

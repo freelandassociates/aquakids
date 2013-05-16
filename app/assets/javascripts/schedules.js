@@ -91,7 +91,11 @@ $(document).ready(function () {
                 transport: {
                     read:  {
                         url: function(schedule) {
-                            return crudServiceBaseUrl + "/ransack_search?" + $("#schedule_search").serialize();
+                            if (window.location.href.indexOf("classes") !== -1) {
+                                return crudServiceBaseUrl + "/ransack_search?" + $("#schedule_search").serialize();
+                            } else {
+                                return crudServiceBaseUrl + "/ransack_read_only_search?" + $("#schedule_search").serialize();
+                            }
                         },
                         dataType: "json"
                     },
@@ -142,7 +146,7 @@ $(document).ready(function () {
                             program_id: { field: "program_id", defaultValue: 1 },
                             start_date: { editable: true },
                             stop_date: { editable: true },
-                            // lessons: { editable: false },
+                            lessons: { editable: false },
                             start_time: { editable: true },
                             stop_time: { editable: true },
                             size: { editable: true },
@@ -170,46 +174,86 @@ $(document).ready(function () {
                 }
             });
 
-        $("#datatable").kendoGrid({
-            dataSource: dataSource,
-            height: 390,
-            scrollable: true,
-            sortable: true,
-            reorderable: true,
-            selectable: "row",
-            resizable: true,
-            editable: "inline",
-            columns: [
-                {field: "checkbox",         title: " ",             width: 27, sortable: false },
-                {field: "program_id",       title: "Session",       width: 105, editor: programDropDownEditor, template: "#=getProgramName(program_id)#" },
-                {field: "start_date",       title: "Start Date",    format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },
-                {field: "stop_date",        title: "Stop Date",     format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },
-                // {field: "lessons",          title: "Lessons",       width: 100 },
-                {field: "start_time",       title: "Start Time",    format:"{0:hh:mm tt}",   width: 90, editor: timeTurner },
-                {field: "stop_time",        title: "Stop Time",     format:"{0:hh:mm tt}",   width: 90, editor: timeTurner },
-                {field: "size",             title: "Size",          width: 50 },
-                // {field: "sunday",             title: "Su",          width: 28, template  :"<input type='checkbox' name='selected' checked='checked' />", attributes:{ class:"ob-fld-boolean" } },
-                {field: "sunday",             title: "Su",          width: 28 },
-                {field: "monday",             title: "Mo",          width: 28 },
-                {field: "tuesday",             title: "Tu",          width: 28 },
-                {field: "wednesday",             title: "We",          width: 28 },
-                {field: "thursday",             title: "Th",          width: 28 },
-                {field: "friday",             title: "Fr",          width: 28 },
-                {field: "saturday",             title: "Sa",          width: 28 },
-                // {field: "number",           title: "#",             width: 40 },
-                {field: "level_id",         title: "Level",         width: 90, editor: levelDropDownEditor, template: "#=getLevelName(level_id)#"},
-                // {field: "absences",         title: "Abs",           width: 50 },
-                // {field: "specials",         title: "Spec",          width: 55 },
-                {field: "type_id",          title: "Type",          width: 100, editor: typeDropDownEditor, template: "#=getTypeName(type_id)#" },
-                {field: "teacher_id",       title: "Teacher",       width: 120, editor: teacherDropDownEditor, template: "#=getTeacherName(teacher_id)#" },
-                {field: "zone_id",          title: "Zone",          width: 60, editor: zoneDropDownEditor, template: "#=getZoneName(zone_id)#" },
-                {field: "comments",         title: "Comments",      width: 150 },
-                {field: "id",               title: "Class#",        width: 70 },
-                {field: "activity_id",      title: "Activity",      width: 130, editor: activityDropDownEditor, template: "#=getActivityName(activity_id)#" },
-                {field: "location_id",      title: "Location",      width: 100, editor: locationDropDownEditor, template: "#=getLocationName(location_id)#" },
-                {field: "facility_id",      title: "Pool",          width: 100, editor: facilityDropDownEditor, template: "#=getFacilityName(facility_id)#" }],
-            editable: true
-        });
+        if (window.location.href.indexOf("classes") !== -1) {
+            // alert('Editable classes');
+            $("#datatable").kendoGrid({
+                dataSource: dataSource,
+                height: 390,
+                scrollable: true,
+                sortable: true,
+                reorderable: true,
+                resizable: true,
+                editable: true,
+                columns: [
+                    {field: "checkbox",         title: " ",             width: 27, sortable: false },
+                    {field: "program_id",       title: "Session",       width: 105, editor: programDropDownEditor, template: "#=getProgramName(program_id)#" },
+                    {field: "start_date",       title: "Start Date",    format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },
+                    {field: "stop_date",        title: "Stop Date",     format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },
+                    // {field: "lessons",          title: "Lessons",       width: 100 },
+                    {field: "start_time",       title: "Start Time",    format:"{0:hh:mm tt}",   width: 90, editor: timeTurner },
+                    {field: "stop_time",        title: "Stop Time",     format:"{0:hh:mm tt}",   width: 90, editor: timeTurner },
+                    {field: "size",             title: "Size",          width: 50 },
+                    // {field: "sunday",             title: "Su",          width: 28, template  :"<input type='checkbox' name='selected' checked='checked' />", attributes:{ class:"ob-fld-boolean" } },
+                    {field: "sunday",             title: "Su",          width: 28 },
+                    {field: "monday",             title: "Mo",          width: 28 },
+                    {field: "tuesday",             title: "Tu",          width: 28 },
+                    {field: "wednesday",             title: "We",          width: 28 },
+                    {field: "thursday",             title: "Th",          width: 28 },
+                    {field: "friday",             title: "Fr",          width: 28 },
+                    {field: "saturday",             title: "Sa",          width: 28 },
+                    // {field: "number",           title: "#",             width: 40 },
+                    {field: "level_id",         title: "Level",         width: 90, editor: levelDropDownEditor, template: "#=getLevelName(level_id)#"},
+                    // {field: "absences",         title: "Abs",           width: 50 },
+                    // {field: "specials",         title: "Spec",          width: 55 },
+                    {field: "type_id",          title: "Type",          width: 100, editor: typeDropDownEditor, template: "#=getTypeName(type_id)#" },
+                    {field: "teacher_id",       title: "Teacher",       width: 120, editor: teacherDropDownEditor, template: "#=getTeacherName(teacher_id)#" },
+                    {field: "zone_id",          title: "Zone",          width: 60, editor: zoneDropDownEditor, template: "#=getZoneName(zone_id)#" },
+                    {field: "comments",         title: "Comments",      width: 150 },
+                    {field: "id",               title: "Class#",        width: 70 },
+                    {field: "activity_id",      title: "Activity",      width: 130, editor: activityDropDownEditor, template: "#=getActivityName(activity_id)#" },
+                    {field: "location_id",      title: "Location",      width: 100, editor: locationDropDownEditor, template: "#=getLocationName(location_id)#" },
+                    {field: "facility_id",      title: "Pool",          width: 100, editor: facilityDropDownEditor, template: "#=getFacilityName(facility_id)#" }]
+            });
+        } else {
+            // alert('Read only classes');
+            $("#datatable").kendoGrid({
+                dataSource: dataSource,
+                height: 390,
+                scrollable: true,
+                sortable: true,
+                reorderable: true,
+                selectable: "row",
+                resizable: true,
+                columns: [
+                    {field: "checkbox",         title: " ",             width: 27, sortable: false },
+                    {field: "program_id",       title: "Session",       width: 105, template: "#=getProgramName(program_id)#" },
+                    {field: "start_date",       title: "Start Date",    format:"{0:yyyy-mm-dd}", width: 90 },
+                    {field: "stop_date",        title: "Stop Date",     format:"{0:yyyy-mm-dd}", width: 90 },
+                    {field: "lessons",          title: "Lessons",       width: 100 },
+                    {field: "start_time",       title: "Start Time",    format:"{0:hh:mm tt}",   width: 90 },
+                    {field: "stop_time",        title: "Stop Time",     format:"{0:hh:mm tt}",   width: 90 },
+                    {field: "size",             title: "Size",          width: 50 },
+                    {field: "sunday",             title: "Su",          width: 28 },
+                    {field: "monday",             title: "Mo",          width: 28 },
+                    {field: "tuesday",             title: "Tu",          width: 28 },
+                    {field: "wednesday",             title: "We",          width: 28 },
+                    {field: "thursday",             title: "Th",          width: 28 },
+                    {field: "friday",             title: "Fr",          width: 28 },
+                    {field: "saturday",             title: "Sa",          width: 28 },
+                    // {field: "number",           title: "#",             width: 40 },
+                    {field: "level_id",         title: "Level",         width: 90, template: "#=getLevelName(level_id)#" },
+                    // {field: "absences",         title: "Abs",           width: 50 },
+                    // {field: "specials",         title: "Spec",          width: 55 },
+                    {field: "type_id",          title: "Type",          width: 100, template: "#=getTypeName(type_id)#" },
+                    {field: "teacher_id",       title: "Teacher",       width: 120, template: "#=getTeacherName(teacher_id)#" },
+                    {field: "zone_id",          title: "Zone",          width: 60, template: "#=getZoneName(zone_id)#"  },
+                    {field: "comments",         title: "Comments",      width: 150 },
+                    {field: "id",               title: "Class#",        width: 70 },
+                    {field: "activity_id",      title: "Activity",      width: 130, template: "#=getActivityName(activity_id)#"  },
+                    {field: "location_id",      title: "Location",      width: 100, template: "#=getLocationName(location_id)#"  },
+                    {field: "facility_id",      title: "Pool",          width: 100, template: "#=getFacilityName(facility_id)#" }]
+            });
+        }
 
 });
 

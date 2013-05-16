@@ -1,7 +1,13 @@
 <%= simple_form_for @schedule, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :start_date %>
   <%= f.input :stop_date %>
-  <%= f.input :day_of_week %>
+  <%= f.input :sunday %>
+  <%= f.input :monday %>
+  <%= f.input :tuesday %>
+  <%= f.input :wednesday %>
+  <%= f.input :thursday %>
+  <%= f.input :friday %>
+  <%= f.input :saturday %>
   <%= f.input :start_time %>
   <%= f.input :stop_time %>
   <%= f.input :size %>

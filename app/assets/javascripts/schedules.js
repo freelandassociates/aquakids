@@ -72,6 +72,21 @@ var locations = [];
 var zones = [];
 var teachers = [];
 
+var daybooleans = [
+  {
+    "dayboolean_id" : "",
+    "dayboolean_name" : ""
+  },
+ {
+    "dayboolean_id" : false,
+    "dayboolean_name" : "No"
+  },
+  {
+    "dayboolean_id" : true,
+    "dayboolean_name" : "Yes"
+  }
+];
+
 // Load the lookup arrays from the database.
 $.getJSON("/levels.json",       function(data)  { levels = data; });
 $.getJSON("/activities.json",   function(data)  { activities = data; });
@@ -109,7 +124,7 @@ $(document).ready(function () {
                     },
                     destroy: {
                         url: function(schedule) {
-                            return crudServiceBaseUrl + "/" + schedule.id
+                            return crudServiceBaseUrl + "/" + schedule.id;
                         },
                         dataType: "json",
                         type: "DELETE"
@@ -150,7 +165,8 @@ $(document).ready(function () {
                             start_time: { editable: true },
                             stop_time: { editable: true },
                             size: { editable: true },
-                            sunday: { editable: true },
+                            // sunday: { editable: true },
+                            sunday: { field: "dayboolean_id", defaultValue: true },
                             monday: { editable: true },
                             tuesday: { editable: true },
                             wednesday: { editable: true },
@@ -195,21 +211,20 @@ $(document).ready(function () {
                     {field: "start_time",       title: "Start Time",    format:"{0:hh:mm tt}",   width: 90, editor: timeTurner },
                     {field: "stop_time",        title: "Stop Time",     format:"{0:hh:mm tt}",   width: 90, editor: timeTurner },
                     {field: "size",             title: "Size",          width: 50 },
-                    {field: "sunday",             title: "Su",          width: 28, template  :"<input type='checkbox' name='selected' checked='checked' />", attributes:{ class:"ob-fld-boolean" } },
-                    {field: "sunday",             title: "Mo",          width: 28, template  :"<input type='checkbox' name='selected' checked='checked' />", attributes:{ class:"ob-fld-boolean" } },
-                    {field: "sunday",             title: "Tu",          width: 28, template  :"<input type='checkbox' name='selected' checked='checked' />", attributes:{ class:"ob-fld-boolean" } },
-                    {field: "sunday",             title: "We",          width: 28, template  :"<input type='checkbox' name='selected' checked='checked' />", attributes:{ class:"ob-fld-boolean" } },
-                    {field: "sunday",             title: "Th",          width: 28, template  :"<input type='checkbox' name='selected' checked='checked' />", attributes:{ class:"ob-fld-boolean" } },
-                    {field: "sunday",             title: "Fr",          width: 28, template  :"<input type='checkbox' name='selected' checked='checked' />", attributes:{ class:"ob-fld-boolean" } },
-                    {field: "sunday",             title: "Sa",          width: 28, template  :"<input type='checkbox' name='selected' checked='checked' />", attributes:{ class:"ob-fld-boolean" } },
-                    // {field: "sunday",             title: "Su",          width: 28 },
-                    // {field: "monday",             title: "Mo",          width: 28 },
-                    // {field: "tuesday",             title: "Tu",          width: 28 },
-                    // {field: "wednesday",             title: "We",          width: 28 },
-                    // {field: "thursday",             title: "Th",          width: 28 },
-                    // {field: "friday",             title: "Fr",          width: 28 },
-                    // {field: "saturday",             title: "Sa",          width: 28 },
-                    // {field: "number",           title: "#",             width: 40 },
+                    // {field: "sunday",             title: "Su",          width: 28, template: "<input type='checkbox' id='sun' name='sun' rel='#= id #' #if(sunday===true) {# checked='checked' #} # />" },
+                    // {field: "monday",             title: "Mo",          width: 28, template: "<input type='checkbox' id='mon' name='mon' rel='#= id #' #if(monday===true) {# checked='checked' #} # />" },
+                    // {field: "tuesday",             title: "Tu",          width: 28, template: "<input type='checkbox' name='tue' rel='#= id #' #if(tuesday===true) {# checked='checked' #} # />" },
+                    // {field: "wednesday",             title: "We",          width: 28, template: "<input type='checkbox' name='wed' rel='#= id #' #if(wednesday===true) {# checked='checked' #} # />" },
+                    // {field: "thursday",             title: "Th",          width: 28, template: "<input type='checkbox' name='thu' rel='#= id #' #if(thursday===true) {# checked='checked' #} # />" },
+                    // {field: "friday",             title: "Fr",          width: 28, template: "<input type='checkbox' name='fri' rel='#= id #' #if(friday===true) {# checked='checked' #} # />" },
+                    // {field: "saturday",             title: "Sa",          width: 28, template: "<input type='checkbox' name='sat' rel='#= id #' #if(saturday===true) {# checked='checked' #} # />" },
+                    {field: "sunday",             title: "Su",          width: 58, editor: daybooleanDropDownEditor, template: "#=getDayBooleanName(sunday)#" },
+                    {field: "monday",             title: "Mo",          width: 58, editor: daybooleanDropDownEditor, template: "#=getDayBooleanName(monday)#" },
+                    {field: "tuesday",             title: "Tu",          width: 58, editor: daybooleanDropDownEditor, template: "#=getDayBooleanName(tuesday)#" },
+                    {field: "wednesday",             title: "We",          width: 58, editor: daybooleanDropDownEditor, template: "#=getDayBooleanName(wednesday)#" },
+                    {field: "thursday",             title: "Th",          width: 58, editor: daybooleanDropDownEditor, template: "#=getDayBooleanName(thursday)#" },
+                    {field: "friday",             title: "Fr",          width: 58, editor: daybooleanDropDownEditor, template: "#=getDayBooleanName(friday)#" },
+                    {field: "saturday",             title: "Sa",          width: 58, editor: daybooleanDropDownEditor, template: "#=getDayBooleanName(saturday)#" },
                     {field: "level_id",         title: "Level",         width: 90, editor: levelDropDownEditor, template: "#=getLevelName(level_id)#"},
                     // {field: "absences",         title: "Abs",           width: 50 },
                     // {field: "specials",         title: "Spec",          width: 55 },
@@ -265,46 +280,47 @@ $(document).ready(function () {
             resizable: true,
             editable: true,
             columns: [
-                {field: "xxxx",         title: "Special",             },
-                {field: "xxxx",         title: "S",             },
-                {field: "xxxx",         title: "Last",             },
-                {field: "xxxx",         title: "First",             },
-                {field: "xxxx",         title: "DOB",             },
-                {field: "xxxx",         title: "Age",             },
-                {field: "xxxx",         title: "Sex",             },
-                {field: "xxxx",         title: "P",             },
-                {field: "xxxx",         title: "Parent Last",             },
-                {field: "xxxx",         title: "Parent First",             },
+                {field: "xxxx",         title: "Special"             },
+                {field: "xxxx",         title: "S"             },
+                {field: "xxxx",         title: "Last"             },
+                {field: "xxxx",         title: "First"             },
+                {field: "xxxx",         title: "DOB"             },
+                {field: "xxxx",         title: "Age"             },
+                {field: "xxxx",         title: "Sex"             },
+                {field: "xxxx",         title: "P"             },
+                {field: "xxxx",         title: "Parent Last"             },
+                {field: "xxxx",         title: "Parent First"             },
                 {field: "xxxx",         title: "Referral"},
-                {field: "xxxx",         title: "Address",             },
-                {field: "xxxx",         title: "City",             },
-                {field: "xxxx",         title: "State",             },
-                {field: "xxxx",         title: "Postal",             },
-                {field: "xxxx",         title: "Phone",             },
-                {field: "xxxx",         title: "Extension",             },
-                {field: "xxxx",         title: "Status",             },
-                {field: "xxxx",         title: "Class Cost",             },
-                {field: "xxxx",         title: "Entry Date",             },
-                {field: "xxxx",         title: "Exit Date",             },
-                {field: "xxxx",         title: "Skill",             },
-                {field: "xxxx",         title: "Continuance",             },
-                {field: "xxxx",         title: "Comments",             },
-                {field: "xxxx",         title: "Computer",             },
-                {field: "xxxx",         title: "Payment Due Date",             },
-                {field: "xxxx",         title: "Reg Date",             },
-                {field: "xxxx",         title: "Unit Value",             },
-                {field: "xxxx",         title: "User",             },
-                {field: "xxxx",         title: "Reg #",             },
-                {field: "xxxx",         title: "SSN",             },
-                {field: "xxxx",         title: "Cellular",             },
-                {field: "xxxx",         title: "Emergency Phone",             },
-                {field: "xxxx",         title: "Email",             },
-                {field: "xxxx",         title: "Promoted To",             },
-                {field: "xxxx",         title: "Reffered By",             },
-                {field: "xxxx",         title: "Sales Person",             }]               
+                {field: "xxxx",         title: "Address"             },
+                {field: "xxxx",         title: "City"             },
+                {field: "xxxx",         title: "State"             },
+                {field: "xxxx",         title: "Postal"             },
+                {field: "xxxx",         title: "Phone"             },
+                {field: "xxxx",         title: "Extension"             },
+                {field: "xxxx",         title: "Status"             },
+                {field: "xxxx",         title: "Class Cost"             },
+                {field: "xxxx",         title: "Entry Date"             },
+                {field: "xxxx",         title: "Exit Date"             },
+                {field: "xxxx",         title: "Skill"             },
+                {field: "xxxx",         title: "Continuance"             },
+                {field: "xxxx",         title: "Comments"             },
+                {field: "xxxx",         title: "Computer"             },
+                {field: "xxxx",         title: "Payment Due Date"             },
+                {field: "xxxx",         title: "Reg Date"             },
+                {field: "xxxx",         title: "Unit Value"             },
+                {field: "xxxx",         title: "User"             },
+                {field: "xxxx",         title: "Reg #"             },
+                {field: "xxxx",         title: "SSN"             },
+                {field: "xxxx",         title: "Cellular"             },
+                {field: "xxxx",         title: "Emergency Phone"             },
+                {field: "xxxx",         title: "Email"             },
+                {field: "xxxx",         title: "Promoted To"             },
+                {field: "xxxx",         title: "Reffered By"             },
+                {field: "xxxx",         title: "Sales Person"             }]               
         });
 
 });
+
 
 function dateEditor(container, options) {
     $('<input data-text-field="' + options.field + '" data-value-field="' + options.field + '" data-bind="value:' + options.field + '"data-format="' + options.format + '"/>')
@@ -317,6 +333,26 @@ function timeTurner(container, options) {
         .appendTo(container)
         .kendoTimePicker({});
 }
+
+
+// Day Booleans
+function getDayBooleanName(dayboolean_id_param) {
+    if (dayboolean_id_param) {
+        return "Yes";
+    } else {
+        return "No";
+    }
+}
+
+function daybooleanDropDownEditor(container, options) {
+    $('<input required data-text-field="dayboolean_name" data-value-field="dayboolean_id" data-bind="value:' + options.field + '"/>')
+    .appendTo(container)
+    .kendoDropDownList({
+        autoBind: false,
+        dataSource: daybooleans
+    });
+}
+
 
 // Levels 
 function getLevelName(level_id_param) {
@@ -479,13 +515,19 @@ function locationDropDownEditor(container, options) {
 
     // Every time a checkbox is clicked, count the number of checked boxes and enable
     // or disable the CopyClass button accordingly..
-    $(":checkbox").click(function() {
-        if ($("input:checkbox:checked").length > 0)
-            {
-                document.getElementById("copyclass").disabled=false;
-            }
-        else
-            {
-                document.getElementById("copyclass").disabled=true;
-            }
-    });
+    // $(":checkbox").click(function() {
+    //     if ($("input:checkbox:checked").length > 0)
+    //         {
+    //             document.getElementById("copyclass").disabled=false;
+    //         }
+    //     else
+    //         {
+    //             document.getElementById("copyclass").disabled=true;
+    //         }
+    // });
+
+
+
+
+
+

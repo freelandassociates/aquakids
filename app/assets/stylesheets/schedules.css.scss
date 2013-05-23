@@ -77,3 +77,40 @@
 input {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
 }
+
+
+div .boolean {
+// 	width: 170px;
+	// background-color: lightblue;
+// 	display: inline-block;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 5px !important;
+}
+
+div .boolean label {
+// 	max-width: 90px;
+ 	// border: 1px solid blue;
+ 	margin-top: -9px;
+}
+
+#base_errors span {
+	color: #b94a48;
+	padding: 0px 0 10px 182px;
+}
+
+#schedule_comments {
+	height: 80px;
+	width: 500px;
+}
+
+div .schedule_start_date, div .schedule_stop_date, div .schedule_start_time, div .schedule_stop_time {
+	width: 450px;
+	margin-right: 0px;
+	display: inline-block;
+}
+
+#schedule_start_date, #schedule_stop_date, #schedule_start_time, #schedule_stop_time, #schedule_size {
+	width: 80px;
+}

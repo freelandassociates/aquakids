@@ -527,6 +527,22 @@ function locationDropDownEditor(container, options) {
     // });
 
 
+$(document).ready(function () {
+
+    // Add bootstrap datepicker
+    $('#schedule_start_date').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true
+    });
+
+    // Add bootstrap datepicker
+    $('#schedule_stop_date').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true
+    });
+
+});
+
 
 
 

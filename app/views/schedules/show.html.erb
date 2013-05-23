@@ -29,7 +29,7 @@
   <dt><strong><%= model_class.human_attribute_name(:program_id) %>:</strong></dt>
   <dd><%= @schedule.program_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:teacher_id) %>:</strong></dt>
-  <dd><%= @schedule.teacher_id %></dd>
+  <dd><%= @schedule.teacher.full_name %></dd>
 </dl>
 
 <div class="form-actions">

@@ -12,11 +12,23 @@ class Schedule < ActiveRecord::Base
 
   validates_presence_of :day_of_week, :size, :start_date, :start_time, :stop_date, :stop_time, :level_id, :activity_id, :type_id, :program_id, :teacher_id, :location_id, :facility_id, :zone_id
 
+  validates_date :start_date, :on_or_before => :stop_date,
+                              :on_or_before_message => "Start date can not be after stop date"
+
+  validates_date :stop_date
+
+  validates_time :start_time, :before => :stop_time,
+                                 :before_message => "Start time must be before stop time"
+
+  validates_time :stop_time
+
   validates :size, :numericality => { :only_integer => true }
+
+  validate :check_days
 
   attr_accessible :comments, :day_of_week, :size, :start_date, :start_time, :stop_date, :stop_time, :level_id, :activity_id, :type_id, :program_id, :teacher_id, :location_id, :facility_id, :zone_id, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :days
 
-  before_save :assign_day_of_week
+  before_validation :assign_day_of_week
 
   def self.default_scope
     # Case statement on location_id... needs refactoring but will work for now
@@ -36,6 +48,15 @@ class Schedule < ActiveRecord::Base
      #  else
      #    nil
      #  end
+  end
+
+  def check_days
+    if %w(sunday monday tuesday wednesday thursday friday saturday).all?{|attr| self[attr].blank?}
+      errors.add :base, "At least one day of the week must be selected"
+      return false
+    else
+      return true
+    end
   end
 
   def assign_day_of_week

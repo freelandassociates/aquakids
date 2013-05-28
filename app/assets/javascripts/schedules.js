@@ -6,13 +6,6 @@ $(function() {
     });
 });
 
-// $(function() {
-//     return $('#q_start_date_gteq').datepicker({
-//                                           format: 'yyyy-mm-dd',
-//                                           autoclose: true
-//                                           });
-// });
-
 $(function() {
 	return $('#q_start_date_gteq').kendoDatePicker({
         format: "yyyy-MM-dd"
@@ -157,7 +150,7 @@ $(document).ready(function () {
                     model: {
                         id: "id",
                         fields: {
-                            checkbox: { editable: false },
+                            select: { type: "string", editable: false },
                             program_id: { field: "program_id", defaultValue: 1 },
                             start_date: { editable: true },
                             stop_date: { editable: true },
@@ -202,8 +195,9 @@ $(document).ready(function () {
                 editable: true,
                 columns: [
                     // { command: ["edit", "destroy"], title: "&nbsp;", width: "172px" },
-                    { command: ["destroy"], title: "&nbsp;", width: "75px" },
-                    // {field: "checkbox",         title: " ",             width: 27, sortable: false },
+                    // {field: "select",         title: "&nbsp;",             width: 27, sortable: false, template: '#= kendo.toString("<input type=\'checkbox\' id=\'select\' />") #' },
+                        {field: "select",         title: "&nbsp;",             width: 27, sortable: false, template: '<input type=\'checkbox\' class=\'select_one\' onclick=\'checkBoxCount ()\' rel=\'#=id#\' />' },
+                    {command: ["destroy"], title: "&nbsp;", width: "83px" },
                     {field: "program_id",       title: "Session",       width: 105, editor: programDropDownEditor, template: "#=getProgramName(program_id)#" },
                     {field: "start_date",       title: "Start Date",    format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },
                     {field: "stop_date",        title: "Stop Date",     format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },
@@ -248,7 +242,7 @@ $(document).ready(function () {
                 selectable: "row",
                 resizable: true,
                 columns: [
-                    {field: "checkbox",         title: " ",             width: 27, sortable: false },
+                    // {field: "checkbox",         title: " ",             width: 27, sortable: false },
                     {field: "program_id",       title: "Session",       width: 105, template: "#=getProgramName(program_id)#" },
                     {field: "start_date",       title: "Start Date",    format:"{0:yyyy-mm-dd}", width: 90 },
                     {field: "stop_date",        title: "Stop Date",     format:"{0:yyyy-mm-dd}", width: 90 },
@@ -316,7 +310,7 @@ $(document).ready(function () {
                 {field: "xxxx",         title: "Email"             },
                 {field: "xxxx",         title: "Promoted To"             },
                 {field: "xxxx",         title: "Reffered By"             },
-                {field: "xxxx",         title: "Sales Person"             }]               
+                {field: "xxxx",         title: "Sales Person"             }]
         });
 
 });
@@ -497,34 +491,6 @@ function locationDropDownEditor(container, options) {
         dataSource: locations
     });
 }
-
-    // Toggle all check boxes on and off..
-    var checked = false;
-    $('#selectall').click(function() {
-        if (checked)
-            {
-                $(":checkbox").prop("checked", false);
-                checked = false;
-            }
-        else
-            {
-                $(":checkbox").prop("checked", true);
-                checked = true;
-            }
-    });
-
-    // Every time a checkbox is clicked, count the number of checked boxes and enable
-    // or disable the CopyClass button accordingly..
-    // $(":checkbox").click(function() {
-    //     if ($("input:checkbox:checked").length > 0)
-    //         {
-    //             document.getElementById("copyclass").disabled=false;
-    //         }
-    //     else
-    //         {
-    //             document.getElementById("copyclass").disabled=true;
-    //         }
-    // });
 
 
 $(document).ready(function () {

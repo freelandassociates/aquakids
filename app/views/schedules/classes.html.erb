@@ -1,3 +1,6 @@
+<% javascript 'schedules' %>
+<% javascript 'classes' %>
+
 <%- model_class = Schedule -%>
 <div class="page-header">
   <h1>Classes</h1>
@@ -14,8 +17,10 @@
             :class => 'btn btn-primary' %>
 
 <%= link_to 'AutoClass', { :controller => 'autoclasses', :action => 'autoclass' }, :class => 'btn' %>
-
-<!-- submit_tag "CopyClass", :id => "copyclass", :disabled => true, :class => 'btn'  -->
+<!-- link_to 'CopyClass', { :controller => 'autoclasses', :action => 'autoclass' }, :class => 'btn' -->
+<!-- submit_tag "Test me!", :type => 'button', :onclick => 'alert("It works!")', :class => 'btn' -->
+<%= submit_tag "CopyClass", :id => "copyclass", :disabled => true, :class => 'btn', :onclick => 'submit_copyclass()' %>
+<%= submit_tag "Delete", :id => "deleteclass", :disabled => true, :class => 'btn', :onclick => 'alert("It works!")' %>
 
  <!-- end  -->
 

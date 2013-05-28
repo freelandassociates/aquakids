@@ -2,6 +2,7 @@ class CopyclassesController < ApplicationController
 
   def copy_classes
     @schedules = Schedule.find(params[:schedule_ids])
+    binding.pry
     @copyclass = Copyclass.new
     @copyclass.date_offset = 0
     @copyclass.time_offset = 0

@@ -17,8 +17,6 @@
 //= require chosen-jquery
 //= require rails.validations
 //= require kendo/kendo.web.min
-//= require_tree .
-
 
 (function() {
   $(document).ready(function() {

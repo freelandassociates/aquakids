@@ -45,6 +45,7 @@ function submit_copyclass() {
         relArr = relArr.concat("schedule_ids[]=",$(this).attr('rel'),"&");
     });
     relArr = relArr.replace(/&$/,"");
-    alert(relArr);
-    $.get('/copyclasses/copy_classes?' + relArr );
+    // alert(relArr);
+    window.location.href = ('/copyclasses/copy_classes?' + relArr );
+    // $.get('/copyclasses/copy_classes?' + relArr );
 }

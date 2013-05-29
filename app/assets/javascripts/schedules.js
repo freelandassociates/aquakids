@@ -196,8 +196,7 @@ $(document).ready(function () {
                 columns: [
                     // { command: ["edit", "destroy"], title: "&nbsp;", width: "172px" },
                     // {field: "select",         title: "&nbsp;",             width: 27, sortable: false, template: '#= kendo.toString("<input type=\'checkbox\' id=\'select\' />") #' },
-                        {field: "select",         title: "&nbsp;",             width: 27, sortable: false, template: '<input type=\'checkbox\' class=\'select_one\' onclick=\'checkBoxCount ()\' rel=\'#=id#\' />' },
-                    {command: ["destroy"], title: "&nbsp;", width: "83px" },
+                        {field: "select",         title: " ",             width: 27, sortable: false, template: '<input type=\'checkbox\' class=\'select_one\' onclick=\'checkBoxCount ()\' rel=\'#=id#\' />' },
                     {field: "program_id",       title: "Session",       width: 105, editor: programDropDownEditor, template: "#=getProgramName(program_id)#" },
                     {field: "start_date",       title: "Start Date",    format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },
                     {field: "stop_date",        title: "Stop Date",     format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },

@@ -66,8 +66,8 @@
 	// background-color: gray;
 }
 
-#schedule_ids_ {
-	margin: -2px 0px 0px 3px;
+.select_one {
+	margin: -1px 0px 0px 1px !important;
 }
 
 #selectall {
@@ -114,3 +114,11 @@ div .schedule_start_date, div .schedule_stop_date, div .schedule_start_time, div
 #schedule_start_date, #schedule_stop_date, #schedule_start_time, #schedule_stop_time, #schedule_size {
 	width: 80px;
 }
+
+// .selectAll {
+// 	padding-left: 2px;
+// }
+
+// .select_one {
+
+// }

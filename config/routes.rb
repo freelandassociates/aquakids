@@ -1,5 +1,7 @@
 Aquakids::Application.routes.draw do
   
+  post "/schedules/delete_many"
+
   get "schedules/classes"
 
   get "autoclasses/autoclass"
@@ -8,7 +10,7 @@ Aquakids::Application.routes.draw do
   
   get "/schedules/ransack_search"
   get "/schedules/ransack_read_only_search"
-
+  
   resources :copyclasses do
     collection do
       get :copy_classes

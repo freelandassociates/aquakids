@@ -38,14 +38,21 @@ function checkBoxCount() {
 }
 
 function submit_copyclass() {
-    // alert($("input:checkbox:checked").length);
     var relArr="";
     $("input:checkbox.select_one:checked").each(function(){
-        // relArr.push($(this).attr('rel'));
         relArr = relArr.concat("schedule_ids[]=",$(this).attr('rel'),"&");
     });
     relArr = relArr.replace(/&$/,"");
-    // alert(relArr);
     window.location.href = ('/copyclasses/copy_classes?' + relArr );
-    // $.get('/copyclasses/copy_classes?' + relArr );
+}
+
+function submit_delete_many() {
+    var relArr="";
+    $("input:checkbox.select_one:checked").each(function(){
+        relArr = relArr.concat("schedule_ids[]=",$(this).attr('rel'),"&");
+    });
+    relArr = relArr.replace(/&$/,"");
+    $.post('/schedules/delete_many?' + relArr );
+    var qsrl = $("#schedule_search").serialize();
+    $("#datatable").data("kendoGrid").dataSource.read(qsrl);
 }

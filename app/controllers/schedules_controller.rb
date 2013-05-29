@@ -118,4 +118,9 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def delete_many
+    # binding.pry
+    Schedule.destroy(params[:schedule_ids])
+  end
+
 end

@@ -20,7 +20,7 @@
 <!-- link_to 'CopyClass', { :controller => 'autoclasses', :action => 'autoclass' }, :class => 'btn' -->
 <!-- submit_tag "Test me!", :type => 'button', :onclick => 'alert("It works!")', :class => 'btn' -->
 <%= submit_tag "CopyClass", :id => "copyclass", :disabled => true, :class => 'btn', :onclick => 'submit_copyclass()' %>
-<%= submit_tag "Delete", :id => "deleteclass", :disabled => true, :class => 'btn', :onclick => 'alert("It works!")' %>
+<%= submit_tag "Delete", :id => "deleteclass", :disabled => true, :class => 'btn', :confirm => "Are you sure you want to delete these classes?", :onclick => 'submit_delete_many()' %>
 
  <!-- end  -->
 

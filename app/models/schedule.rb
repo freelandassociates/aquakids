@@ -32,22 +32,22 @@ class Schedule < ActiveRecord::Base
 
   def self.default_scope
     # Case statement on location_id... needs refactoring but will work for now
-     # case User.current.location_id 
-     #  when 1
-     #    where(:location_id => 1)
-     #  when 2
-     #    where(:location_id => 2)
-     #  when 3
-     #    where(:location_id => 3)
-     #  when 4
-     #    where(:location_id => 4)
-     #  when 5
-     #    where(:location_id => 5)
-     #  when 6
-     #    where(:location_id => 6)
-     #  else
-     #    nil
-     #  end
+     case User.current.location_id 
+      when 1
+        where(:location_id => 1)
+      when 2
+        where(:location_id => 2)
+      when 3
+        where(:location_id => 3)
+      when 4
+        where(:location_id => 4)
+      when 5
+        where(:location_id => 5)
+      when 6
+        where(:location_id => 6)
+      else
+        nil
+      end
   end
 
   def check_days

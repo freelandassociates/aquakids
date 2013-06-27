@@ -1,7 +1,23 @@
 
-#new_autoclass div.control-group {
+// #new_autoclass div.control-group {
+// 	float: left;
+// //	border: dashed 1px cornflowerblue;
+// }
+
+#new_autoclass div.string {
 	float: left;
-//	border: dashed 1px cornflowerblue;
+	border: dashed 1px red;
+}
+
+#new_autoclass div.boolean {
+	// float: left;
+	clear: both;
+	border: dashed 1px cornflowerblue;
+}
+
+#new_autoclass div.select {
+	float: left;
+	border: dashed 1px yellow;
 }
 
 #autoclass_max_classes, #autoclass_size  {

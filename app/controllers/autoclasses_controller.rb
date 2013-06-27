@@ -12,7 +12,7 @@ class AutoclassesController < ApplicationController
       for i in 1..@autoclass.max_classes.to_i do
         # Create a new Schedule object
         @schedule = Schedule.new
-        @schedule.day_of_week=@autoclass.day_of_week
+        # @schedule.day_of_week=@autoclass.day_of_week
         @schedule.size=@autoclass.size
         @schedule.start_date=@autoclass.start_date
         @schedule.start_time=@autoclass.start_at_time
@@ -27,6 +27,14 @@ class AutoclassesController < ApplicationController
         @schedule.location_id=@autoclass.location_id
         @schedule.facility_id=@autoclass.facility_id
         @schedule.zone_id=@autoclass.zone_id
+
+        @schedule.sunday=@autoclass.sunday
+        @schedule.monday=@autoclass.monday
+        @schedule.tuesday=@autoclass.tuesday
+        @schedule.wednesday=@autoclass.wednesday
+        @schedule.thursday=@autoclass.thursday
+        @schedule.friday=@autoclass.friday
+        @schedule.saturday=@autoclass.saturday
 
         # If calculated end time is less than stop by time, save the schedule object
         if @schedule.stop_time.strftime('%H:%M') <= @autoclass.stop_by_time

@@ -12,7 +12,13 @@
   <%= f.input :start_at_time %>
   <%= f.input :class_length, :hint => "min." %>
   <%= f.input :stop_by_time %>
-  <%= f.input :day_of_week, collection: Date::DAYNAMES.zip((0..6).to_a), prompt: "Select day of week" %>
+  <%= f.input :sunday, as: :boolean %>
+  <%= f.input :monday, as: :boolean %>
+  <%= f.input :tuesday, as: :boolean %>
+  <%= f.input :wednesday, as: :boolean %>
+  <%= f.input :thursday, as: :boolean %>
+  <%= f.input :friday, as: :boolean %>
+  <%= f.input :saturday, as: :boolean %>
   <%= f.input :activity_id, collection: Activity.all(order: 'id'), prompt: "Choose a value" %>
   <%= f.input :program_id, label: "Session", collection: Program.all(order: 'id'), prompt: "Choose a value" %>
   <%= f.input :location_id, collection: Location.all(order: 'id'), prompt: "Choose a value" %>

@@ -30,6 +30,15 @@ class CopyclassesController < ApplicationController
         @new_schedule.location_id=@existing_schedule.location_id
         @new_schedule.facility_id=@existing_schedule.facility_id
         @new_schedule.zone_id=@existing_schedule.zone_id
+
+        @new_schedule.sunday=@existing_schedule.sunday
+        @new_schedule.monday=@existing_schedule.monday
+        @new_schedule.tuesday=@existing_schedule.tuesday
+        @new_schedule.wednesday=@existing_schedule.wednesday
+        @new_schedule.thursday=@existing_schedule.thursday
+        @new_schedule.friday=@existing_schedule.friday
+        @new_schedule.saturday=@existing_schedule.saturday
+
         if @new_schedule.save
           logger.info "CREATED: #{@new_schedule.attributes}"
         else

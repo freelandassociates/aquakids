@@ -94,6 +94,12 @@ class SchedulesController < ApplicationController
   # PUT /schedules/1.json
   def update
     @schedule = Schedule.find(params[:id])
+    # binding.pry 
+    # set start_time and stop_time parameters to correct db time format
+    params[:schedule][:start_time] = DateTime.parse(params[:schedule][:start_time]).to_time
+    params[:schedule][:stop_time] = DateTime.parse(params[:schedule][:stop_time]).to_time
+    # time.strftime("%Y-%m-%d %H:%M:%S")
+    # binding.pry 
 
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])

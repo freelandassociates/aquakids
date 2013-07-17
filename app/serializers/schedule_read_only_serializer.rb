@@ -52,7 +52,7 @@ class ScheduleReadOnlySerializer < ActiveModel::Serializer
       description += "M" if object.monday?
       description += "T" if object.tuesday?
       description += "W" if object.wednesday?
-      description += "T" if object.thursday?
+      description += "Th" if object.thursday?
       description += "F" if object.friday?
       description += "S" if object.saturday?
       return description

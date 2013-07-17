@@ -139,7 +139,7 @@ $(document).ready(function () {
                     parse:function (response) {
                         $.each(response, function (idx, elem) {
                             if (elem.start_time && typeof elem.start_time === "string") {
-                                elem.start_time = kendo.parseDate(elem.start_time, "yyyy-MM-ddTHH:mm:ssZ");
+                                elem.start_time = kendo.parseDate(elem.start_time, "    ");
                             }
                             if (elem.stop_time && typeof elem.stop_time === "string") {
                                 elem.stop_time = kendo.parseDate(elem.stop_time, "yyyy-MM-ddTHH:mm:ssZ");
@@ -245,7 +245,7 @@ $(document).ready(function () {
                     {field: "program_id",       title: "Session",       width: 105, template: "#=getProgramName(program_id)#" },
                     {field: "start_date",       title: "Start Date",    format:"{0:yyyy-mm-dd}", width: 90 },
                     {field: "stop_date",        title: "Stop Date",     format:"{0:yyyy-mm-dd}", width: 90 },
-                    {field: "lessons",          title: "Lessons",       width: 100 },
+                    {field: "lessons",          title: "Lessons",       width: 80 },
                     {field: "start_time",       title: "Start Time",    format:"{0:hh:mm tt}",   width: 90 },
                     {field: "stop_time",        title: "Stop Time",     format:"{0:hh:mm tt}",   width: 90 },
                     {field: "size",             title: "Size",          width: 50 },

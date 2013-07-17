@@ -45,16 +45,16 @@ class ScheduleReadOnlySerializer < ActiveModel::Serializer
     when 0
       return "None"
     when 1
-      Date::DAYNAMES[self.day_of_week-1]
+      Date::DAYNAMES[self.day_of_week-1].to_s[0..2]
     else
       description = ""
-      description += "Su " if object.sunday?
-      description += "Mo " if object.monday?
-      description += "Tu " if object.tuesday?
-      description += "We " if object.wednesday?
-      description += "Th " if object.thursday?
-      description += "Fr " if object.friday?
-      description += "Sa " if object.saturday?
+      description += "S" if object.sunday?
+      description += "M" if object.monday?
+      description += "T" if object.tuesday?
+      description += "W" if object.wednesday?
+      description += "T" if object.thursday?
+      description += "F" if object.friday?
+      description += "S" if object.saturday?
       return description
     end
   end

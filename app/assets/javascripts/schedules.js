@@ -139,7 +139,7 @@ $(document).ready(function () {
                     parse:function (response) {
                         $.each(response, function (idx, elem) {
                             if (elem.start_time && typeof elem.start_time === "string") {
-                                elem.start_time = kendo.parseDate(elem.start_time, "    ");
+                                elem.start_time = kendo.parseDate(elem.start_time, "yyyy-MM-ddTHH:mm:ssZ");
                             }
                             if (elem.stop_time && typeof elem.stop_time === "string") {
                                 elem.stop_time = kendo.parseDate(elem.stop_time, "yyyy-MM-ddTHH:mm:ssZ");

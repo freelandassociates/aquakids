@@ -10,6 +10,8 @@
   <dd><%= @teacher.middle_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
   <dd><%= @teacher.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
+  <dd><%= @teacher.location.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:address_1) %>:</strong></dt>
   <dd><%= @teacher.address_1 %></dd>
   <dt><strong><%= model_class.human_attribute_name(:address_2) %>:</strong></dt>

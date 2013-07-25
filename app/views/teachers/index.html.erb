@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:full_name) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
       <th><%= model_class.human_attribute_name(:address_1) %></th>
       <th><%= model_class.human_attribute_name(:address_2) %></th>
       <th><%= model_class.human_attribute_name(:city) %></th>
@@ -25,6 +26,7 @@
     <% @teachers.each do |teacher| %>
       <tr>
         <td><%= teacher.full_name %></td>
+        <td><%= teacher.location.name if !teacher.location.nil? %></td>
         <td><%= teacher.address_1 %></td>
         <td><%= teacher.address_2 %></td>
         <td><%= teacher.city %></td>

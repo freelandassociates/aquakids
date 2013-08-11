@@ -49,6 +49,11 @@ table td {
     height: 100%;
 }
 
+.k-grid table tr.k-state-selected{
+    background: #A8CEFA;
+    color: black;
+}
+
 .k-link {
     font-weight: bold;   
 }

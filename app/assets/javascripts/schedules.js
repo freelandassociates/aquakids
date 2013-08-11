@@ -55,6 +55,7 @@ $(function() {
     });
 });
 
+var detail_schedule_id = 0;
 // Declare arrays to hold the lookup information.
 var levels = [];
 var activities = [];
@@ -183,6 +184,26 @@ $(document).ready(function () {
                 }
             });
 
+        var detailDataSource = new kendo.data.DataSource ({
+                transport: {
+                    read:  {
+                        url: function(schedule) {
+                            return "/registrations/registrations_by_schedule.json?schedule_id=" + $("#detail_schedule_id").val();
+                        },
+                        dataType: "json"
+                    },
+                },
+
+                schema: {
+                    model: {
+                        id: "id",
+                        fields: {
+                            child_last_name: { editable: false }
+                        }
+                    }
+                }
+            });
+
         if (window.location.href.indexOf("classes") !== -1) {
             // alert('Editable classes');
             $("#datatable").kendoGrid({
@@ -196,7 +217,7 @@ $(document).ready(function () {
                 columns: [
                     // { command: ["edit", "destroy"], title: "&nbsp;", width: "172px" },
                     // {field: "select",         title: "&nbsp;",             width: 27, sortable: false, template: '#= kendo.toString("<input type=\'checkbox\' id=\'select\' />") #' },
-                        {field: "select",         title: " ",             width: 27, sortable: false, template: '<input type=\'checkbox\' class=\'select_one\' onclick=\'checkBoxCount ()\' rel=\'#=id#\' />' },
+                    {field: "select",         title: " ",             width: 27, sortable: false, template: '<input type=\'checkbox\' class=\'select_one\' onclick=\'checkBoxCount ()\' rel=\'#=id#\' />' },
                     {field: "program_id",       title: "Session",       width: 105, editor: programDropDownEditor, template: "#=getProgramName(program_id)#" },
                     {field: "start_date",       title: "Start Date",    format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },
                     {field: "stop_date",        title: "Stop Date",     format:"{0:yyyy-mm-dd}", width: 90, editor: dateEditor },
@@ -240,6 +261,22 @@ $(document).ready(function () {
                 reorderable: true,
                 selectable: "row",
                 resizable: true,
+                change: function(e) {
+                    // To handle clicking on a row in the main grid and reloading the detail grid with registrations..
+                    var selectedRows = this.select();
+                    var selectedDataItems = [];
+                    for (var i = 0; i < selectedRows.length; i++) {
+                        var dataItem = this.dataItem(selectedRows[i]);
+                        selectedDataItems.push(dataItem);
+                        }
+                    // selectedDataItems contains all selected data items
+                    var detail_schedule_id = selectedDataItems[0]["id"];
+                    // Set hidden field to value of this schedule_id..
+                    $("#detail_schedule_id").val(detail_schedule_id);
+                    // Refresh the detail grid from the datasource..
+                    $("#detailtable").data("kendoGrid").dataSource.read();
+                
+                    },
                 columns: [
                     // {field: "checkbox",         title: " ",             width: 27, sortable: false },
                     {field: "program_id",       title: "Session",       width: 105, template: "#=getProgramName(program_id)#" },
@@ -265,7 +302,7 @@ $(document).ready(function () {
         }
 
         $("#detailtable").kendoGrid({
-            dataSource: dataSource,
+            dataSource: detailDataSource,
             height: 120,
             scrollable: true,
             sortable: true,
@@ -273,43 +310,44 @@ $(document).ready(function () {
             resizable: true,
             editable: true,
             columns: [
-                {field: "xxxx",         title: "Special"             },
-                {field: "xxxx",         title: "S"             },
-                {field: "xxxx",         title: "Last"             },
-                {field: "xxxx",         title: "First"             },
-                {field: "xxxx",         title: "DOB"             },
-                {field: "xxxx",         title: "Age"             },
-                {field: "xxxx",         title: "Sex"             },
-                {field: "xxxx",         title: "P"             },
-                {field: "xxxx",         title: "Parent Last"             },
-                {field: "xxxx",         title: "Parent First"             },
-                {field: "xxxx",         title: "Referral"},
-                {field: "xxxx",         title: "Address"             },
-                {field: "xxxx",         title: "City"             },
-                {field: "xxxx",         title: "State"             },
-                {field: "xxxx",         title: "Postal"             },
-                {field: "xxxx",         title: "Phone"             },
-                {field: "xxxx",         title: "Extension"             },
-                {field: "xxxx",         title: "Status"             },
-                {field: "xxxx",         title: "Class Cost"             },
-                {field: "xxxx",         title: "Entry Date"             },
-                {field: "xxxx",         title: "Exit Date"             },
-                {field: "xxxx",         title: "Skill"             },
-                {field: "xxxx",         title: "Continuance"             },
-                {field: "xxxx",         title: "Comments"             },
-                {field: "xxxx",         title: "Computer"             },
-                {field: "xxxx",         title: "Payment Due Date"             },
-                {field: "xxxx",         title: "Reg Date"             },
-                {field: "xxxx",         title: "Unit Value"             },
-                {field: "xxxx",         title: "User"             },
-                {field: "xxxx",         title: "Reg #"             },
-                {field: "xxxx",         title: "SSN"             },
-                {field: "xxxx",         title: "Cellular"             },
-                {field: "xxxx",         title: "Emergency Phone"             },
-                {field: "xxxx",         title: "Email"             },
-                {field: "xxxx",         title: "Promoted To"             },
-                {field: "xxxx",         title: "Reffered By"             },
-                {field: "xxxx",         title: "Sales Person"             }]
+
+                {field: "child_last_name",         title: "Last"             }
+                
+                // {field: "xxxx",         title: "Special"             },
+                // {field: "xxxx",         title: "S"             },
+                // {field: "xxxx",         title: "Last"             },
+                // {field: "xxxx",         title: "First"             },
+                // {field: "xxxx",         title: "DOB"             },
+                // {field: "xxxx",         title: "Age"             },
+                // {field: "xxxx",         title: "Sex"             },
+                // {field: "xxxx",         title: "P"             },
+                // {field: "xxxx",         title: "Parent Last"             },
+                // {field: "xxxx",         title: "Parent First"             },
+                // {field: "xxxx",         title: "Referral"},
+                // {field: "xxxx",         title: "Address"             },
+                // {field: "xxxx",         title: "City"             },
+                // {field: "xxxx",         title: "State"             },
+                // {field: "xxxx",         title: "Postal"             },
+                // {field: "xxxx",         title: "Phone"             },
+                // {field: "xxxx",         title: "Extension"             },
+                // {field: "xxxx",         title: "Status"             },
+                // {field: "xxxx",         title: "Class Cost"             },
+                // {field: "xxxx",         title: "Entry Date"             },
+                // {field: "xxxx",         title: "Exit Date"             },
+                // {field: "xxxx",         title: "Skill"             },
+                // {field: "xxxx",         title: "Continuance"             },
+                // {field: "xxxx",         title: "Comments"             },
+                // {field: "xxxx",         title: "Payment Due Date"             },
+                // {field: "xxxx",         title: "Reg Date"             },
+                // {field: "xxxx",         title: "User"             },
+                // {field: "xxxx",         title: "Reg #"             },
+                // {field: "xxxx",         title: "Cellular"             },
+                // {field: "xxxx",         title: "Emergency Phone"             },
+                // {field: "xxxx",         title: "Email"             },
+                // {field: "xxxx",         title: "Promoted To"             },
+                // {field: "xxxx",         title: "Reffered By"             }
+
+                ]
         });
 
 });
@@ -505,6 +543,8 @@ $(document).ready(function () {
         format: 'yyyy-mm-dd',
         autoclose: true
     });
+
+
 
 });
 

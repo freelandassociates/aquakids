@@ -37,7 +37,7 @@
         <td><%= teacher.work_phone %></td>
         <td><%= teacher.email %></td>
         <td><%= teacher.notes %></td>
-        <td><%=l teacher.created_at, :format => :short %></td>
+        <td><%=l teacher.updated_at, :format => :short %></td>
         <td><%= User.find(teacher.versions.last.whodunnit).username if teacher.versions.count > 0 %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

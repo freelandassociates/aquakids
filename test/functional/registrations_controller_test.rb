@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RelationshipTest < ActiveSupport::TestCase
+class RegistrationsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

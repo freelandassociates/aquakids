@@ -14,6 +14,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'pry'
+  gem 'rails-erd'
+  gem 'ruby_parser'
 end
 
 # Gems used only for assets and not required

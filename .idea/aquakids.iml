@@ -16,13 +16,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="actionmailer (v3.2.11, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionpack (v3.2.11, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="active_model_serializers (v0.7.0, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activemodel (v3.2.11, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activerecord (v3.2.11, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activeresource (v3.2.11, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activesupport (v3.2.11, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v3.0.2, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt-ruby (v3.0.1, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="better_errors (v0.7.0, RVM: ruby-1.9.3-p362) [gem]" level="application" />
@@ -44,21 +38,16 @@
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="eventmachine (v1.0.3, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v1.4.0, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="hike (v1.2.1, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.4, RVM: ruby-1.9.3-p362) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.1, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="journey (v1.0.4, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v2.2.1, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-ui-rails (v4.0.0, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="json (v1.7.7, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kendoui-rails (v0.1.0, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="less (v2.3.1, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="less-rails (v2.3.2, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="libv8 (v3.3.10.4, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="mail (v2.4.4, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="meta_request (v0.2.1, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="method_source (v0.8.1, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="mime-types (v1.21, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.6.1, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.0.7, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="paper_trail (v2.7.0, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v0.14.1, RVM: ruby-1.9.3-p362) [gem]" level="application" />
@@ -70,9 +59,6 @@
     <orderEntry type="library" scope="PROVIDED" name="rack-contrib (v1.1.0, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-ssl (v1.3.3, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.2, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rails (v3.2.11, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="railties (v3.2.11, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rake (v10.0.3, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ransack (v0.7.2, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v3.12.2, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.2.7, RVM: ruby-1.9.3-p362) [gem]" level="application" />
@@ -82,8 +68,6 @@
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v2.2.2, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="therubyracer (v0.10.2, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thin (v1.5.1, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="thor (v0.17.0, RVM: ruby-1.9.3-p362) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tilt (v1.3.5, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timeliness (v0.3.7, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="treetop (v1.4.12, RVM: ruby-1.9.3-p362) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="twitter-bootstrap-rails (v2.1.7, RVM: ruby-1.9.3-p362) [gem]" level="application" />

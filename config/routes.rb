@@ -1,5 +1,8 @@
 Aquakids::Application.routes.draw do
   
+  resources :referrals
+
+
   post "/schedules/delete_many"
 
   get "schedules/classes"

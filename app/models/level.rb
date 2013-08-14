@@ -3,6 +3,7 @@ class Level < ActiveRecord::Base
   
   has_many :schedules
   has_many :skills
+  has_many :registrations
 
   validates_presence_of :name
 

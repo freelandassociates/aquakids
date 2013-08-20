@@ -1,6 +1,6 @@
 class DropRelationshipTable < ActiveRecord::Migration
   def up
-  	drop_table :relationships
+  	# drop_table :relationships
   end
 
   def down

@@ -108,7 +108,11 @@ class RegistrationSerializer < ActiveModel::Serializer
   end
 
   def referral
-    object.referral.referral_description
+    if object.referral.nil?
+      ""
+    else
+      object.referral.referral_description
+    end
   end
 
   def class_cost
@@ -120,11 +124,19 @@ class RegistrationSerializer < ActiveModel::Serializer
   end
 
   def skill
-    object.skill.name
+    if object.skill.nil?
+      ""
+    else
+      object.skill.name
+    end
   end
 
   def promoted_to
-    object.level.name
+    if object.level.nil?
+      ""
+    else
+      object.level.name
+    end
   end
 
   def user

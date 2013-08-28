@@ -2,7 +2,6 @@ Aquakids::Application.routes.draw do
   
   resources :referrals
 
-
   post "/schedules/delete_many"
 
   get "schedules/classes"
@@ -52,6 +51,8 @@ Aquakids::Application.routes.draw do
   resources :parents
 
   resources :days
+
+  resources :registrations
 
 
   # The priority is based upon order of creation:

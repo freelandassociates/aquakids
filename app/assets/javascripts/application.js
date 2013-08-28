@@ -17,6 +17,8 @@
 //= require chosen-jquery
 //= require rails.validations
 //= require kendo/kendo.web.min
+//= require jquery.ui.all
+//= require jquery.modal
 
 (function() {
   $(document).ready(function() {

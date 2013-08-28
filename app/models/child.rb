@@ -7,6 +7,10 @@ class Child < ActiveRecord::Base
 
   validates_presence_of :date_of_birth, :first_name, :last_name, :sex, :parent_id
 
+  def full_name
+    [last_name, first_name].join(', ')
+  end
+
   def parent_last_name
   	self.parent.last_name
   end

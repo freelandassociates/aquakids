@@ -1,0 +1,61 @@
+<%= simple_form_for @registration, :html => { :class => 'form-horizontal' }, :remote => :true do |f| %>
+
+  <%= f.input :schedule_id, as: :hidden %>
+  <%= f.input :location_id, as: :hidden %>
+  <%= f.input :entry_date, as: :string %>
+  <%= f.input :exit_date, as: :string %>
+  <%= f.input :comments, label: "Registration Comment" %>
+  <%= f.input :child_id, label: "Child", collection: Child.all(order: 'last_name'), label_method: :full_name, prompt: "Choose a child" %>
+  <%= f.association :referral, label_method: :referral_description %>
+  <%= f.input :referred_by %>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                '#close-modal', :rel => 'modal:close', :class => 'btn' %>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function () {
+
+    // alert('Registration Modal Boo!');
+  
+    // Add Kendo datepicker
+    $('#registration_entry_date').kendoDatePicker({
+        format: 'yyyy-MM-dd'
+    });
+
+    // Add Kendo datepicker
+    $('#registration_exit_date').kendoDatePicker({
+        format: 'yyyy-MM-dd'
+    });
+
+    $(this)
+    .bind("ajax:beforeSend", function(evt, xhr, settings){
+      console.log('ajax:beforeSend');
+    })
+    .bind("ajax:success", function(evt, data, status, xhr){
+      console.log('ajax:success');
+      console.log(evt);
+      console.log(data);
+      console.log(status);
+      console.log(xhr);
+    })
+    .bind("ajax:error", function(evt, xhr, status, error){
+      console.log('ajax:error');
+      // console.log(xhr.responseText);
+      // errors = $.parseJSON(xhr.responseText);
+      // console.log(errors);
+      for ( error in errors ) {
+        console.log(error + errors[error]);
+      }
+    })
+    .bind("ajax:complete", function(evt, xhr, status){
+      console.log('ajax:complete');
+    })
+
+
+
+  });
+</script>

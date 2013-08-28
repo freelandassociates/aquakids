@@ -267,6 +267,9 @@ $(document).ready(function () {
                         }
                     // selectedDataItems contains all selected data items
                     var detail_schedule_id = selectedDataItems[0]["id"];
+                    // Enable the "New Registration" button and set the href when a row is clicked..
+                    $("#new_registration").removeClass('disabled');
+                    $("#new_registration").attr("href", "/registrations/new?schedule_id=" + detail_schedule_id)
                     // Set hidden field to value of this schedule_id..
                     $("#detail_schedule_id").val(detail_schedule_id);
                     // Refresh the detail grid from the datasource..
@@ -539,6 +542,19 @@ $(document).ready(function () {
 
 
 });
+
+
+function submit_create_registration() {
+    // var relArr="";
+    // $("input:checkbox.select_one:checked").each(function(){
+    //     relArr = relArr.concat("schedule_ids[]=",$(this).attr('rel'),"&");
+    // });
+    // relArr = relArr.replace(/&$/,"");
+    window.location.href = ('/registrations/new?schedule_id=' + $("#detail_schedule_id").val());
+    // $.post('/registrations/new?schedule_id=' + $("#detail_schedule_id").val();
+    // var qsrl = $("#schedule_search").serialize();
+    // $("#datatable").data("kendoGrid").dataSource.read(qsrl);
+}
 
 
 

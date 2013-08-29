@@ -7,8 +7,8 @@ class Schedule < ActiveRecord::Base
   belongs_to  :location
   belongs_to :facility
   belongs_to :zone
-  has_many :registrations
-  has_many :children, :through => :registrations
+  has_many :scheduleregs
+  has_many :children, :through => :scheduleregs
 
   validates_presence_of :day_of_week, :size, :start_date, :start_time, :stop_date, :stop_time, :level_id, :activity_id, :type_id, :program_id, :teacher_id, :location_id, :facility_id, :zone_id
 

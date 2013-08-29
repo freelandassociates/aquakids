@@ -1,7 +1,7 @@
 class Child < ActiveRecord::Base
   belongs_to :parent
-  has_many :registrations
-  has_many :schedules, :through => :registrations
+  has_many :scheduleregs
+  has_many :schedules, :through => :scheduleregs
 
   attr_accessible :date_of_birth, :first_name, :last_name, :sex, :parent_id
 

@@ -1,4 +1,4 @@
-<%= simple_form_for @registration, :html => { :class => 'form-horizontal' }, :remote => :true do |f| %>
+<%= simple_form_for @schedulereg, :html => { :class => 'form-horizontal' }, :remote => :true do |f| %>
 
   <%= f.input :schedule_id, as: :hidden %>
   <%= f.input :location_id, as: :hidden %>
@@ -59,8 +59,8 @@
         errors = $.parseJSON(xhr.responseText);
         for ( error in errors ) {
           // console.log('registration_' + error);
-          $('#registration_' + error).after('<span class="help-inline">' + errors[error] + '</span>');
-          $('.registration_' + error).addClass('error');
+          $('#schedulereg_' + error).after('<span class="help-inline">' + errors[error] + '</span>');
+          $('.schedulereg_' + error).addClass('error');
           // console.log(errors[error]);
         }
       }

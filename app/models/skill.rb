@@ -3,7 +3,7 @@ class Skill < ActiveRecord::Base
   
   belongs_to :level
   has_many :attainments
-  has_many :registrations
+  has_many :scheduleregs
   # has_many :registrations, :through => :attainments
 
   validates_presence_of :name, :level_id

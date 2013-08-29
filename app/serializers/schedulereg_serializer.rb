@@ -1,4 +1,4 @@
-class RegistrationSerializer < ActiveModel::Serializer
+class ScheduleregSerializer < ActiveModel::Serializer
   attribute  :id, :key => :registration_id
   attribute  :created_at, :key => :registration_date
   attributes :special,

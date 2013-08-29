@@ -13,7 +13,7 @@ Aquakids::Application.routes.draw do
   get "/schedules/ransack_search"
   get "/schedules/ransack_read_only_search"
   
-  get "/registrations/registrations_by_schedule"
+  get "/scheduleregs/registrations_by_schedule"
   
   resources :copyclasses do
     collection do
@@ -52,7 +52,7 @@ Aquakids::Application.routes.draw do
 
   resources :days
 
-  resources :registrations
+  resources :scheduleregs
 
 
   # The priority is based upon order of creation:

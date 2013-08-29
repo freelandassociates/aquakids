@@ -1,4 +1,4 @@
-class Registration < ActiveRecord::Base
+class Schedulereg < ActiveRecord::Base
   has_paper_trail
   
   belongs_to :schedule

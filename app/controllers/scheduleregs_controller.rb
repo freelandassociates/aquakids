@@ -1,63 +1,64 @@
-class RegistrationsController < ApplicationController
+class ScheduleregsController < ApplicationController
   # GET /registrations
   # GET /registrations.json
   def index
-    @registrations = Registration.all
+    @scheduleregs = Scheduleregs.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @registrations }
+      format.json { render json: @scheduleregs }
     end
   end
 
   # GET /registrations/1
   # GET /registrations/1.json
   def show
-    @registration = Registration.find(params[:id])
+    @schedulereg = Schedulereg.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @registration }
+      format.json { render json: @schedulereg }
     end
   end
 
   # GET /registrations/new
   # GET /registrations/new.json
   def new
-    @registration = Registration.new
-    @registration.schedule_id = (params[:schedule_id])
+    @schedulereg = Schedulereg.new
+    @schedulereg.schedule_id = (params[:schedule_id])
     @schedule = Schedule.find(params[:schedule_id])
-    @registration.entry_date = @schedule.start_date
-    @registration.exit_date = @schedule.stop_date
-    @registration.location_id = @schedule.location_id
+    @schedulereg.entry_date = @schedule.start_date
+    @schedulereg.exit_date = @schedule.stop_date
+    @schedulereg.location_id = @schedule.location_id
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @registration }
+      format.json { render json: @schedulereg }
     end
   end
 
   # GET /registrations/1/edit
   def edit
-    @registration = Registration.find(params[:id])
+    @schedulereg = Schedulereg.find(params[:id])
   end
 
   # POST /registrations
   # POST /registrations.json
   def create
-    @registration = Registration.new(params[:registration])
+    @schedulereg = Schedulereg.new(params[:schedulereg])
 
     respond_to do |format|
-      if @registration.save
+      if @schedulereg.save
         # format.html { redirect_to @registration, notice: 'Registration was successfully created.' }
         format.html { redirect_to schedules_path, notice: 'Registration was successfully created.' }
-        format.js   { render json: @registration, status: :ok}
-        format.json { render json: @registration, status: :created, location: @registration }
+        format.js   { render json: @schedulereg, status: :ok}
+        format.json { render json: @schedulereg, status: :created, location: @schedulereg }
       else
+        # binding.pry
         format.html { render action: "new" }
         # Respond with JSON to an AJAX request.
-        format.js   { render json: @registration.errors, status: :unprocessable_entity }
-        format.json { render json: @registration.errors, status: :unprocessable_entity }
+        format.js   { render json: @schedulereg.errors, status: :unprocessable_entity }
+        format.json { render json: @schedulereg.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -65,15 +66,15 @@ class RegistrationsController < ApplicationController
   # PUT /registrations/1
   # PUT /registrations/1.json
   def update
-    @registration = Registration.find(params[:id])
+    @schedulereg = Schedulereg.find(params[:id])
 
     respond_to do |format|
-      if @registration.update_attributes(params[:registration])
-        format.html { redirect_to @registration, notice: 'Registration was successfully updated.' }
+      if @schedulereg.update_attributes(params[:schedulereg])
+        format.html { redirect_to @schedulereg, notice: 'Registration was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @registration.errors, status: :unprocessable_entity }
+        format.json { render json: @schedulereg.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -98,10 +99,10 @@ class RegistrationsController < ApplicationController
 
     @schedule = (params[:schedule_id])
     # @registrations = Registration.find_by schedule_id: @schedule
-    @registrations = Registration.where("schedule_id = ?", @schedule)
+    @scheduleregs = Schedulereg.where("schedule_id = ?", @schedule)
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @registrations, root: false, :each_serializer => RegistrationSerializer }
+      format.json { render json: @scheduleregs, root: false, :each_serializer => ScheduleregSerializer }
     end
   end
 

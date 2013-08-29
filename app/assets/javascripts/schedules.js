@@ -196,7 +196,7 @@ $(document).ready(function () {
                 transport: {
                     read:  {
                         url: function(schedule) {
-                            return "/registrations/registrations_by_schedule.json?schedule_id=" + $("#detail_schedule_id").val();
+                            return "/scheduleregs/registrations_by_schedule.json?schedule_id=" + $("#detail_schedule_id").val();
                         },
                         dataType: "json"
                     },
@@ -277,7 +277,7 @@ $(document).ready(function () {
                     var detail_schedule_id = selectedDataItems[0]["id"];
                     // Enable the "New Registration" button and set the href when a row is clicked..
                     $("#new_registration").removeClass('disabled');
-                    $("#new_registration").attr("href", "/registrations/new?schedule_id=" + detail_schedule_id)
+                    $("#new_registration").attr("href", "/scheduleregs/new?schedule_id=" + detail_schedule_id)
                     // Set hidden field to value of this schedule_id..
                     $("#detail_schedule_id").val(detail_schedule_id);
                     // Refresh the detail grid from the datasource..
@@ -558,7 +558,7 @@ function submit_create_registration() {
     //     relArr = relArr.concat("schedule_ids[]=",$(this).attr('rel'),"&");
     // });
     // relArr = relArr.replace(/&$/,"");
-    window.location.href = ('/registrations/new?schedule_id=' + $("#detail_schedule_id").val());
+    window.location.href = ('/scheduleregs/new?schedule_id=' + $("#detail_schedule_id").val());
     // $.post('/registrations/new?schedule_id=' + $("#detail_schedule_id").val();
     // var qsrl = $("#schedule_search").serialize();
     // $("#datatable").data("kendoGrid").dataSource.read(qsrl);

@@ -55,6 +55,14 @@ $(function() {
     });
 });
 
+$(function() {
+$('.modal').bind('beforeShow', function(){
+      alert('beforeShow!!');
+    })
+    .show();
+});
+
+
 var detail_schedule_id = 0;
 // Declare arrays to hold the lookup information.
 var levels = [];

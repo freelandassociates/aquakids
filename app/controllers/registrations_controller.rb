@@ -51,9 +51,11 @@ class RegistrationsController < ApplicationController
       if @registration.save
         # format.html { redirect_to @registration, notice: 'Registration was successfully created.' }
         format.html { redirect_to schedules_path, notice: 'Registration was successfully created.' }
+        format.js   { render json: @registration, status: :ok}
         format.json { render json: @registration, status: :created, location: @registration }
       else
         format.html { render action: "new" }
+        # Respond with JSON to an AJAX request.
         format.js   { render json: @registration.errors, status: :unprocessable_entity }
         format.json { render json: @registration.errors, status: :unprocessable_entity }
       end

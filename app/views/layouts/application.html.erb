@@ -10,7 +10,8 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <% if request.host != 'localhost' && Rails.env != 'production' %>
+  <!-- % if request.host != 'localhost' && Rails.env != 'production' %> -->
+  <% if request.host != 'localhost' %>
     <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
   <% end %>
   <%= yield(:head) %>

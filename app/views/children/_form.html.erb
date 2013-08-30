@@ -3,7 +3,6 @@
   <%= f.input :last_name %>
   <%= f.input :sex %>
   <%= f.input :date_of_birth %>
-  <%= f.input :parent_id, collection: Parent.all(order: 'last_name'), label_method: :full_name, prompt: "Choose parent" %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

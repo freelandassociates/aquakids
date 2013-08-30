@@ -56,55 +56,55 @@ class ScheduleregSerializer < ActiveModel::Serializer
   end
 
   def parent_last_name
-    object.child.parent_last_name
+    object.parent.last_name
   end
 
   def parent_first_name
-    object.child.parent_first_name
+    object.parent.first_name
   end
 
   def parent_address_1
-    object.child.parent_address_1
+    object.parent.address_1
   end
 
   def parent_address_2
-    object.child.parent_address_2
+    object.parent.address_2
   end
 
   def parent_city
-    object.child.parent_city
+    object.parent.city
   end
 
   def parent_state
-    object.child.parent_state
+    object.parent.state
   end
 
   def parent_zip
-    object.child.parent_zip
+    object.parent.zip
   end
 
   def parent_cell_phone
-    object.child.parent_cell_phone
+    object.parent.cell_phone
   end
 
   def parent_home_phone
-    object.child.parent_home_phone
+    object.parent.home_phone
   end
 
   def parent_work_phone
-    object.child.parent_work_phone
+    object.parent.work_phone
   end
 
   def parent_email
-    object.child.parent_email
+    object.parent.email
   end
 
   def emergency_phone
-    object.child.emergency_phone
+    object.parent.emergency_contact_phone
   end
 
   def emergency_contact
-    object.child.emergency_contact
+    object.parent.emergency_contact
   end
 
   def referral

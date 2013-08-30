@@ -13,3 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore the application.js file for tree JQuery/Bootstrap issue with dropdowns..
+/app/assets/javascripts/application.js
+
+.gitignore

@@ -4,13 +4,14 @@
   <%= f.input :location_id, as: :hidden %>
   <%= f.input :entry_date, as: :string %>
   <%= f.input :exit_date, as: :string %>
-  <%= f.input :child_id, label: "Child", collection: Child.all(order: 'last_name'), label_method: :full_name, prompt: "Choose a child" %>
+  <%= f.input :child_id, label: "Child", collection: Child.all(order: 'last_name'), label_method: :full_name, prompt: "Choose child" %>
+  <%= f.input :parent_id, label: "Parent", collection: Parent.all(order: 'last_name'), label_method: :full_name, prompt: "Choose parent" %>
   <%= f.input :comments, label: "Registration Comment" %>
   <%= f.association :referral, label_method: :referral_description %>
   <%= f.input :referred_by %>
   
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= f.button :submit, 'Create Registration', :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 '#close-modal', :rel => 'modal:close', :class => 'btn', :id => 'cancelButton' %>
   </div>
@@ -22,12 +23,12 @@
     // alert('Registration Modal Boo!');
   
     // Add Kendo datepicker
-    $('#registration_entry_date').kendoDatePicker({
+    $('#schedulereg_entry_date').kendoDatePicker({
         format: 'yyyy-MM-dd'
     });
 
     // Add Kendo datepicker
-    $('#registration_exit_date').kendoDatePicker({
+    $('#schedulereg_exit_date').kendoDatePicker({
         format: 'yyyy-MM-dd'
     });
 

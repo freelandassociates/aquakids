@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130829204432) do
+ActiveRecord::Schema.define(:version => 20130830143639) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20130829204432) do
     t.date     "date_of_birth"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "parent_id"
   end
 
   create_table "days", :force => true do |t|
@@ -116,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20130829204432) do
     t.string   "continuance"
     t.date     "payment_due_date"
     t.integer  "level_id"
+    t.integer  "parent_id"
   end
 
   create_table "schedules", :force => true do |t|

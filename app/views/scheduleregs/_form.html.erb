@@ -5,7 +5,7 @@
   <%= f.input :entry_date, as: :string %>
   <%= f.input :exit_date, as: :string %>
   <%= f.input :child_id, label: "Child", collection: Child.all(order: 'last_name'), label_method: :full_name, prompt: "Choose child" %>
-  <%= f.input :parent_id, label: "Parent", collection: Parent.all(order: 'last_name'), label_method: :full_name, prompt: "Choose parent" %>
+  <!-- %= f.input :parent_id, label: "Parent", collection: Parent.all(order: 'last_name'), label_method: :full_name, prompt: "Choose parent" %> -->
   <%= f.input :comments, label: "Registration Comment" %>
   <%= f.association :referral, label_method: :referral_description %>
   <%= f.input :referred_by %>

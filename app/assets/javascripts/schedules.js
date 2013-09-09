@@ -1,3 +1,11 @@
+$(function () {
+    $(this).on($.modal.CLOSE, function(event, modal) {
+      alert('Wow it workssss...');
+    });
+});
+
+
+
 // if any "chosen" select control changes, submit the search form..
 $(function() {
     return $('.chzn-select').chosen().change(function() {

@@ -3,7 +3,7 @@ class Schedulereg < ActiveRecord::Base
   
   belongs_to :schedule
   belongs_to :child
-  belongs_to :parent
+  # belongs_to :parent
   belongs_to :location
   belongs_to :referral
   belongs_to :skill
@@ -11,8 +11,8 @@ class Schedulereg < ActiveRecord::Base
   has_many :attainments
   # has_many :skills, :through => :attainments
 
-  attr_accessible :comments, :entry_date, :exit_date, :child_id, :referral_id, :referred_by, :schedule_id, :location_id, :parent_id
+  attr_accessible :comments, :entry_date, :exit_date, :child_id, :referral_id, :referred_by, :schedule_id, :location_id
   
-  validates_presence_of :entry_date, :exit_date, :child_id, :parent_id
+  validates_presence_of :entry_date, :exit_date, :child_id
 
 end

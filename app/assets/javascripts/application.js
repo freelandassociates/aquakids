@@ -71,3 +71,5 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     return errorElement.remove();
   }
 };
+
+$('.dropdown-toggle').dropdown();

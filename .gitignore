@@ -15,6 +15,6 @@
 /tmp
 
 # Ignore the application.js file for tree JQuery/Bootstrap issue with dropdowns..
-/app/assets/javascripts/application.js
+# /app/assets/javascripts/application.js
 
 .gitignore

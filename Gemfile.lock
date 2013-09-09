@@ -6,6 +6,14 @@ GIT
       railties (>= 3.0)
 
 GIT
+  remote: git://github.com/anjlab/bootstrap-rails.git
+  revision: 4e239795de0e7038f9f1e17a9e02eab19330012c
+  specs:
+    anjlab-bootstrap-rails (3.0.0.2)
+      railties (>= 3.0)
+      sass (>= 3.2)
+
+GIT
   remote: https://github.com/bcardarella/client_side_validations.git
   revision: a6a515504520e9925ca63524ae9854168163283e
   specs:
@@ -50,9 +58,6 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass-rails (3.0.0.2)
-      railties (>= 3.1.0)
-      sass-rails (>= 3.1.0)
     builder (3.0.4)
     choice (0.1.6)
     chosen-rails (0.9.12)
@@ -206,10 +211,10 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  anjlab-bootstrap-rails!
   better_errors
   binding_of_caller
   bootstrap-datepicker-rails!
-  bootstrap-sass-rails
   chosen-rails
   client_side_validations (= 3.2.1)!
   coffee-rails (~> 3.2.1)

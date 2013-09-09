@@ -35,7 +35,9 @@ group :assets do
 
   gem 'chosen-rails'
   gem 'jquery-ui-rails'
-  gem 'bootstrap-sass-rails'
+  # gem 'bootstrap-sass-rails'
+  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
   # gem 'kendoui-rails'
   gem 'jquery-modal-rails'
 end

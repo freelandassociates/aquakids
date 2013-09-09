@@ -31,7 +31,6 @@ group :assets do
 
   gem 'therubyracer', '~> 0.10.2'
   gem 'less-rails'
-  gem 'twitter-bootstrap-rails', '~> 2.2.8'
   gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
   gem 'chosen-rails'
@@ -40,6 +39,8 @@ group :assets do
   gem 'jquery-modal-rails'
 end
 
+gem 'twitter-bootstrap-rails', '~> 2.2.8'
+  
 gem 'jquery-rails'
 
 gem 'devise'

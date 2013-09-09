@@ -35,11 +35,12 @@ group :assets do
 
   gem 'chosen-rails'
   gem 'jquery-ui-rails'
+  gem 'bootstrap-sass-rails'
   # gem 'kendoui-rails'
   gem 'jquery-modal-rails'
 end
 
-gem 'twitter-bootstrap-rails', '~> 2.2.8'
+# gem 'twitter-bootstrap-rails', '~> 2.2.8'
   
 gem 'jquery-rails'
 

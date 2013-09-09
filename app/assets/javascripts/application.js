@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require chosen-jquery
 //= require twitter/bootstrap
 //= require bootstrap-datepicker
-//= require chosen-jquery
 //= require rails.validations
 //= require kendo/kendo.web.min
 //= require jquery.ui.all
@@ -71,5 +71,3 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     return errorElement.remove();
   }
 };
-
-$('.dropdown-toggle').dropdown();

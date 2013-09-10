@@ -13,12 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require chosen-jquery
-//= require twitter/bootstrap
-//= require bootstrap-datepicker
 //= require rails.validations
 //= require kendo/kendo.web.min
 //= require jquery.ui.all
 //= require jquery.modal
+//= require twitter/bootstrap
 
 (function() {
   $(document).ready(function() {

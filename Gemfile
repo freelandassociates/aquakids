@@ -31,7 +31,7 @@ group :assets do
 
   gem 'therubyracer', '~> 0.10.2'
   gem 'less-rails'
-  # gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+  gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
   gem 'chosen-rails'
   gem 'jquery-ui-rails'

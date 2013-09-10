@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/Nerian/bootstrap-datepicker-rails.git
-  revision: cd3564743d9ccccde818083024fc235ae2f4d030
-  specs:
-    bootstrap-datepicker-rails (1.1.1.7)
-      railties (>= 3.0)
-
-GIT
   remote: https://github.com/bcardarella/client_side_validations.git
   revision: a6a515504520e9925ca63524ae9854168163283e
   specs:
@@ -210,7 +203,6 @@ DEPENDENCIES
   active_model_serializers
   better_errors
   binding_of_caller
-  bootstrap-datepicker-rails!
   chosen-rails
   client_side_validations (= 3.2.1)!
   coffee-rails (~> 3.2.1)

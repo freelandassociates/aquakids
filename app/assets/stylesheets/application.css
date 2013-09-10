@@ -15,7 +15,6 @@
  *= require jquery.ui.theme
  *= require jquery.ui.all
  *= require jquery.modal
- *= require bootstrap-datepicker
  *= require_self
  *= require_tree .
  */

@@ -17,7 +17,7 @@
 //= require kendo/kendo.web.min
 //= require jquery.ui.all
 //= require jquery.modal
-//= require bootstrap
+//= require bootstrap.min
 
 (function() {
   $(document).ready(function() {

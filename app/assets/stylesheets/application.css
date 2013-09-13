@@ -15,8 +15,8 @@
  *= require jquery.ui.theme
  *= require jquery.ui.all
  *= require jquery.modal
- *= require bootstrap
- *= require bootstrap-responsive
+ *= require bootstrap.min
+ *= require bootstrap-responsive.min
  *= require_self
  *= require_tree .
  */

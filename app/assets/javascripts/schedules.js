@@ -1,8 +1,8 @@
-$(function () {
-    $(this).on($.modal.CLOSE, function(event, modal) {
-      alert('Wow it workssss...');
-    });
-});
+// $(function () {
+//     $(this).on($.modal.CLOSE, function(event, modal) {
+//       alert('Wow it workssss...');
+//     });
+// });
 
 
 

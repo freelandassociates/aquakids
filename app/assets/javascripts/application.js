@@ -16,7 +16,6 @@
 //= require rails.validations
 //= require kendo/kendo.web.min
 //= require jquery.ui.all
-//= require jquery.modal
 //= require bootstrap.min
 
 (function() {

@@ -15,6 +15,6 @@
 /tmp
 
 # Ignore database.yml (we'll set this on the server..)
-/config/database.yml 
+config/database.yml 
 
 .gitignore

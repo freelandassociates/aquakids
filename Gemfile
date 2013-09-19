@@ -41,7 +41,7 @@ group :assets do
   # gem 'kendoui-rails'
   # gem 'twitter-bootstrap-rails'
 
-  gem 'jquery-modal-rails'
+  # gem 'jquery-modal-rails'
 end
   
 gem 'jquery-rails'
@@ -77,6 +77,7 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
+# gem 'rvm-capistrano'
 
 # To use debugger
 # gem 'debugger'

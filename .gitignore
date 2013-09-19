@@ -14,7 +14,7 @@
 /log/*.log
 /tmp
 
-# Ignore the application.js file for tree JQuery/Bootstrap issue with dropdowns..
-# /app/assets/javascripts/application.js
+# Ignore database.yml (we'll set this on the server..)
+/config/database.yml 
 
 .gitignore

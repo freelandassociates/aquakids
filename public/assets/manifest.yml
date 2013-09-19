@@ -5,12 +5,12 @@ ak_logo.png: ak_logo-278082e6e4abcafa312835e43f838a20.png
 ak_logo/index.png: ak_logo-278082e6e4abcafa312835e43f838a20.png
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
-application.js: application-de9b0035bb323e504685a8c10e575898.js
-application/index.js: application-de9b0035bb323e504685a8c10e575898.js
+application.js: application-14d5189a70bf585e40cc77a2bb8006d8.js
+application/index.js: application-14d5189a70bf585e40cc77a2bb8006d8.js
 schedules.js: schedules-11a426b2985b1a6167fb4f48fc0bc09e.js
 schedules/index.js: schedules-11a426b2985b1a6167fb4f48fc0bc09e.js
-application.css: application-96873bbe471c9f1b289288e361150cd0.css
-application/index.css: application-96873bbe471c9f1b289288e361150cd0.css
+application.css: application-f88a6b5ab96776a217478ee7b0f4ad13.css
+application/index.css: application-f88a6b5ab96776a217478ee7b0f4ad13.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
@@ -237,10 +237,6 @@ kendo/textures/transtexture.png: kendo/textures/transtexture-04dc0c30a270b673dd6
 kendo/textures/transtexture/index.png: kendo/textures/transtexture-04dc0c30a270b673dd6fcf5857cf6244.png
 jquery.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
 jquery/index.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
-close.png: close-864699d948811db4aa8a25615cca8cb8.png
-close/index.png: close-864699d948811db4aa8a25615cca8cb8.png
-spinner.gif: spinner-405d11376d618ea0e7bd477f7dfe7381.gif
-spinner/index.gif: spinner-405d11376d618ea0e7bd477f7dfe7381.gif
 jquery-ui/ui-bg_flat_0_aaaaaa_40x100.png: jquery-ui/ui-bg_flat_0_aaaaaa_40x100-7d1197a52442bc56fcad60d0390f4b32.png
 jquery-ui/ui-bg_flat_0_aaaaaa_40x100/index.png: jquery-ui/ui-bg_flat_0_aaaaaa_40x100-7d1197a52442bc56fcad60d0390f4b32.png
 jquery-ui/ui-bg_flat_75_ffffff_40x100.png: jquery-ui/ui-bg_flat_75_ffffff_40x100-3c4b974defa5e8bdaf8a603034c4435e.png

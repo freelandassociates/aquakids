@@ -1,3 +1,4 @@
+# require "rvm/capistrano"
 require "bundler/capistrano"
 
 server "192.241.189.150", :web, :app, :db, primary: true
@@ -5,14 +6,18 @@ server "192.241.189.150", :web, :app, :db, primary: true
 set :application, "aquakids"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
-# set :deploy_via, :remote_cache
+set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:freelandassociates/#{application}.git"
 set :branch, "master"
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
 default_run_options[:pty] = true
+# default_run_options[:shell] = '/bin/bash --login' 
 ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases

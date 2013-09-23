@@ -35,6 +35,8 @@ group :assets do
   gem 'chosen-rails'
   gem 'jquery-ui-rails'
 end
+
+# gem 'jquery-modal-rails'
   
 gem 'jquery-rails'
 

@@ -4,6 +4,12 @@
 //     });
 // });
 
+$(function () {
+    $(this).on('shown', function() {
+      alert('Wow it worketh...');
+    });
+});
+
 
 
 // if any "chosen" select control changes, submit the search form..
@@ -289,7 +295,7 @@ $(document).ready(function () {
                     // Set hidden field to value of this schedule_id..
                     $("#detail_schedule_id").val(detail_schedule_id);
                     // Refresh the detail grid from the datasource..
-                    // $("#detailtable").data("kendoGrid").dataSource.read();
+                    $("#detailtable").data("kendoGrid").dataSource.read();
                 
                     },
                 columns: [

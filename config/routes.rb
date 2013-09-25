@@ -14,6 +14,8 @@ Aquakids::Application.routes.draw do
   get "/schedules/ransack_read_only_search"
   
   get "/scheduleregs/registrations_by_schedule"
+
+  get "/children/childrenByParent"
   
   resources :copyclasses do
     collection do

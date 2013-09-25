@@ -34,22 +34,44 @@
 <!-- %=  link_to_modal "Demo Form", "#demo-form", :class=>"button" %> -->
 
 
-<%=  link_to "New Registration", "#", :id=>"new_registration", :class=>"btn disabled" %>
+<!-- %=  link_to "New Registration", "#", :id=>"new_registration", :class=>"btn disabled" %> -->
 <!-- %=  link_to "New Registration", "#", :id=>"new_registration", :class=>"btn disabled" %> -->
 
 <!-- submit_tag "CopyClass", :id => "copyclass", :disabled => true, :class => 'btn'  -->
 
 <!-- Button to trigger modal -->
-<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+<a href="#" id="new_registration" role="button" class="btn disabled" data-toggle="modal">New Registration</a>
  
 <!-- Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="registrationModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Modal header</h3>
+    <h3 id="myModalLabel">Registration</h3>
   </div>
   <div class="modal-body">
-    <p>One fine body…</p>
+    <!-- <p>One fine body…</p> -->
+    <%= simple_form_for :schedulereg, :html => { :class => 'form-horizontal' }, :remote => :true do |f| %>
+      <%= f.input :parent_id, label: "Parent", collection: Parent.all(order: 'last_name'), label_method: :full_name, prompt: "Select parent" %>
+      <%= f.input :child_id, label: "Child", collection: Child.all(order: 'last_name'), label_method: :full_name, prompt: "Select child" %>
+      <%= f.input :parent_first_name, as: :string %>
+      <%= f.input :parent_last_name, as: :string %>
+      <%= f.input :parent_address_1, as: :string %>
+      <%= f.input :parent_address_2, as: :string %>
+      <%= f.input :parent_city, as: :string %>
+      <%= f.input :parent_state, as: :string %>
+      <%= f.input :parent_zip, as: :string %>
+      <%= f.input :parent_home_phone, as: :string %>
+      <%= f.input :parent_cell_phone, as: :string %>
+      <%= f.input :referral_id, label: "Referral", collection: Referral.all(order: 'referral_description'), label_method: :referral_description, prompt: "Referral Method" %>
+      <%= f.input :referred_by, as: :string %>
+      <%= f.input :child_first_name, as: :string %>
+      <%= f.input :child_last_name, as: :string %>
+      <%= f.input :child_date_of_birth, as: :string %>
+      <%= f.input :child_notes, as: :string %>
+      <%= f.input :entry_date, as: :string %>
+      <%= f.input :exit_date, as: :string %>
+  
+    <% end %>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

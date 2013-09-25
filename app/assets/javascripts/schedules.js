@@ -6,7 +6,67 @@
 
 $(function () {
     $(this).on('shown', function() {
-      alert('Wow it worketh...');
+      console.log('Shown...');
+    });
+
+    $(this).on('hidden', function() {
+      console.log('Hidden...');
+    });
+
+    $('#schedulereg_child_id').on('change', function() {
+      console.log('Child changed..');
+    });
+
+    $('#schedulereg_parent_id').on('change', function() {
+      console.log('Parent changed..');
+      var parent = $(this).val();
+      if (parent == "") {
+        // Parent drop down has been changed to "" so remove any values from parent
+        // fields and enable inputs.
+        console.log("null");
+        $("#schedulereg_parent_first_name").val("");
+        $("#schedulereg_parent_first_name").removeAttr('disabled');
+        $("#schedulereg_parent_last_name").val("");
+        $("#schedulereg_parent_last_name").removeAttr('disabled');
+        $("#schedulereg_parent_address_1").val("");
+        $("#schedulereg_parent_address_1").removeAttr('disabled');
+        $("#schedulereg_parent_address_2").val("");
+        $("#schedulereg_parent_address_2").removeAttr('disabled');
+        $("#schedulereg_parent_city").val("");
+        $("#schedulereg_parent_city").removeAttr('disabled');
+        $("#schedulereg_parent_state").val("");
+        $("#schedulereg_parent_state").removeAttr('disabled');
+        $("#schedulereg_parent_zip").val("");
+        $("#schedulereg_parent_zip").removeAttr('disabled');
+        $("#schedulereg_parent_home_phone").val("");
+        $("#schedulereg_parent_home_phone").removeAttr('disabled');
+        $("#schedulereg_parent_cell_phone").val("");
+        $("#schedulereg_parent_cell_phone").removeAttr('disabled');
+      } else {
+        console.log($(this).val());
+        // Parent drop down has been changed to a parent, so retrieve values from database and
+        // use to populate inputs.  Input protect parent details..
+        $.ajax({url:"parents/" + parent + ".json",success:function(result){
+          $("#schedulereg_parent_first_name").val(result['first_name']);
+          $("#schedulereg_parent_first_name").attr('disabled','disabled');
+          $("#schedulereg_parent_last_name").val(result['last_name']);
+          $("#schedulereg_parent_last_name").attr('disabled','disabled');
+          $("#schedulereg_parent_address_1").val(result['address_1']);
+          $("#schedulereg_parent_address_1").attr('disabled','disabled');
+          $("#schedulereg_parent_address_2").val(result['address_2']);
+          $("#schedulereg_parent_address_2").attr('disabled','disabled');
+          $("#schedulereg_parent_city").val(result['city']);
+          $("#schedulereg_parent_city").attr('disabled','disabled');
+          $("#schedulereg_parent_state").val(result['state']);
+          $("#schedulereg_parent_state").attr('disabled','disabled');
+          $("#schedulereg_parent_zip").val(result['zip']);
+          $("#schedulereg_parent_zip").attr('disabled','disabled');
+          $("#schedulereg_parent_home_phone").val(result['home_phone']);
+          $("#schedulereg_parent_home_phone").attr('disabled','disabled');
+          $("#schedulereg_parent_cell_phone").val(result['cell_phone']);
+          $("#schedulereg_parent_cell_phone").attr('disabled','disabled');
+          }});
+      }
     });
 });
 
@@ -291,7 +351,8 @@ $(document).ready(function () {
                     var detail_schedule_id = selectedDataItems[0]["id"];
                     // Enable the "New Registration" button and set the href when a row is clicked..
                     $("#new_registration").removeClass('disabled');
-                    $("#new_registration").attr("href", "/scheduleregs/new?schedule_id=" + detail_schedule_id)
+                    // $("#new_registration").attr("href", "/scheduleregs/new?schedule_id=" + detail_schedule_id)
+                    $("#new_registration").attr("href", "#registrationModal");
                     // Set hidden field to value of this schedule_id..
                     $("#detail_schedule_id").val(detail_schedule_id);
                     // Refresh the detail grid from the datasource..

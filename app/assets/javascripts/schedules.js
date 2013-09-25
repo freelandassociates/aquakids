@@ -15,6 +15,39 @@ $(function () {
 
     $('#schedulereg_child_id').on('change', function() {
       console.log('Child changed..');
+      var child = $(this).val();
+      console.log(child);
+      if (child == "") {
+        // Child drop down has been changed to "" so remove any values from child
+        // fields and enable inputs.
+        console.log("null child");
+        $("#schedulereg_child_first_name").val("");
+        $("#schedulereg_child_first_name").removeAttr('disabled');
+        $("#schedulereg_child_last_name").val("");
+        $("#schedulereg_child_last_name").removeAttr('disabled');
+        $("#schedulereg_child_date_of_birth").val("");
+        $("#schedulereg_child_date_of_birth").removeAttr('disabled');
+        $("#schedulereg_child_notes").val("");
+        $("#schedulereg_child_notes").removeAttr('disabled');
+      } else {
+        console.log($(this).val());
+        // Parent drop down has been changed to a parent, so retrieve values from database and
+        // use to populate inputs.  Input protect parent details..
+        $.ajax({url:"children/" + child + ".json",success:function(result){
+          $("#schedulereg_child_first_name").val(result['first_name']);
+          $("#schedulereg_child_first_name").attr('disabled','disabled');
+          $("#schedulereg_child_last_name").val(result['last_name']);
+          $("#schedulereg_child_last_name").attr('disabled','disabled');
+          $("#schedulereg_child_date_of_birth").val(result['date_of_birth']);
+          $("#schedulereg_child_date_of_birth").attr('disabled','disabled');
+          $("#schedulereg_child_notes").val(result['notes']);
+          $("#schedulereg_child_notes").attr('disabled','disabled');
+          }});
+      }
+
+
+
+
     });
 
     $('#schedulereg_parent_id').on('change', function() {
@@ -65,6 +98,33 @@ $(function () {
           $("#schedulereg_parent_home_phone").attr('disabled','disabled');
           $("#schedulereg_parent_cell_phone").val(result['cell_phone']);
           $("#schedulereg_parent_cell_phone").attr('disabled','disabled');
+          // Now.. also remove options from Child dropdown..
+          $('#schedulereg_child_id')
+            .find('option')
+            .remove();
+          // and replace with children of the selected parent.
+          $.ajax({url:"children/childrenByParent.json?parent_id=" + parent,success:function(children){
+            var toAppend = '<option value="">Select child</option>';
+            console.log(children);
+            console.log(children.children.length);
+
+            for(i=0; i<children.children.length; i++) {
+              toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
+            }
+            console.log(toAppend);
+            $('#schedulereg_child_id').append(toAppend);
+          }});
+
+          // And also blank out and re-enable the child fields...
+          $("#schedulereg_child_first_name").val("");
+          $("#schedulereg_child_first_name").removeAttr('disabled');
+          $("#schedulereg_child_last_name").val("");
+          $("#schedulereg_child_last_name").removeAttr('disabled');
+          $("#schedulereg_child_date_of_birth").val("");
+          $("#schedulereg_child_date_of_birth").removeAttr('disabled');
+          $("#schedulereg_child_notes").val("");
+          $("#schedulereg_child_notes").removeAttr('disabled');
+
           }});
       }
     });

@@ -21,6 +21,17 @@ class ChildrenController < ApplicationController
     end
   end
 
+  # GET /children/1
+  # GET /children/1.json
+  def childrenByParent
+    @child = Child.find_all_by_parent_id(params[:parent_id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @child }
+    end
+  end
+
   # GET /children/new
   # GET /children/new.json
   def new

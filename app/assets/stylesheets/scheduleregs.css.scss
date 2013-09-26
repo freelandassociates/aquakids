@@ -5,3 +5,110 @@
 #schedulereg_comments {
 	max-height: 100px;
 }
+
+body .modal {
+    /* new custom width */
+    width: 900px;	
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    margin-left: -420px;
+}
+
+div .modal-body {
+	max-height: 490px;
+}
+
+div .schedulereg_parent_id {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_child_id {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_parent_first_name {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_parent_last_name {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_parent_address_1 {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_parent_address_2 {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_parent_city {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_parent_state {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_parent_zip {
+	width: 100%;
+	float: left;
+}
+
+div .schedulereg_parent_home_phone {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_parent_cell_phone {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_referral_id {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_referred_by {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_child_first_name {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_child_last_name {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_child_date_of_birth {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_child_notes {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_entry_date {
+	width: 400px;
+	float: left;
+}
+
+div .schedulereg_exit_date {
+	width: 400px;
+	float: left;
+}
+

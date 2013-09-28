@@ -50,7 +50,7 @@
   </div>
   <div class="modal-body">
     <!-- <p>One fine body…</p> -->
-    <%= simple_form_for :schedulereg, :html => { :class => 'form-horizontal' }, :remote => :true do |f| %>
+    <%= simple_form_for :schedulereg, :url => { :controller => 'scheduleregs', :action => 'create' }, :html => { :class => 'form-horizontal' }, :remote => :true do |f| %>
       <%= f.input :parent_id, label: "Parent", collection: Parent.all(order: 'last_name'), label_method: :full_name, prompt: "Select parent" %>
       <%= f.input :child_id, label: "Child", collection: Child.all(order: 'last_name'), label_method: :full_name, prompt: "Select child" %>
       <%= f.input :parent_first_name, as: :string %>
@@ -65,18 +65,21 @@
       <%= f.input :referral_id, label: "Referral", collection: Referral.all(order: 'referral_description'), label_method: :referral_description, prompt: "Referral Method" %>
       <%= f.input :referred_by, as: :string %>
       <%= f.input :child_first_name, as: :string %>
-      <%= f.input :child_last_name, as: :string %>
+      <%= f.input :child_last_name, as: :string %> 
       <%= f.input :child_date_of_birth, as: :string %>
       <%= f.input :child_notes, as: :string %>
       <%= f.input :entry_date, as: :string %>
       <%= f.input :exit_date, as: :string %>
   
-    <% end %>
   </div>
+  
   <div class="modal-footer">
-    <button class="btn btn-primary">Save changes</button>
+    <!-- <button class="btn btn-primary">Save changes</button> -->
+    <%= f.button :submit, 'Create Registration', :class => 'btn-primary' %>
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-  </div>
+  </div>    
+  <% end %>
+  
 </div>
 
  <!-- end  -->

@@ -4,7 +4,7 @@ class Parent < ActiveRecord::Base
   # has_many :scheduleregs
   # has_many :schedules, :through => :scheduleregs
 
-  validates_presence_of :address_1, :address_2, :alternate_email, :care_provider, :care_provider_phone, :cell_phone, :city, :comments, :doctor, :doctor_phone, :email, :emergency_contact, :emergency_contact_phone, :first_name, :home_phone, :insurance, :insurance_phone, :last_name, :policy_number, :state, :work_phone, :zip  
+  validates_presence_of :address_1, :address_2, :cell_phone, :city, :first_name, :home_phone, :last_name, :state, :zip  
 
   attr_accessible :address_1, :address_2, :alternate_email, :care_provider, :care_provider_phone, :cell_phone, :city, :comments, :doctor, :doctor_phone, :email, :emergency_contact, :emergency_contact_phone, :first_name, :home_phone, :insurance, :insurance_phone, :last_name, :policy_number, :state, :work_phone, :zip
 

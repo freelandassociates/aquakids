@@ -45,22 +45,95 @@ class ScheduleregsController < ApplicationController
   # POST /registrations
   # POST /registrations.json
   def create
-    @schedulereg = Schedulereg.new(params[:schedulereg])
 
-    respond_to do |format|
-      if @schedulereg.save
-        # format.html { redirect_to @registration, notice: 'Registration was successfully created.' }
-        format.html { redirect_to schedules_path, notice: 'Registration was successfully created.' }
-        format.js   { render json: @schedulereg, status: :ok}
-        format.json { render json: @schedulereg, status: :created, location: @schedulereg }
-      else
-        # binding.pry
-        format.html { render action: "new" }
-        # Respond with JSON to an AJAX request.
-        format.js   { render json: @schedulereg.errors, status: :unprocessable_entity }
-        format.json { render json: @schedulereg.errors, status: :unprocessable_entity }
+    # Make a new errors hash
+    @errors = Hash.new 
+
+    # Create schedulereg object from parameters (and hidden field schedule Id?)
+    @schedulereg = Schedulereg.new
+    @schedulereg.entry_date = params[:schedulereg][:entry_date]
+    @schedulereg.exit_date = params[:schedulereg][:exit_date]
+    @schedulereg.referral_id = params[:schedulereg][:referral_id]
+    @schedulereg.referred_by = params[:schedulereg][:referred_by]
+
+    # Check if schedulereg object is valid and if not, add errors as json to errors hash
+    if (@schedulereg.invalid?)
+      @errors = @schedulereg.errors.as_json
+      if (!params[:schedulereg][:child_id].blank?)
+        @errors = @errors.except!(:child_id)
       end
     end
+
+    # If parent Id is blank
+    if (params[:schedulereg][:parent_id].blank?)
+      
+      # Create new parent from parameters
+      @parent = Parent.new
+      @parent.first_name = params[:schedulereg][:parent_first_name]
+      @parent.last_name = params[:schedulereg][:parent_last_name]
+      @parent.address_1 = params[:schedulereg][:parent_address_1]
+      @parent.address_2 = params[:schedulereg][:parent_address_2]
+      @parent.city = params[:schedulereg][:parent_city]
+      @parent.state = params[:schedulereg][:parent_state]
+      @parent.zip = params[:schedulereg][:parent_zip]
+      @parent.home_phone = params[:schedulereg][:parent_home_phone]
+      @parent.cell_phone = params[:schedulereg][:parent_cell_phone]
+
+      # Check if parent is valid and if not, add errors as json to error hash
+      if (@parent.invalid?)
+        @parent_errors = Hash[@parent.errors.map{|k,v| ["parent_#{k}",v]}]
+        @errors = @errors.merge(@parent_errors.as_json)
+      end
+
+    end
+
+    # If child Id is blank 
+    if (params[:schedulereg][:child_id].blank?)
+
+      # Create new child from parameters
+      @child = Child.new
+      @child.first_name = params[:schedulereg][:child_first_name]
+      @child.last_name = params[:schedulereg][:child_last_name]
+      @child.date_of_birth = params[:schedulereg][:child_date_of_birth]
+      @child.notes = params[:schedulereg][:child_notes]
+      
+      # Check child is valid and if not, add errors as json to error hash. 
+      if (@child.invalid?)
+        @child_errors = Hash[@child.errors.map{|k,v| ["child_#{k}",v]}]      
+        @errors = @errors.merge(@child_errors.as_json)
+
+        # If errors hash contains child-parent-id, map back to parent-Id
+        mappings = {"child_parent_id" => "parent_id"}
+        @errors.keys.each { |k| @errors[ mappings[k] ] = @errors.delete(k) if mappings[k] }
+      end
+
+    end
+
+    # If errors hash is empty
+    if (@errors.empty?) 
+      
+      # If parent Id is blank, save the parent..
+      if (params[:schedulereg][:parent_id].blank?)
+        @parent.save
+      end
+
+      # If child id is blank, save the child..
+      if (params[:schedulereg][:child_id].blank?)
+        @child.save
+      end
+      
+      # Save the schedulereg
+      @schedulereg.save
+    
+    else
+      
+      # Send json back with errors hash
+      respond_to do |format|
+        format.js   { render json: @errors, status: :unprocessable_entity }
+      end
+
+    end
+
   end
 
   # PUT /registrations/1

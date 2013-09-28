@@ -13,6 +13,49 @@ $(function () {
       console.log('Hidden...');
     });
 
+    $(this).bind("ajax:beforeSend", function(evt, xhr, settings){
+      console.log('ajax:beforeSend');
+    });
+
+    $(this).bind("ajax:success", function(){
+      console.log('ajax:success!!');
+      // console.log(evt);
+      // console.log(data);
+      // console.log(status);
+      // console.log(xhr);
+    });
+
+    $(this).bind("ajax:error", function(evt, xhr, status, error){
+      console.log('ajax:error');
+      // Remove all previous errors
+      $('.help-inline').remove();
+      $('.error').removeClass('error');
+      // alert('ajax:error');
+      //console.log(evt);
+      //console.log(xhr);
+      //console.log(status);
+      //console.log(error);
+      httpStatus = $.parseJSON(xhr.status);
+      console.log(httpStatus);
+
+      if (httpStatus == 200) {
+        // alert('Good');
+        $('#cancelButton').click();
+      } else {
+        // alert('Bad');
+        errors = $.parseJSON(xhr.responseText);
+        // console.log(xhr);
+        console.log(errors);
+        for ( error in errors ) {
+          // console.log('registration_' + error);
+          $('#schedulereg_' + error).after('<span class="help-inline">' + errors[error] + '</span>');
+          $('.schedulereg_' + error).addClass('error');
+          // console.log(errors[error]);
+        }
+      }
+      // console.log(xhr);
+    });
+
     $('#schedulereg_child_id').on('change', function() {
       console.log('Child changed..');
       var child = $(this).val();
@@ -128,6 +171,8 @@ $(function () {
           }});
       }
     });
+
+
 });
 
 

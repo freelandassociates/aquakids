@@ -7,7 +7,7 @@ class Child < ActiveRecord::Base
   attr_accessible :date_of_birth, :first_name, :last_name, :sex, :parent_id, :notes
 
   # validates_presence_of :date_of_birth, :first_name, :last_name, :sex, :parent_id
-  validates_presence_of :date_of_birth, :first_name, :last_name, :sex, :parent_id
+  validates_presence_of :date_of_birth, :first_name, :last_name, :parent_id
 
   def full_name
     [last_name, first_name].join(', ')

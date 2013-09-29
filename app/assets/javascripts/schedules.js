@@ -6,7 +6,44 @@
 
 $(function () {
     $(this).on('shown', function() {
-      console.log('Shown...');
+      console.log('Shown now...');
+
+      $("#schedulereg_parent_id").val("");
+      $("#schedulereg_parent_first_name").val("");
+      $("#schedulereg_parent_first_name").removeAttr('disabled');
+      $("#schedulereg_parent_last_name").val("");
+      $("#schedulereg_parent_last_name").removeAttr('disabled');
+      $("#schedulereg_parent_address_1").val("");
+      $("#schedulereg_parent_address_1").removeAttr('disabled');
+      $("#schedulereg_parent_address_2").val("");
+      $("#schedulereg_parent_address_2").removeAttr('disabled');
+      $("#schedulereg_parent_city").val("");
+      $("#schedulereg_parent_city").removeAttr('disabled');
+      $("#schedulereg_parent_state").val("");
+      $("#schedulereg_parent_state").removeAttr('disabled');
+      $("#schedulereg_parent_zip").val("");
+      $("#schedulereg_parent_zip").removeAttr('disabled');
+      $("#schedulereg_parent_home_phone").val("");
+      $("#schedulereg_parent_home_phone").removeAttr('disabled');
+      $("#schedulereg_parent_cell_phone").val("");
+      $("#schedulereg_parent_cell_phone").removeAttr('disabled');
+
+      $("#schedulereg_child_id").val("");
+      $("#schedulereg_child_first_name").val("");
+      $("#schedulereg_child_first_name").removeAttr('disabled');
+      $("#schedulereg_child_last_name").val("");
+      $("#schedulereg_child_last_name").removeAttr('disabled');
+      $("#schedulereg_child_date_of_birth").val("");
+      $("#schedulereg_child_date_of_birth").removeAttr('disabled');
+      $("#schedulereg_child_notes").val("");
+      $("#schedulereg_child_notes").removeAttr('disabled');
+
+      $("#schedulereg_referral_id").val("");
+      $("#schedulereg_referred_by").val("");
+      $("#schedulereg_entry_date").val("");
+      $("#schedulereg_exit_date").val("");
+
+
     });
 
     $(this).on('hidden', function() {

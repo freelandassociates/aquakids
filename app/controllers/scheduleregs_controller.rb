@@ -51,6 +51,9 @@ class ScheduleregsController < ApplicationController
 
     # Create schedulereg object from parameters (and hidden field schedule Id?)
     @schedulereg = Schedulereg.new
+    @schedulereg.child_id = params[:schedulereg][:child_id]
+    @schedulereg.schedule_id = params[:schedulereg][:current_schedule_id]
+    @schedulereg.location_id = params[:schedulereg][:location_id]
     @schedulereg.entry_date = params[:schedulereg][:entry_date]
     @schedulereg.exit_date = params[:schedulereg][:exit_date]
     @schedulereg.referral_id = params[:schedulereg][:referral_id]
@@ -123,6 +126,7 @@ class ScheduleregsController < ApplicationController
       end
       
       # Save the schedulereg
+      binding.pry
       @schedulereg.save
     
     else

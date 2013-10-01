@@ -8,6 +8,11 @@ $(function () {
     $(this).on('shown', function() {
       console.log('Shown now...');
 
+      // Clear all errors..
+      $('.help-inline').remove();
+      $('.error').removeClass('error');
+      
+      // Clear all fields on initial show of modal..
       $("#schedulereg_parent_id").val("");
       $("#schedulereg_parent_first_name").val("");
       $("#schedulereg_parent_first_name").removeAttr('disabled');
@@ -43,6 +48,16 @@ $(function () {
       $("#schedulereg_entry_date").val("");
       $("#schedulereg_exit_date").val("");
 
+      // Retrieve current schedule_id from hidden field and use to retrieve schedule entry and exit date from schedule table.
+      var current_schedule_id = $("#detail_schedule_id").val();
+      console.log(current_schedule_id);
+      $("#schedulereg_current_schedule_id").val(current_schedule_id);
+      $.ajax({url:"schedules/" + current_schedule_id + ".json",success:function(result){
+        console.log(result);
+        $("#schedulereg_entry_date").val(result['schedule']['start_date']);
+        $("#schedulereg_exit_date").val(result['schedule']['stop_date']);
+        $("#schedulereg_location_id").val(result['schedule']['location_id']);
+      }});
 
     });
 

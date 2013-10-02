@@ -126,8 +126,12 @@ class ScheduleregsController < ApplicationController
       end
       
       # Save the schedulereg
-      binding.pry
       @schedulereg.save
+
+      # Send json back with errors hash
+      respond_to do |format|
+        format.js   { render json: @errors, status: :ok }
+      end      
     
     else
       

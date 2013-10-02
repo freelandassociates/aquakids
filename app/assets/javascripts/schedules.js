@@ -71,10 +71,8 @@ $(function () {
 
     $(this).bind("ajax:success", function(){
       console.log('ajax:success!!');
-      // console.log(evt);
-      // console.log(data);
-      // console.log(status);
-      // console.log(xhr);
+      // We can now close the modal and reload the grids..
+      $('#registrationModal').modal('hide');
     });
 
     $(this).bind("ajax:error", function(evt, xhr, status, error){
@@ -236,6 +234,19 @@ $(function() {
         $("#datatable").data("kendoGrid").dataSource.read(qsrl);
     });
 });
+
+$(function() {
+  return $('#schedulereg_entry_date').kendoDatePicker({
+        format: "yyyy-MM-dd"
+    });
+});
+
+$(function() {
+  return $('#schedulereg_exit_date').kendoDatePicker({
+        format: "yyyy-MM-dd"
+    });
+});
+
 
 $(function() {
 	return $('#q_start_date_gteq').kendoDatePicker({

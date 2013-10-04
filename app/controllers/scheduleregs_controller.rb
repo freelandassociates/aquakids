@@ -62,9 +62,9 @@ class ScheduleregsController < ApplicationController
     # Check if schedulereg object is valid and if not, add errors as json to errors hash
     if (@schedulereg.invalid?)
       @errors = @schedulereg.errors.as_json
-      if (!params[:schedulereg][:child_id].blank?)
-        @errors = @errors.except!(:child_id)
-      end
+      # if (!params[:schedulereg][:child_id].blank?)
+      #   @errors = @errors.except!(:child_id)
+      # end
     end
 
     # If parent Id is blank
@@ -99,18 +99,27 @@ class ScheduleregsController < ApplicationController
       @child.last_name = params[:schedulereg][:child_last_name]
       @child.date_of_birth = params[:schedulereg][:child_date_of_birth]
       @child.notes = params[:schedulereg][:child_notes]
+      @child.parent_id = params[:schedulereg][:parent_id]
       
       # Check child is valid and if not, add errors as json to error hash. 
       if (@child.invalid?)
-        @child_errors = Hash[@child.errors.map{|k,v| ["child_#{k}",v]}]      
+        # @child_errors = @child.errors.except!(:parent_id)
+        @ch_errors = @child.errors.as_json
+        @ch_errors = @ch_errors.except!(:parent_id)
+
+        @child_errors = Hash[@ch_errors.map{|k,v| ["child_#{k}",v]}]
         @errors = @errors.merge(@child_errors.as_json)
 
         # If errors hash contains child-parent-id, map back to parent-Id
-        mappings = {"child_parent_id" => "parent_id"}
-        @errors.keys.each { |k| @errors[ mappings[k] ] = @errors.delete(k) if mappings[k] }
+        # mappings = {"child_parent_id" => "parent_id"}
+        # @errors.keys.each { |k| @errors[ mappings[k] ] = @errors.delete(k) if mappings[k] }
       end
 
     end
+
+    # Remove parent_id and child_id errors..
+    @errors = @errors.except!(:child_id)
+    #@errors = @errors.except!(:parent_id)
 
     # If errors hash is empty
     if (@errors.empty?) 
@@ -122,7 +131,9 @@ class ScheduleregsController < ApplicationController
 
       # If child id is blank, save the child..
       if (params[:schedulereg][:child_id].blank?)
+        @child.parent_id = @parent.id
         @child.save
+        @schedulereg.child_id = @child.id
       end
       
       # Save the schedulereg

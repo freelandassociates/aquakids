@@ -48,6 +48,26 @@ $(function () {
       $("#schedulereg_entry_date").val("");
       $("#schedulereg_exit_date").val("");
 
+      // Also reload Child dropdown with all children..
+      $('#schedulereg_child_id')
+        .find('option')
+        .remove();
+      // ...
+      $.ajax({url:"children.json",success:function(children){
+        var toAppend = '<option value="">Select child</option>';
+        console.log(children);
+        console.log(children.children.length);
+
+        for(i=0; i<children.children.length; i++) {
+          toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
+        }
+        console.log(toAppend);
+        $('#schedulereg_child_id').append(toAppend);
+      }});
+
+
+
+
       // Retrieve current schedule_id from hidden field and use to retrieve schedule entry and exit date from schedule table.
       var current_schedule_id = $("#detail_schedule_id").val();
       console.log(current_schedule_id);
@@ -63,6 +83,8 @@ $(function () {
 
     $(this).on('hidden', function() {
       console.log('Hidden...');
+      // Refresh the detail grid...
+      $("#detailtable").data("kendoGrid").dataSource.read();
     });
 
     $(this).bind("ajax:beforeSend", function(evt, xhr, settings){
@@ -168,6 +190,24 @@ $(function () {
         $("#schedulereg_parent_home_phone").removeAttr('disabled');
         $("#schedulereg_parent_cell_phone").val("");
         $("#schedulereg_parent_cell_phone").removeAttr('disabled');
+
+        // Reload child dropdown here..
+        $('#schedulereg_child_id')
+          .find('option')
+          .remove();
+        // and replace with children of the selected parent.
+        $.ajax({url: "children.json" ,success:function(children){
+          var toAppend = '<option value="">Select child</option>';
+          console.log(children.children);
+          console.log(children.children.length);
+
+          for(i=0; i<children.children.length; i++) {
+            toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
+          }
+          console.log(toAppend);
+          $('#schedulereg_child_id').append(toAppend);
+        }});
+
       } else {
         console.log($(this).val());
         // Parent drop down has been changed to a parent, so retrieve values from database and
@@ -191,22 +231,7 @@ $(function () {
           $("#schedulereg_parent_home_phone").attr('disabled','disabled');
           $("#schedulereg_parent_cell_phone").val(result['cell_phone']);
           $("#schedulereg_parent_cell_phone").attr('disabled','disabled');
-          // Now.. also remove options from Child dropdown..
-          $('#schedulereg_child_id')
-            .find('option')
-            .remove();
-          // and replace with children of the selected parent.
-          $.ajax({url:"children/childrenByParent.json?parent_id=" + parent,success:function(children){
-            var toAppend = '<option value="">Select child</option>';
-            console.log(children);
-            console.log(children.children.length);
 
-            for(i=0; i<children.children.length; i++) {
-              toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
-            }
-            console.log(toAppend);
-            $('#schedulereg_child_id').append(toAppend);
-          }});
 
           // And also blank out and re-enable the child fields...
           $("#schedulereg_child_first_name").val("");
@@ -218,8 +243,29 @@ $(function () {
           $("#schedulereg_child_notes").val("");
           $("#schedulereg_child_notes").removeAttr('disabled');
 
+          // Reload child dropdown here..
+          $('#schedulereg_child_id')
+            .find('option')
+            .remove();
+          // and replace with children of the selected parent.
+          $.ajax({url: "children/childrenByParent.json?parent_id=" + parent ,success:function(children){
+            var toAppend = '<option value="">Select child</option>';
+            console.log(children.children);
+            console.log(children.children.length);
+
+            for(i=0; i<children.children.length; i++) {
+              toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
+            }
+            console.log(toAppend);
+            $('#schedulereg_child_id').append(toAppend);
+          }});
+
+
           }});
       }
+
+
+
     });
 
 

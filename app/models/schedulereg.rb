@@ -15,4 +15,9 @@ class Schedulereg < ActiveRecord::Base
   
   validates_presence_of :entry_date, :exit_date, :child_id
 
+  validates_date :entry_date, :on_or_before => :exit_date,
+                              :on_or_before_message => "Entry date can not be after exit date"
+
+  validates_date :exit_date
+
 end

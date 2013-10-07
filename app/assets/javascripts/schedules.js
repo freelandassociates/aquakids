@@ -74,9 +74,9 @@ $(function () {
       $("#schedulereg_current_schedule_id").val(current_schedule_id);
       $.ajax({url:"schedules/" + current_schedule_id + ".json",success:function(result){
         // console.log(result);
-        $("#schedulereg_entry_date").val(result['schedule']['start_date']);
-        $("#schedulereg_exit_date").val(result['schedule']['stop_date']);
-        $("#schedulereg_location_id").val(result['schedule']['location_id']);
+        $("#schedulereg_entry_date").val(result['start_date']);
+        $("#schedulereg_exit_date").val(result['stop_date']);
+        $("#schedulereg_location_id").val(result['location_id']);
       }});
 
     });

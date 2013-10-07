@@ -27,10 +27,10 @@ class ScheduleReadOnlySerializer < ActiveModel::Serializer
               :location_id,
               :facility_id
   
-  def number
-	  # This is the number of children signed up for this class
-    0
-  end
+  # def number
+	 #  # This is the number of children signed up for this class
+  #   0
+  # end
 
   def absences
     0

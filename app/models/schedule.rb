@@ -50,6 +50,12 @@ class Schedule < ActiveRecord::Base
       end
   end
 
+  def number
+    # This is the number of children signed up for this class
+    scheduleregs.size
+  end
+
+
   def check_days
     if %w(sunday monday tuesday wednesday thursday friday saturday).all?{|attr| self[attr].blank?}
       errors.add :base, "At least one day of the week must be selected"

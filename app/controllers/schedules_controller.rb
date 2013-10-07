@@ -54,7 +54,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @schedule }
+      format.json { render json: @schedule, root: false, :serializer => ScheduleReadOnlySerializer }
     end
   end
 

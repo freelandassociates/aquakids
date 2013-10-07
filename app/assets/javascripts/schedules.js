@@ -55,13 +55,13 @@ $(function () {
       // ...
       $.ajax({url:"children.json",success:function(children){
         var toAppend = '<option value="">Select child</option>';
-        console.log(children);
-        console.log(children.children.length);
+        // console.log(children);
+        // console.log(children.children.length);
 
         for(i=0; i<children.children.length; i++) {
           toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
         }
-        console.log(toAppend);
+        // console.log(toAppend);
         $('#schedulereg_child_id').append(toAppend);
       }});
 
@@ -73,7 +73,7 @@ $(function () {
       console.log(current_schedule_id);
       $("#schedulereg_current_schedule_id").val(current_schedule_id);
       $.ajax({url:"schedules/" + current_schedule_id + ".json",success:function(result){
-        console.log(result);
+        // console.log(result);
         $("#schedulereg_entry_date").val(result['schedule']['start_date']);
         $("#schedulereg_exit_date").val(result['schedule']['stop_date']);
         $("#schedulereg_location_id").val(result['schedule']['location_id']);
@@ -85,6 +85,43 @@ $(function () {
       console.log('Hidden...');
       // Refresh the detail grid...
       $("#detailtable").data("kendoGrid").dataSource.read();
+      // $("#datatable").data("kendoGrid").dataSource.read();
+      
+      // var grid = $("#datatable").data("kendoGrid"),
+      //   // rowIndex = $("#detail_schedule_id").val(),
+      //   rowIndex = 1;
+      //   row = grid.tbody.find(">tr:not(.k-grouping-row)").eq(rowIndex);
+      // grid.select(row);
+
+      // Get a reference to the grid
+      var grid = $("#datatable").data("kendoGrid");
+
+      // Access the row that is selected
+      var select = grid.select();
+      // and now the data
+      var data = grid.dataItem(select);
+      // console.log(data);
+
+      // Ajax call to retrieve the latest version of the schedule record (specifically to retrieve the number of 
+      //  children signed up)
+      // http://localhost:3000/schedules/131.json
+      $.ajax({url:"schedules/" + $("#detail_schedule_id").val() + ".json",success:function(result){
+        // $("#schedulereg_child_first_name").val(result['first_name']);
+        data.set("number", result['number']);
+      }});
+
+      // update the column `symbol` and set its value to `HPQ`
+      // data.set("number", 9);
+
+      // var grid = $("#datatable").data("kendoGrid"),
+      var rowIndex = $("#selected_row_index").val();
+      console.log(rowIndex);
+      row = grid.tbody.find(">tr:not(.k-grouping-row)").eq(rowIndex);
+      grid.select(row);
+
+
+
+
     });
 
     $(this).bind("ajax:beforeSend", function(evt, xhr, settings){
@@ -131,7 +168,7 @@ $(function () {
     $('#schedulereg_child_id').on('change', function() {
       console.log('Child changed..');
       var child = $(this).val();
-      console.log(child);
+      // console.log(child);
       if (child == "") {
         // Child drop down has been changed to "" so remove any values from child
         // fields and enable inputs.
@@ -204,7 +241,7 @@ $(function () {
           for(i=0; i<children.children.length; i++) {
             toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
           }
-          console.log(toAppend);
+          // console.log(toAppend);
           $('#schedulereg_child_id').append(toAppend);
         }});
 
@@ -250,13 +287,13 @@ $(function () {
           // and replace with children of the selected parent.
           $.ajax({url: "children/childrenByParent.json?parent_id=" + parent ,success:function(children){
             var toAppend = '<option value="">Select child</option>';
-            console.log(children.children);
-            console.log(children.children.length);
+            // console.log(children.children);
+            // console.log(children.children.length);
 
             for(i=0; i<children.children.length; i++) {
               toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
             }
-            console.log(toAppend);
+            // console.log(toAppend);
             $('#schedulereg_child_id').append(toAppend);
           }});
 
@@ -480,6 +517,94 @@ $(document).ready(function () {
                 }
             });
 
+            readOnlyDataSource = new kendo.data.DataSource({
+                transport: {
+                    read:  {
+                        url: function(schedule) {
+                            if (window.location.href.indexOf("classes") !== -1) {
+                                return crudServiceBaseUrl + "/ransack_search?" + $("#schedule_search").serialize();
+                            } else {
+                                return crudServiceBaseUrl + "/ransack_read_only_search?" + $("#schedule_search").serialize();
+                            }
+                        },
+                        dataType: "json"
+                    },
+                    update: {
+                        url: function(schedule) {
+                            return crudServiceBaseUrl + "/" + schedule.id;
+                        },
+                        dataType: "json",
+                        contentType: "application/json",
+                        type: "PUT"
+                    },
+                    destroy: {
+                        url: function(schedule) {
+                            return crudServiceBaseUrl + "/" + schedule.id;
+                        },
+                        dataType: "json",
+                        type: "DELETE"
+                    },
+                    create: {
+                        url: crudServiceBaseUrl,
+                        dataType: "json",
+                        contentType: "application/json",
+                        type: "POST"
+                    },
+                    parameterMap: function(schedule, type) {
+                        if (type === "create" || type === "update") {
+                            return JSON.stringify({ schedule: schedule });
+                        }
+                    }
+                },
+                autoSync: false,
+                schema: {
+                    parse:function (response) {
+                        $.each(response, function (idx, elem) {
+                            if (elem.start_time && typeof elem.start_time === "string") {
+                                elem.start_time = kendo.parseDate(elem.start_time, "yyyy-MM-ddTHH:mm:ssZ");
+                            }
+                            if (elem.stop_time && typeof elem.stop_time === "string") {
+                                elem.stop_time = kendo.parseDate(elem.stop_time, "yyyy-MM-ddTHH:mm:ssZ");
+                            }
+                        });
+                        return response;
+                    },
+                    model: {
+                        id: "id",
+                        fields: {
+                            select: { type: "string", editable: false },
+                            program_id: { field: "program_id", defaultValue: 1 },
+                            start_date: { editable: true },
+                            stop_date: { editable: true },
+                            lessons: { editable: false },
+                            start_time: { editable: true },
+                            stop_time: { editable: true },
+                            size: { editable: true },
+                            sunday: { editable: true },
+                            //sunday: { field: "dayboolean_id", defaultValue: true },
+                            monday: { editable: true },
+                            tuesday: { editable: true },
+                            wednesday: { editable: true },
+                            thursday: { editable: true },
+                            friday: { editable: true },
+                            saturday: { editable: true },
+                            number: { editable: true },
+                            level_id: { field: "level_id", defaultValue: 1 },
+                            absences: { editable: false },
+                            specials: { editable: false },
+                            type_id: { field: "type_id", defaultValue: 1 },
+                            teacher_id: { field: "teacher_id", defaultValue: 1 },
+                            zone_id: { field: "zone_id", defaultValue: 1 },
+                            comments: { editable: true },
+                            id: { editable: false },
+                            activity_id: { field: "activity_id", defaultValue: 1 },
+                            location_id: { field: "location_id", defaultValue: 1 },
+                            facility_id: { field: "facility_id", defaultValue: 1 }
+                        }
+                    }
+                }
+            });
+
         var detailDataSource = new kendo.data.DataSource ({
                 transport: {
                     read:  {
@@ -546,7 +671,7 @@ $(document).ready(function () {
         } else {
             // alert('Read only classes');
             $("#datatable").kendoGrid({
-                dataSource: dataSource,
+                dataSource: readOnlyDataSource,
                 height: 390,
                 scrollable: true,
                 sortable: true,
@@ -556,6 +681,9 @@ $(document).ready(function () {
                 change: function(e) {
                     // To handle clicking on a row in the main grid and reloading the detail grid with registrations..
                     var selectedRows = this.select();
+                    console.log(selectedRows[0]["rowIndex"]);
+                    var selectedRowIndex = selectedRows[0]["rowIndex"];
+                    $("#selected_row_index").val(selectedRowIndex);
                     var selectedDataItems = [];
                     for (var i = 0; i < selectedRows.length; i++) {
                         var dataItem = this.dataItem(selectedRows[i]);
@@ -563,6 +691,7 @@ $(document).ready(function () {
                         }
                     // selectedDataItems contains all selected data items
                     var detail_schedule_id = selectedDataItems[0]["id"];
+                    // console.log(selectedDataItems);
                     // Enable the "New Registration" button and set the href when a row is clicked..
                     $("#new_registration").removeClass('disabled');
                     // $("#new_registration").attr("href", "/scheduleregs/new?schedule_id=" + detail_schedule_id)

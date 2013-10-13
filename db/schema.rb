@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130913120748) do
+ActiveRecord::Schema.define(:version => 20131012200643) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -99,6 +99,12 @@ ActiveRecord::Schema.define(:version => 20130913120748) do
     t.string   "referral_description"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "role"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "scheduleregs", :force => true do |t|
@@ -199,7 +205,7 @@ ActiveRecord::Schema.define(:version => 20130913120748) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "username"
-    t.string   "role"
+    t.string   "role_id"
     t.integer  "location_id"
   end
 

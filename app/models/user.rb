@@ -16,11 +16,15 @@ class User < ActiveRecord::Base
   validates_presence_of :username, :role_id, :email
 
   def role_symbols
-     [:corporate] if self.role.role = "Corporate"
-     [:office] if self.role.role = "Office"
-     [:manager] if self.role.role = "Manager"
-     [:trainee] if self.role.role = "Trainee"
-  	 [:parent] if self.role.role = "Parent"
+     if self.role  
+       [:corporate] if self.role.role = "Corporate"
+       [:office] if self.role.role = "Office"
+       [:manager] if self.role.role = "Manager"
+       [:trainee] if self.role.role = "Trainee"
+    	 [:parent] if self.role.role = "Parent"
+    else
+      return nil
+    end
 
      # return ["#{self.role}".to_sym]
   end

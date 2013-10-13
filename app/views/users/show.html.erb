@@ -12,12 +12,12 @@
 
 <p>
   <b>Role:</b>
-  <%= @user.role %>
+  <%= @user.role.role %>
 </p>
 
 <p>
   <b>Location:</b>
-  <%= @user.location_id %>
+  <%= @user.location.name if @user.location %>
 </p>
 
 

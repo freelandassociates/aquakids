@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <%= f.input :username, :readonly => true %>
     <%= f.input :email %>
-    <%= f.input :role, :collection => ['corporate', 'manager', 'office', 'trainee'] %>
+    <%= f.association :role, label_method: :role %>
     <%= f.association :location, :label => 'Location (Blank = ALL locations)' %>
   </div>
 

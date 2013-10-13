@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_one :parent
   belongs_to :location
+  belongs_to :role
+
 
 	# Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -8,14 +10,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :role, :location_id
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :role_id, :location_id
   # attr_accessible :title, :body
   
-  validates_presence_of :username, :role, :email
+  validates_presence_of :username, :role_id, :email
 
   def role_symbols
-  	 # [:admin] if @User.role = "admin"
-     return ["#{self.role}".to_sym]
+     [:corporate] if self.role.role = "Corporate"
+     [:office] if self.role.role = "Office"
+     [:manager] if self.role.role = "Manager"
+     [:trainee] if self.role.role = "Trainee"
+  	 [:parent] if self.role.role = "Parent"
+
+     # return ["#{self.role}".to_sym]
   end
 
   def self.current

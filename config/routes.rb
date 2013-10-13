@@ -1,5 +1,8 @@
 Aquakids::Application.routes.draw do
   
+  resources :roles
+
+
   resources :referrals
 
   post "/schedules/delete_many"

@@ -127,11 +127,14 @@ class ScheduleregsController < ApplicationController
       # If parent Id is blank, save the parent..
       if (params[:schedulereg][:parent_id].blank?)
         @parent.save
+        params[:schedulereg][:parent_id] = @parent.id
       end
 
       # If child id is blank, save the child..
       if (params[:schedulereg][:child_id].blank?)
-        @child.parent_id = @parent.id
+        binding.pry
+        # @child.parent_id = @parent.id
+        @child.parent_id = params[:schedulereg][:parent_id]
         @child.save
         @schedulereg.child_id = @child.id
       end

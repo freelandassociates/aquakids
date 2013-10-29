@@ -83,6 +83,11 @@ $(function () {
 
     $(this).on('hidden', function() {
       console.log('Hidden...');
+      // alert("Just hidden");
+
+      // $('#flash-messages').load('/scheduleregs/refresh_flash');
+
+
       // Refresh the detail grid...
       $("#detailtable").data("kendoGrid").dataSource.read();
       // $("#datatable").data("kendoGrid").dataSource.read();
@@ -115,6 +120,7 @@ $(function () {
 
       // var grid = $("#datatable").data("kendoGrid"),
       var rowIndex = $("#selected_row_index").val();
+      console.log("rowIndex = ");
       console.log(rowIndex);
       row = grid.tbody.find(">tr:not(.k-grouping-row)").eq(rowIndex);
       grid.select(row);
@@ -130,7 +136,12 @@ $(function () {
 
     $(this).bind("ajax:success", function(){
       console.log('ajax:success!!');
+      // alert('Successfully registered')
       // We can now close the modal and reload the grids..
+      // var flash = request.getHeader('x-flash');
+      // alert(flash);
+      // alert(request.getResponseHeader('x-flash'));
+       // alert("done!"+ geturl.getAllResponseHeaders());
       $('#registrationModal').modal('hide');
     });
 
@@ -698,6 +709,8 @@ $(document).ready(function () {
                     $("#new_registration").attr("href", "#registrationModal");
                     // Set hidden field to value of this schedule_id..
                     $("#detail_schedule_id").val(detail_schedule_id);
+                    console.log("detail_schedule_id = ");
+                    console.log(detail_schedule_id);
                     // Refresh the detail grid from the datasource..
                     $("#detailtable").data("kendoGrid").dataSource.read();
                 

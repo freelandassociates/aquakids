@@ -128,6 +128,7 @@ class ScheduleregsController < ApplicationController
       if (params[:schedulereg][:parent_id].blank?)
         @parent.save
         params[:schedulereg][:parent_id] = @parent.id
+        flash[:notice] = "Successfully created parent."
       end
 
       # If child id is blank, save the child..
@@ -136,11 +137,17 @@ class ScheduleregsController < ApplicationController
         @child.parent_id = params[:schedulereg][:parent_id]
         @child.save
         @schedulereg.child_id = @child.id
+        flash[:notice] = "Successfully created child."
       end
       
       # Save the schedulereg
       @schedulereg.save
+      flash[:notice] = "Successfully registered."
 
+      # Add flash notices to response header
+      response.headers['x-flash'] = flash[:notice]  unless flash[:notice].blank?
+      # flash.discard
+    
       # Send json back with errors hash
       respond_to do |format|
         format.js   { render json: @errors, status: :ok }
@@ -198,6 +205,10 @@ class ScheduleregsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @scheduleregs, root: false, :each_serializer => ScheduleregSerializer }
     end
+  end
+
+  def refresh_flash
+    render :partial => "layouts/flashmessages"
   end
 
 end

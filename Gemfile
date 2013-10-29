@@ -37,6 +37,8 @@ group :assets do
 end
 
 # gem 'jquery-modal-rails'
+
+gem 'gon'
   
 gem 'jquery-rails'
 
@@ -44,7 +46,7 @@ gem 'devise'
 
 gem 'declarative_authorization'
 
-gem 'client_side_validations', '3.2.1', :git => 'https://github.com/bcardarella/client_side_validations.git'
+# gem 'client_side_validations', '3.2.1', :git => 'https://github.com/bcardarella/client_side_validations.git'
 
 gem 'simple_form'
 

@@ -61,7 +61,7 @@ class ScheduleregsController < ApplicationController
     @schedule = Schedule.find(params[:schedulereg][:current_schedule_id])
     # if number of children already signed up is equal to or greater than the class
     #   capacity, set the "wait" flag to yes..
-    binding.pry
+    # binding.pry
     if @schedule.number >= @schedule.size
       @schedulereg.wait = 'Y'
     end  

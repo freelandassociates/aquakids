@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131012200643) do
+ActiveRecord::Schema.define(:version => 20131029231309) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20131012200643) do
     t.string   "continuance"
     t.date     "payment_due_date"
     t.integer  "level_id"
+    t.string   "wait"
   end
 
   create_table "schedules", :force => true do |t|

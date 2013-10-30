@@ -58,6 +58,13 @@ class ScheduleregsController < ApplicationController
     @schedulereg.exit_date = params[:schedulereg][:exit_date]
     @schedulereg.referral_id = params[:schedulereg][:referral_id]
     @schedulereg.referred_by = params[:schedulereg][:referred_by]
+    @schedule = Schedule.find(params[:schedulereg][:current_schedule_id])
+    # if number of children already signed up is equal to or greater than the class
+    #   capacity, set the "wait" flag to yes..
+    binding.pry
+    if @schedule.number >= @schedule.size
+      @schedulereg.wait = 'Y'
+    end  
 
     # Check if schedulereg object is valid and if not, add errors as json to errors hash
     if (@schedulereg.invalid?)

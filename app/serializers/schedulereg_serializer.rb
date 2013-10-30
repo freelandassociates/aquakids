@@ -32,7 +32,12 @@ class ScheduleregSerializer < ActiveModel::Serializer
              :promoted_to,
              :payment_due_date,
              :user
-              
+  
+  def special
+    if object.wait == 'Y'
+      "Waitlist"
+    end
+  end            
 
   def child_last_name
     object.child.last_name

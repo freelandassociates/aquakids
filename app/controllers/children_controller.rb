@@ -23,8 +23,20 @@ class ChildrenController < ApplicationController
 
   # GET /children/1
   # GET /children/1.json
-  def childrenByParent
+  def childrenByParentForSchedule
     @child = Child.find_all_by_parent_id(params[:parent_id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @child }
+    end
+  end
+
+  def childrenForSchedule
+    # Find all Child objects that are NOT already on scheduleregs for this schedule_id..
+    @child = Child.all
+    @schedule = Schedule.find(params[:schedule_id])
+    # binding.pry
 
     respond_to do |format|
       format.html # show.html.erb

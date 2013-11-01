@@ -73,6 +73,7 @@ class ScheduleregsController < ApplicationController
       #   @errors = @errors.except!(:child_id)
       # end
     end
+    # binding.pry
 
     # If parent Id is blank
     if (params[:schedulereg][:parent_id].blank?)
@@ -122,12 +123,14 @@ class ScheduleregsController < ApplicationController
         # @errors.keys.each { |k| @errors[ mappings[k] ] = @errors.delete(k) if mappings[k] }
       end
 
+      # Remove parent_id and child_id errors..
+      @errors = @errors.except!(:child_id)
+
     end
 
-    # Remove parent_id and child_id errors..
-    @errors = @errors.except!(:child_id)
     #@errors = @errors.except!(:parent_id)
 
+    
     # If errors hash is empty
     if (@errors.empty?) 
       

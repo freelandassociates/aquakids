@@ -53,7 +53,9 @@ $(function () {
         .find('option')
         .remove();
       // ...
-      $.ajax({url:"children.json",success:function(children){
+      var schedule = $('#schedulereg_current_schedule_id').val();
+      // alert(schedule);
+      $.ajax({url:"children/childrenForSchedule.json?schedule_id=" + schedule ,success:function(children){
         var toAppend = '<option value="">Select child</option>';
         // console.log(children);
         // console.log(children.children.length);
@@ -244,7 +246,8 @@ $(function () {
           .find('option')
           .remove();
         // and replace with children of the selected parent.
-        $.ajax({url: "children.json" ,success:function(children){
+        var schedule = $("#schedulereg_current_schedule_id").val();
+        $.ajax({url: "children/childrenForSchedule.json?schedule_id=" + schedule  ,success:function(children){
           var toAppend = '<option value="">Select child</option>';
           console.log(children.children);
           console.log(children.children.length);
@@ -296,7 +299,7 @@ $(function () {
             .find('option')
             .remove();
           // and replace with children of the selected parent.
-          $.ajax({url: "children/childrenByParent.json?parent_id=" + parent ,success:function(children){
+          $.ajax({url: "children/childrenByParentForSchedule.json?parent_id=" + parent ,success:function(children){
             var toAppend = '<option value="">Select child</option>';
             // console.log(children.children);
             // console.log(children.children.length);

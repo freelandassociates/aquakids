@@ -20,7 +20,9 @@ Aquakids::Application.routes.draw do
 
   get "/scheduleregs/refresh_flash"
 
-  get "/children/childrenByParent"
+  get "/children/childrenByParentForSchedule"
+  
+  get "/children/childrenForSchedule"
   
   resources :copyclasses do
     collection do

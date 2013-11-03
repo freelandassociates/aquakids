@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f543ad6e-7a09-4748-96bc-5991275e9030" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/aquakids.iml" afterPath="$PROJECT_DIR$/.idea/aquakids.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/child.rb" afterPath="$PROJECT_DIR$/app/models/child.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/registration.rb" afterPath="$PROJECT_DIR$/app/models/registration.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/registrations_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/registrations_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/children_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/children_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/teacher.rb" afterPath="$PROJECT_DIR$/app/models/teacher.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/schedulereg.rb" afterPath="$PROJECT_DIR$/app/models/schedulereg.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/scheduleregs_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/scheduleregs_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/schedules.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/schedules.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aquakids.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1376912636142" ignored="false" />
+    <file path="/Dummy.txt" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1383311203956" ignored="false" />
     <file path="/user.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363974690956" ignored="false" />
     <file path="/parent.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363975011404" ignored="false" />
     <file path="/relationship.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1363974981294" ignored="false" />
@@ -51,6 +51,7 @@
     <file path="/application.html.erb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1366131432865" ignored="false" />
     <file path="/schedules.js" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1367615653432" ignored="false" />
     <file path="/schedules_controller.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1367700243543" ignored="false" />
+    <file path="/scheduleregs_controller.rb" changelist="f543ad6e-7a09-4748-96bc-5991275e9030" time="1380843599414" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +76,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="registrations_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
+      <file leaf-file-name="scheduleregs_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/scheduleregs_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="12" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0">
+            <state line="168" column="0" selection-start="5717" selection-end="5717" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -87,7 +88,7 @@
       <file leaf-file-name="implicit_render.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.13/lib/action_controller/metal/implicit_render.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="43" selection-start="376" selection-end="376" vertical-scroll-proportion="0.7356948">
+            <state line="4" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.17964073">
               <folding />
             </state>
           </provider>
@@ -115,7 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/javascripts/autoclasses.js" />
         <option value="$PROJECT_DIR$/config/initializers/validates_timeliness.rb" />
         <option value="$PROJECT_DIR$/app/models/autoclass.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
@@ -131,6 +131,7 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/schedules.js" />
         <option value="$PROJECT_DIR$/app/controllers/schedules_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/scheduleregs_controller.rb" />
       </list>
     </option>
   </component>
@@ -172,6 +173,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,7 +254,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -570,17 +571,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1276" height="778" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20894308" sideWeight="0.6255507" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31219512" sideWeight="0.58002937" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33480176" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3089431" sideWeight="0.53001463" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37774524" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41997063" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46998537" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -653,146 +654,103 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/registrations_controller.rb</url>
-          <line>4</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/app/controllers/scheduleregs_controller.rb</url>
+          <line>52</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/registrations_controller.rb</url>
-          <line>26</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/registrations_controller.rb</url>
-          <line>42</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/registrations_controller.rb</url>
-          <line>46</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/registrations_controller.rb</url>
-          <line>50</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/app/controllers/scheduleregs_controller.rb</url>
+          <line>69</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="14" />
+      <option name="time" value="20" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/activesupport-3.2.13/lib/active_support/callbacks.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="409" column="0" selection-start="13494" selection-end="13494" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.13/lib/action_dispatch/middleware/reloader.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="2443" selection-end="2443" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.13/lib/action_dispatch/middleware/debug_exceptions.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="833" selection-end="833" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="26" column="0" selection-start="833" selection-end="833" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.13/lib/action_dispatch/middleware/show_exceptions.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="2658" selection-end="2658" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="60" column="0" selection-start="2658" selection-end="2658" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/railties-3.2.13/lib/rails/rack/logger.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="33" column="0" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/eventmachine-1.0.3/lib/eventmachine.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1469" column="0" selection-start="56329" selection-end="56329" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="1469" column="0" selection-start="56329" selection-end="56329" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/thin-1.5.1/lib/thin/connection.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="79" selection-start="863" selection-end="866" vertical-scroll-proportion="0.06169666">
-          <folding />
-        </state>
+        <state line="30" column="79" selection-start="863" selection-end="866" vertical-scroll-proportion="0.06169666" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/railties-3.2.13/lib/rails/rack/log_tailer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="440" selection-end="440" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="18" column="0" selection-start="440" selection-end="440" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.5/lib/rack/content_length.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="717" selection-end="717" vertical-scroll-proportion="0.6268657">
-          <folding />
-        </state>
+        <state line="29" column="0" selection-start="717" selection-end="717" vertical-scroll-proportion="0.6268657" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.5/lib/rack/lock.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="440" selection-end="440" vertical-scroll-proportion="0.64705884">
-          <folding />
-        </state>
+        <state line="20" column="0" selection-start="440" selection-end="440" vertical-scroll-proportion="0.64705884" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/activesupport-3.2.13/lib/active_support/cache/strategy/local_cache.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="0" selection-start="2116" selection-end="2116" vertical-scroll-proportion="0.3131068">
-          <folding />
-        </state>
+        <state line="73" column="0" selection-start="2116" selection-end="2116" vertical-scroll-proportion="0.3131068" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/rack-1.4.5/lib/rack/runtime.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="662" selection-end="662" vertical-scroll-proportion="0.64705884">
-          <folding />
-        </state>
+        <state line="23" column="0" selection-start="662" selection-end="662" vertical-scroll-proportion="0.64705884" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.13/lib/action_dispatch/middleware/request_id.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.3131068">
-          <folding />
-        </state>
+        <state line="24" column="0" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.3131068" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/activesupport-3.2.13/lib/active_support/tagged_logging.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="970" selection-end="970" vertical-scroll-proportion="0.31529412">
-          <folding />
-        </state>
+        <state line="23" column="0" selection-start="970" selection-end="970" vertical-scroll-proportion="0.31529412" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.13/lib/action_controller/metal/rescue.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="12" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0">
+        <state line="30" column="0" selection-start="1023" selection-end="1023" vertical-scroll-proportion="0.6870229" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="632" selection-end="632" vertical-scroll-proportion="0.73282444" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/scheduleregs_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="168" column="0" selection-start="5717" selection-end="5717" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.13/lib/action_controller/metal/implicit_render.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="43" selection-start="376" selection-end="376" vertical-scroll-proportion="0.7356948">
+        <state line="4" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.17964073">
           <folding />
         </state>
       </provider>

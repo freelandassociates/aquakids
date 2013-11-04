@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :role_id, :location_id
   # attr_accessible :title, :body
   
-  validates_presence_of :username, :role_id, :email
+  validates_presence_of :username, :email
 
   def role_symbols
     if self.role  

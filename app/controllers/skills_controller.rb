@@ -1,4 +1,6 @@
 class SkillsController < ApplicationController
+  filter_resource_access
+  
   # GET /skills
   # GET /skills.json
   def index

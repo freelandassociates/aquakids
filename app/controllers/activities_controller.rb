@@ -1,4 +1,6 @@
 class ActivitiesController < ApplicationController
+  filter_resource_access
+  
   # GET /activities
   # GET /activities.json
   def index

@@ -1,4 +1,6 @@
 class ZonesController < ApplicationController
+  filter_resource_access
+  
   # GET /zones
   # GET /zones.json
   def index

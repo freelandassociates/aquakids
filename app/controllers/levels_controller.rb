@@ -1,4 +1,6 @@
 class LevelsController < ApplicationController
+  filter_resource_access
+  
   # GET /levels
   # GET /levels.json
   def index

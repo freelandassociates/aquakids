@@ -1,4 +1,6 @@
 class TypesController < ApplicationController
+  filter_resource_access
+  
   # GET /types
   # GET /types.json
   def index

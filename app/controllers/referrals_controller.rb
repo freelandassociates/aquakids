@@ -1,4 +1,6 @@
 class ReferralsController < ApplicationController
+  filter_resource_access
+  
   # GET /referrals
   # GET /referrals.json
   def index

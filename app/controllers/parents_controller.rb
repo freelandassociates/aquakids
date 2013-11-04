@@ -1,4 +1,6 @@
 class ParentsController < ApplicationController
+  filter_resource_access
+
   # GET /parents
   # GET /parents.json
   def index

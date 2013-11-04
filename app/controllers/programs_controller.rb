@@ -1,4 +1,6 @@
 class ProgramsController < ApplicationController
+  filter_resource_access
+
   # GET /programs
   # GET /programs.json
   def index

@@ -1,4 +1,6 @@
 class TeachersController < ApplicationController
+  filter_resource_access
+  
   # GET /teachers
   # GET /teachers.json
   def index

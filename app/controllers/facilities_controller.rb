@@ -1,4 +1,6 @@
 class FacilitiesController < ApplicationController
+  filter_resource_access
+
   # GET /facilities
   # GET /facilities.json
   def index

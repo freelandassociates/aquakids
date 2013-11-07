@@ -8,6 +8,7 @@ authorization do
 	role :Corporate do
 		has_permission_on :activities, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :facilities, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
+		has_permission_on :levels, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :locations, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :parents, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :programs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
@@ -23,6 +24,7 @@ authorization do
 	role :Manager do
 		has_permission_on :activities, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :facilities, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
+		has_permission_on :levels, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
 		has_permission_on :locations, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :parents, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :programs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
@@ -37,6 +39,7 @@ authorization do
 	role :Office do
 		has_permission_on :activities, :to => [:index, :show]		
 		has_permission_on :facilities, :to => [:index, :show]		
+		has_permission_on :levels, :to => [:index, :show]
 		has_permission_on :locations, :to => [:index, :show]		
 		has_permission_on :parents, :to => [:index, :show]		
 		has_permission_on :programs, :to => [:index, :show]		
@@ -51,7 +54,8 @@ authorization do
 
 	role :Trainee do
 		has_permission_on :activities, :to => [:index, :show]		
-		has_permission_on :facilities, :to => [:index, :show]		
+		has_permission_on :facilities, :to => [:index, :show]
+		has_permission_on :levels, :to => [:index, :show]		
 		has_permission_on :locations, :to => [:index, :show]		
 		has_permission_on :parents, :to => [:index, :show]		
 		has_permission_on :programs, :to => [:index, :show]		

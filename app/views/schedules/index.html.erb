@@ -68,6 +68,7 @@
       <%= f.input :child_first_name, as: :string %>
       <%= f.input :child_last_name, as: :string %> 
       <%= f.input :child_date_of_birth, as: :string %>
+      <%= f.input :child_sex, collection: [:Male, :Female], as: :radio_buttons, label: "Gender" %>
       <%= f.input :child_notes, as: :string %>
       <%= f.input :entry_date, as: :string %>
       <%= f.input :exit_date, as: :string %>

@@ -66,6 +66,10 @@
 	// background-color: gray;
 }
 
+#registrationModal {
+	top: 20px !important;
+}
+
 #registrationModal .control-group {
 	// width: 103px;
 	margin-bottom: 10px;
@@ -135,6 +139,18 @@ div .schedule_start_date, div .schedule_stop_date, div .schedule_start_time, div
 
 #schedule_start_date, #schedule_stop_date, #schedule_start_time, #schedule_stop_time, #schedule_size {
 	width: 80px;
+}
+
+div .schedulereg_child_sex {
+	display: inline-block;
+}
+
+div .schedulereg_child_notes {
+	width: 800px;
+}
+
+#schedulereg_child_notes {
+	width: 605px;
 }
 
 // .selectAll {

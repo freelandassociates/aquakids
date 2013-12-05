@@ -53,7 +53,28 @@ class ScheduleregSerializer < ActiveModel::Serializer
 
   def child_age
     now = Time.now.utc.to_date
-    now.year - object.child.date_of_birth.year - ((now.month > object.child.date_of_birth.month || (now.month == object.child.date_of_birth.month && now.day >= object.child.date_of_birth.day)) ? 0 : 1)
+    @age_in_years = now.year - object.child.date_of_birth.year - ((now.month > object.child.date_of_birth.month || (now.month == object.child.date_of_birth.month && now.day >= object.child.date_of_birth.day)) ? 0 : 1)
+    if @age_in_years < 1
+      # "less than one" 
+      # ((now.year - object.child.date_of_birth.year) * 12) + (now.month - object.child.date_of_birth.month)
+      @age_in_months = now.month - object.child.date_of_birth.month
+      if now.day < object.child.date_of_birth.day
+        @age_in_months = @age_in_months - 1
+      end
+      # Cater for 0 or negative value as overlapping year end and add 12 to correct value
+      if @age_in_months < 1
+        @age_in_months = @age_in_months + 12
+      end
+      return @age_in_months.to_s + " mo"
+    else
+      # (now - object.child.date_of_birth).to_i/36.525.round
+      @age_in_years = ((now - object.child.date_of_birth).to_i/36.525).round/10.0
+      if @age_in_years.to_s.include?(".0")
+        @age_in_years.to_s[0..-3] + " yrs"
+      else
+        @age_in_years.to_s + " yrs"
+      end
+    end
   end
 
   def child_sex

@@ -48,6 +48,23 @@ $(function () {
       $("#schedulereg_entry_date").val("");
       $("#schedulereg_exit_date").val("");
 
+      // Also reload Parent dropdown with all parents..
+      $('#schedulereg_parent_id')
+        .find('option')
+        .remove();
+      // ...
+      // var schedule = $('#schedulereg_current_schedule_id').val();
+      // alert(schedule);
+      $.ajax({url:"parents.json" ,success:function(parents){
+        var toAppend = '<option value="">Select parent</option>';
+        // alert(parents.parents.length);
+        for(i=0; i<parents.parents.length; i++) {
+          toAppend += '<option value="'+ parents.parents[i].id +'">' + parents.parents[i].last_name + ', ' + parents.parents[i].first_name + '</option>';
+        }
+        // alert(toAppend);
+        $('#schedulereg_parent_id').append(toAppend);
+      }});
+
       // Also reload Child dropdown with all children..
       $('#schedulereg_child_id')
         .find('option')
@@ -207,6 +224,19 @@ $(function () {
           $("#schedulereg_child_date_of_birth").attr('disabled','disabled');
           $("#schedulereg_child_notes").val(result['notes']);
           $("#schedulereg_child_notes").attr('disabled','disabled');
+          // alert(result['sex']);
+          if (result['sex'] == "Male") {
+            $("#schedulereg_child_sex_male").attr('checked', true);
+            $("#schedulereg_child_sex_female").attr('checked', false);
+          } else {
+            $("#schedulereg_child_sex_female").attr('checked', false);
+            $("#schedulereg_child_sex_female").attr('checked', true);
+          }
+          // $("#schedulereg_child_sex").val(result['sex']);
+          // $("#schedulereg_child_sex[value=").val(result['sex']);
+          // $("input[name=schedulereg[children_sex]][value=female]").attr('checked', 'checked');
+          // $("input[name=mygroup][value=" + value + "]").attr('checked', 'checked');
+          // $("#schedulereg_child_sex").attr('disabled','disabled');
           }});
       }
 

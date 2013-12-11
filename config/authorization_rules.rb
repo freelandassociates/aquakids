@@ -72,7 +72,7 @@ authorization do
 	end
 
 	role :guest do
-		# has_permission_on :users, :to => [:index, :show]	
+		# has_permission_on :parents, :to => [:index, :show]	
 	end
 
 end

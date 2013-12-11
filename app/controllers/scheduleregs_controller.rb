@@ -108,7 +108,9 @@ class ScheduleregsController < ApplicationController
       @child.date_of_birth = params[:schedulereg][:child_date_of_birth]
       @child.notes = params[:schedulereg][:child_notes]
       @child.parent_id = params[:schedulereg][:parent_id]
-      
+      @child.sex = params[:schedulereg][:child_sex]
+      # binding.pry
+
       # Check child is valid and if not, add errors as json to error hash. 
       if (@child.invalid?)
         # @child_errors = @child.errors.except!(:parent_id)

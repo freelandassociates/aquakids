@@ -17,7 +17,8 @@ authorization do
 		has_permission_on :skills, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :teachers, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :types, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
-		has_permission_on :users, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
+		# has_permission_on :users, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
+		has_permission_on :users, :to => [:index, :show, :edit, :update, :destroy]		
 		has_permission_on :zones, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 	end
 

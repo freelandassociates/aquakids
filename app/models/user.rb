@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     	# [:parent] if self.role.role = "Parent"
       return ["#{self.role.role}".to_sym]      
     else
-      return :guest
+      return [:guest]
     end
 
      # return ["#{self.role}".to_sym]

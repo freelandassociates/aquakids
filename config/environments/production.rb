@@ -20,6 +20,22 @@ Aquakids::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Don't care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = true
+
+  # Configure mail delivery methods
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.mandrillapp.com",
+    :port => 587,
+    :domain => "freelandassociates.com",
+    :authentication => :login,
+    user_name: "paul.simpsonparry@freelandassociates.com",
+    password: "la3Q5WyeRCIqgGScWM22yA"
+  }
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 

@@ -36,6 +36,10 @@ Aquakids::Application.configure do
     password: "la3Q5WyeRCIqgGScWM22yA"
   }
 
+
+  # Action Mailer default URL (Added for Devise)
+  config.action_mailer.default_url_options = { :host => '192.241.189.150' }
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 

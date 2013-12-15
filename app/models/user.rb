@@ -38,4 +38,20 @@ class User < ActiveRecord::Base
     Thread.current[:user] = user
   end
 
+  # devise create method overriden
+  def create
+    welcome_message
+    super
+  end
+
+private
+
+  def welcome_message
+    # Devise::Mailer.welcome_message(self).deliver
+    UserMailer.welcome_message(self).deliver
+  end
+
 end
+
+
+

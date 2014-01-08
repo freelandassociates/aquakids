@@ -7,13 +7,18 @@ authorization do
 
 	role :Corporate do
 		has_permission_on :activities, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
+		has_permission_on :autoclasses, :to => [:show, :create]		
+		has_permission_on :children, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+		has_permission_on :copyclasses, :to => [:copy]		
 		has_permission_on :facilities, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :levels, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :locations, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :parents, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :programs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :referrals, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
-		has_permission_on :roles, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
+		has_permission_on :roles, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+		has_permission_on :schedules, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+		has_permission_on :scheduleregs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
 		has_permission_on :skills, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :teachers, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :types, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
@@ -23,7 +28,10 @@ authorization do
 	end
 
 	role :Manager do
-		has_permission_on :activities, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
+		has_permission_on :activities, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+		has_permission_on :autoclasses, :to => [:show, :create]
+		has_permission_on :children, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+		has_permission_on :copyclasses, :to => [:copy]
 		has_permission_on :facilities, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :levels, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
 		has_permission_on :locations, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
@@ -31,6 +39,8 @@ authorization do
 		has_permission_on :programs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :referrals, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :roles, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
+		has_permission_on :schedules, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+		has_permission_on :scheduleregs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
 		has_permission_on :skills, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :teachers, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :types, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
@@ -39,6 +49,7 @@ authorization do
 
 	role :Office do
 		has_permission_on :activities, :to => [:index, :show]		
+		has_permission_on :children, :to => [:index, :show]		
 		has_permission_on :facilities, :to => [:index, :show]		
 		has_permission_on :levels, :to => [:index, :show]
 		has_permission_on :locations, :to => [:index, :show]		
@@ -46,6 +57,8 @@ authorization do
 		has_permission_on :programs, :to => [:index, :show]		
 		has_permission_on :referrals, :to => [:index, :show]		
 		has_permission_on :roles, :to => [:index, :show]		
+		has_permission_on :schedules, :to => [:index, :show]
+		has_permission_on :scheduleregs, :to => [:index, :show]
 		has_permission_on :skills, :to => [:index, :show]		
 		has_permission_on :teachers, :to => [:index, :show]		
 		has_permission_on :types, :to => [:index, :show]		
@@ -54,14 +67,17 @@ authorization do
 	end
 
 	role :Trainee do
-		has_permission_on :activities, :to => [:index, :show]		
+		has_permission_on :activities, :to => [:index, :show]
+		has_permission_on :children, :to => [:index, :show]		
 		has_permission_on :facilities, :to => [:index, :show]
 		has_permission_on :levels, :to => [:index, :show]		
 		has_permission_on :locations, :to => [:index, :show]		
 		has_permission_on :parents, :to => [:index, :show]		
 		has_permission_on :programs, :to => [:index, :show]		
 		has_permission_on :referrals, :to => [:index, :show]		
-		has_permission_on :roles, :to => [:index, :show]		
+		has_permission_on :roles, :to => [:index, :show]
+		has_permission_on :schedules, :to => [:index, :show]
+		has_permission_on :scheduleregs, :to => [:index, :show]		
 		has_permission_on :skills, :to => [:index, :show]		
 		has_permission_on :teachers, :to => [:index, :show]		
 		has_permission_on :types, :to => [:index, :show]		

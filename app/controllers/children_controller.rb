@@ -1,4 +1,8 @@
 class ChildrenController < ApplicationController
+  filter_access_to :all
+  filter_access_to :childrenByParentForSchedule, :require => :show
+  filter_access_to :childrenForSchedule, :require => :show
+
   # GET /children
   # GET /children.json
   def index

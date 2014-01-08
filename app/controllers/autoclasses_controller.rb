@@ -1,4 +1,7 @@
 class AutoclassesController < ApplicationController
+  filter_access_to :all
+  filter_access_to :autoclass, :require => :show
+  filter_access_to :create_schedules, :require => :create
 
   def autoclass
     @autoclass = Autoclass.new

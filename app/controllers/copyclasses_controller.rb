@@ -1,4 +1,8 @@
 class CopyclassesController < ApplicationController
+  # filter_access_to :all
+  filter_access_to :copy_classes, :require => :copy
+  filter_access_to :copy_classes_update, :require => :copy
+  
 
   def copy_classes
     @schedules = Schedule.find(params[:schedule_ids])

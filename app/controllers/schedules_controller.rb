@@ -1,4 +1,9 @@
 class SchedulesController < ApplicationController
+  filter_access_to :all
+  filter_access_to :ransack_read_only_search, :require => :show
+  filter_access_to :ransack_search, :require => :show
+  filter_access_to :delete_many, :require => :destroy
+
   # GET /schedules
   # GET /schedules.json
   def index

@@ -1,4 +1,7 @@
 class ScheduleregsController < ApplicationController
+  filter_access_to :all
+  filter_access_to :registrations_by_schedule, :require => :show
+
   # GET /registrations
   # GET /registrations.json
   def index
@@ -219,8 +222,8 @@ class ScheduleregsController < ApplicationController
     end
   end
 
-  def refresh_flash
-    render :partial => "layouts/flashmessages"
-  end
+  # def refresh_flash
+  #   render :partial => "layouts/flashmessages"
+  # end
 
 end

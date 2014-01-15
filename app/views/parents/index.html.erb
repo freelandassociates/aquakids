@@ -37,7 +37,7 @@
     <% @parents.each do |parent| %>
       <tr>
         <td><%= link_to parent.id, parent_path(parent) %></td>
-        <!-- <td><%= parent.location.name %></td> -->
+        <td><%= parent.location.name if !parent.location.nil? %></td> 
         <td><%= parent.first_name %></td>
         <td><%= parent.last_name %></td>
         <td><%= parent.address_1 %></td>

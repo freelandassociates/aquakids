@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:location) %></th>
+      <!-- <th><%= model_class.human_attribute_name(:location) %></th> -->
       <th><%= model_class.human_attribute_name(:first_name) %></th>
       <th><%= model_class.human_attribute_name(:last_name) %></th>
       <th><%= model_class.human_attribute_name(:address_1) %></th>
@@ -37,7 +37,7 @@
     <% @parents.each do |parent| %>
       <tr>
         <td><%= link_to parent.id, parent_path(parent) %></td>
-        <td><%= parent.location.name %></td>
+        <!-- <td><%= parent.location.name %></td> -->
         <td><%= parent.first_name %></td>
         <td><%= parent.last_name %></td>
         <td><%= parent.address_1 %></td>

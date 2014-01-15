@@ -8,6 +8,8 @@
   <dd><%= @parent.first_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
   <dd><%= @parent.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
+  <dd><%= @parent.location.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:address_1) %>:</strong></dt>
   <dd><%= @parent.address_1 %></dd>
   <dt><strong><%= model_class.human_attribute_name(:address_2) %>:</strong></dt>

@@ -23,6 +23,8 @@ Aquakids::Application.routes.draw do
   get "/children/childrenByParentForSchedule"
   
   get "/children/childrenForSchedule"
+
+  get "/parents/parentsByLocation"  
   
   resources :copyclasses do
     collection do

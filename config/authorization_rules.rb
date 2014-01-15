@@ -17,7 +17,7 @@ authorization do
 		has_permission_on :programs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :referrals, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :roles, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
-		has_permission_on :schedules, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+		has_permission_on :schedules, :to => [:index, :show, :new, :create, :edit, :update, :destroy, :classes]
 		has_permission_on :scheduleregs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
 		has_permission_on :skills, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :teachers, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
@@ -39,7 +39,7 @@ authorization do
 		has_permission_on :programs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :referrals, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :roles, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
-		has_permission_on :schedules, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+		has_permission_on :schedules, :to => [:index, :show, :new, :create, :edit, :update, :destroy, :classes]
 		has_permission_on :scheduleregs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
 		has_permission_on :skills, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :teachers, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
@@ -89,7 +89,7 @@ authorization do
 	end
 
 	role :guest do
-		# has_permission_on :parents, :to => [:index, :show]	
+		has_permission_on :parents, :to => [:index, :show]	
 	end
 
 end

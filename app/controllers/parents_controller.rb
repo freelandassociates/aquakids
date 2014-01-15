@@ -12,6 +12,18 @@ class ParentsController < ApplicationController
     end
   end
 
+  # GET /parentsByLocation
+  # GET /parentsByLocation.json
+  def parentsByLocation
+    @parents = Parent.all
+    @parents = Parent.find_all_by_location_id(params[:location_id])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @parents }
+    end
+  end
+
   # GET /parents/1
   # GET /parents/1.json
   def show

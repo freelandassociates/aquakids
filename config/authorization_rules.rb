@@ -89,9 +89,9 @@ authorization do
 	end
 
 	role :guest do
-		has_permission_on :parents, :to => [:index, :show]	
-		has_permission_on :users, :to => [:index, :show, :edit, :update, :destroy]		
-		has_permission_on :locations, :to => [:index, :show, :edit, :update, :destroy]		
+		# has_permission_on :parents, :to => [:index, :show]	
+		# has_permission_on :users, :to => [:index, :show, :edit, :update, :destroy]		
+		# has_permission_on :locations, :to => [:index, :show, :edit, :update, :destroy]		
 
 	end
 

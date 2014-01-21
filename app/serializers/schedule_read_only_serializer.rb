@@ -16,6 +16,7 @@ class ScheduleReadOnlySerializer < ActiveModel::Serializer
               :friday,
               :saturday,
               :number,
+              :number_confirmed,
               :level_id,
               :absences, 
               :specials, 

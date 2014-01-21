@@ -55,6 +55,10 @@ class Schedule < ActiveRecord::Base
     scheduleregs.size
   end
 
+  def number_confirmed
+    # This is the number of children signed up for this class and confirmed (not on waitlist)
+    scheduleregs.size - scheduleregs.where(:wait => 'Y').size
+  end
 
   def check_days
     if %w(sunday monday tuesday wednesday thursday friday saturday).all?{|attr| self[attr].blank?}

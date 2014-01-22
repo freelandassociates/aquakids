@@ -92,6 +92,7 @@ class ScheduleregsController < ApplicationController
       @parent.zip = params[:schedulereg][:parent_zip]
       @parent.home_phone = params[:schedulereg][:parent_home_phone]
       @parent.cell_phone = params[:schedulereg][:parent_cell_phone]
+      @parent.location_id = params[:schedulereg][:location_id]
 
       # Check if parent is valid and if not, add errors as json to error hash
       if (@parent.invalid?)

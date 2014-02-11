@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require chosen-jquery
-//= require kendo.web.min
+//= require kendo.web
 //= require jquery.ui.all
 //= require bootstrap.min
 

@@ -1,5 +1,17 @@
 $(document).ready(function () {
 
+// function traceDate(msg, obj) {
+//     $("#flash-messages").append(msg + " : " + obj + "\n");
+// }
+
+// var date = new Date(2012, 8, 26, 12, 34, 56, 789);
+// var iso = JSON.stringify(date).replace(/"/g, '');
+// traceDate("Original date ", date);
+// traceDate("date as ISO8601 ", iso);
+// traceDate("kendo.parseDate ", kendo.parseDate(iso, "yyyy-MM-ddTHH:mm:ss.fffZ"));
+
+
+
     var checked = false;
     var firstTh = $( 'th.k-header:first');
     firstTh.append('<input id="selectall" class="selectAll" type="checkbox" />').click (function (event) {

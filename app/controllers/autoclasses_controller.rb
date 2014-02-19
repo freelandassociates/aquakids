@@ -40,7 +40,9 @@ class AutoclassesController < ApplicationController
         @schedule.saturday=@autoclass.saturday
 
         # If calculated end time is less than stop by time, save the schedule object
-        if @schedule.stop_time.strftime('%H:%M') <= @autoclass.stop_by_time
+        # binding.pry
+        # if @schedule.stop_time.strftime('%H:%M') <= @autoclass.stop_by_time
+        if Time.parse(@schedule.stop_time.strftime('%H:%M')) <= Time.parse(@autoclass.stop_by_time)
           if @schedule.save
             logger.info "CREATED: #{@schedule.attributes}"
           else

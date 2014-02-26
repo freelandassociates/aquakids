@@ -11,9 +11,9 @@
   <dt><strong><%= model_class.human_attribute_name(:day_of_week) %>:</strong></dt>
   <dd><%= @schedule.day_of_week %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_time) %>:</strong></dt>
-  <dd><%= @schedule.start_time %></dd>
+  <dd><%= @schedule.start_time.in_time_zone("US/Central") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:stop_time) %>:</strong></dt>
-  <dd><%= @schedule.stop_time %></dd>
+  <dd><%= @schedule.stop_time.in_time_zone("US/Central") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:size) %>:</strong></dt>
   <dd><%= @schedule.size %></dd>
   <dt><strong><%= model_class.human_attribute_name(:comments) %>:</strong></dt>

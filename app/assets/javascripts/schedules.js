@@ -517,10 +517,10 @@ $(document).ready(function () {
                     parse:function (response) {
                         $.each(response, function (idx, elem) {
                             if (elem.start_time && typeof elem.start_time === "string") {
-                                elem.start_time = kendo.parseDate(elem.start_time, "yyyy-MM-ddTHH:mm:ssZ");
+                                elem.start_time = kendo.parseDate(elem.start_time);
                             }
                             if (elem.stop_time && typeof elem.stop_time === "string") {
-                                elem.stop_time = kendo.parseDate(elem.stop_time, "yyyy-MM-ddTHH:mm:ssZ");
+                                elem.stop_time = kendo.parseDate(elem.stop_time);
                             }
                         });
                         return response;
@@ -605,10 +605,10 @@ $(document).ready(function () {
                     parse:function (response) {
                         $.each(response, function (idx, elem) {
                             if (elem.start_time && typeof elem.start_time === "string") {
-                                elem.start_time = kendo.parseDate(elem.start_time, "yyyy-MM-ddTHH:mm:ssZ");
+                                elem.start_time = kendo.parseDate(elem.start_time);
                             }
                             if (elem.stop_time && typeof elem.stop_time === "string") {
-                                elem.stop_time = kendo.parseDate(elem.stop_time, "yyyy-MM-ddTHH:mm:ssZ");
+                                elem.stop_time = kendo.parseDate(elem.stop_time);
                             }
                         });
                         return response;
@@ -664,7 +664,7 @@ $(document).ready(function () {
                     parse:function (response) {
                         $.each(response, function (idx, elem) {
                             if (elem.registration_date && typeof elem.registration_date === "string") {
-                                elem.registration_date = kendo.parseDate(elem.registration_date, "yyyy-MM-ddTHH:mm:ssZ");
+                                elem.registration_date = kendo.parseDate(elem.registration_date);
                             }
                         });
                         return response;

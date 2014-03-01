@@ -83,8 +83,8 @@ class SchedulesController < ApplicationController
   # POST /schedules.json
   def create
     @schedule = Schedule.new(params[:schedule])
-    @schedule.start_time = Time.zone.parse(params[:schedule][:start_time])
-    @schedule.stop_time = Time.zone.parse(params[:schedule][:stop_time])
+    # @schedule.start_time = Time.zone.parse(params[:schedule][:start_time])
+    # @schedule.stop_time = Time.zone.parse(params[:schedule][:stop_time])
 
     respond_to do |format|
       if @schedule.save

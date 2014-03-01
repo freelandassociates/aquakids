@@ -18,8 +18,8 @@ class AutoclassesController < ApplicationController
         # @schedule.day_of_week=@autoclass.day_of_week
         @schedule.size=@autoclass.size
         @schedule.start_date=@autoclass.start_date
-        # @schedule.start_time=@autoclass.start_at_time
-        @schedule.start_time=Time.zone.parse(@autoclass.start_at_time)
+        @schedule.start_time=@autoclass.start_at_time
+        # @schedule.start_time=Time.zone.parse(@autoclass.start_at_time)
         @schedule.start_time=@schedule.start_time + (@autoclass.class_length.to_i * (i - 1) * 60)
         @schedule.stop_date=@autoclass.stop_date
         @schedule.stop_time=@schedule.start_time + (@autoclass.class_length.to_i * 60)
@@ -43,7 +43,7 @@ class AutoclassesController < ApplicationController
         # If calculated end time is less than stop by time, save the schedule object
         # binding.pry
         # if @schedule.stop_time.strftime('%H:%M') <= @autoclass.stop_by_time
-        if Time.parse(@schedule.stop_time.strftime('%H:%M')) <= Time.zone.parse(@autoclass.stop_by_time)
+        if Time.parse(@schedule.stop_time.strftime('%H:%M')) <= Time.parse(@autoclass.stop_by_time)
           if @schedule.save
             logger.info "CREATED: #{@schedule.attributes}"
           else

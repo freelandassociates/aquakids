@@ -32,6 +32,7 @@ class Schedule < ActiveRecord::Base
 
   def self.default_scope
     # Case statement on location_id... needs refactoring but will work for now
+    if (!User.current.blank?) 
      case User.current.location_id 
       when 1
         where(:location_id => 1)
@@ -48,6 +49,9 @@ class Schedule < ActiveRecord::Base
       else
         nil
       end
+    else
+      nil
+    end
   end
 
   def number

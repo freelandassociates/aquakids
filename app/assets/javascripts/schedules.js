@@ -517,12 +517,12 @@ $(document).ready(function () {
                     parse:function (response) {
                         $.each(response, function (idx, elem) {
                             if (elem.start_time && typeof elem.start_time === "string") {
-                                // elem.start_time = kendo.parseDate(elem.start_time);
-                                elem.start_time = new Date(elem.start_time.getTime() + elem.start_time.getTimezoneOffset() * 60 * 1000);
+                                elem.start_time = kendo.parseDate(elem.start_time);
+                                var offsetTime = new Date(elem.start_time.getTime() + elem.start_time.getTimezoneOffset() * 60 * 1000);
+                                elem.start_time = offsetTime;
                             }
                             if (elem.stop_time && typeof elem.stop_time === "string") {
-                                // elem.stop_time = kendo.parseDate(elem.stop_time);
-                                elem.stop_time = new Date(elem.stop_time.getTime() + elem.stop_time.getTimezoneOffset() * 60 * 1000);                                
+                                elem.stop_time = kendo.parseDate(elem.stop_time);
                             }
                         });
                         return response;

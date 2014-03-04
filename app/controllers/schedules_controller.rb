@@ -105,6 +105,8 @@ class SchedulesController < ApplicationController
     # set start_time and stop_time parameters to correct db time format
     params[:schedule][:start_time] = DateTime.parse(params[:schedule][:start_time]).to_time
     params[:schedule][:stop_time] = DateTime.parse(params[:schedule][:stop_time]).to_time
+    logger.info "START_TIME: #{params[:schedule][:start_time]}"
+    logger.info "STOP_TIME: #{params[:schedule][:stop_time]}"
     # binding.pry
     # time.strftime("%Y-%m-%d %H:%M:%S")
     # binding.pry 

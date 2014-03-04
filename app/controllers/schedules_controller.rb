@@ -107,6 +107,7 @@ class SchedulesController < ApplicationController
     params[:schedule][:stop_time] = DateTime.parse(params[:schedule][:stop_time]).to_time
     logger.info "START_TIME: #{params[:schedule][:start_time]}"
     logger.info "STOP_TIME: #{params[:schedule][:stop_time]}"
+    logger.info "#{Time.zone.utc_offset}"
     # binding.pry
     # time.strftime("%Y-%m-%d %H:%M:%S")
     # binding.pry 

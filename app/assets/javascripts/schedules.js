@@ -842,7 +842,7 @@ function timeTurner(container, options) {
     $('<input data-text-field="' + options.field + '" data-value-field="' + options.field + '" data-bind="value:' + options.field + '"data-format="' + options.format + '"/>')
         .appendTo(container)
         .kendoTimePicker({
-          culture: "en-GB"
+          value: new Date(2011, 0, 1, 10, 30)
         });
 }
 

@@ -841,9 +841,7 @@ function dateEditor(container, options) {
 function timeTurner(container, options) {
     $('<input data-text-field="' + options.field + '" data-value-field="' + options.field + '" data-bind="value:' + options.field + '"data-format="' + options.format + '"/>')
         .appendTo(container)
-        .kendoTimePicker({
-        
-        });
+        .kendoTimePicker({});
 }
 
 

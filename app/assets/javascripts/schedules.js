@@ -4,6 +4,8 @@
 //     });
 // });
 
+
+
 $(function () {
     $(this).on('shown', function() {
       console.log('Shown now...');
@@ -841,7 +843,12 @@ function dateEditor(container, options) {
 function timeTurner(container, options) {
     $('<input data-text-field="' + options.field + '" data-value-field="' + options.field + '" data-bind="value:' + options.field + '"data-format="' + options.format + '"/>')
         .appendTo(container)
-        .kendoTimePicker({});
+        .kendoTimePicker({
+            change: function() {
+              var timevalue = this.value();
+              console.log(timevalue); //value is the selected date in the timepicker
+            }
+        });
 }
 
 

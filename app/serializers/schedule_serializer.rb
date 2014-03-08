@@ -32,17 +32,17 @@ class ScheduleSerializer < ActiveModel::Serializer
   #   0
   # end
 
-  def stop_time
-    # object.stop_time.utc + (Time.now.utc_offset)
-    # object.stop_time.to_s[0..9] + "T" + object.stop_time.to_s[11..18]
-    object.stop_time.to_s[11..18]
-  end
+  # def stop_time
+  #   # object.stop_time.utc + (Time.now.utc_offset)
+  #   # object.stop_time.to_s[0..9] + "T" + object.stop_time.to_s[11..18]
+  #   object.stop_time.to_s[11..18]
+  # end
 
-  def start_time
-    # object.start_time.utc + (Time.now.utc_offset)
-    # object.start_time.to_s[0..9] + "T" + object.start_time.to_s[11..18]
-    object.start_time.to_s[11..18]
-  end
+  # def start_time
+  #   # object.start_time.utc + (Time.now.utc_offset)
+  #   # object.start_time.to_s[0..9] + "T" + object.start_time.to_s[11..18]
+  #   object.start_time.to_s[11..18]
+  # end
 
 
   def absences

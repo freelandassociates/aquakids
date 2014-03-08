@@ -510,8 +510,10 @@ $(document).ready(function () {
                     },
                     parameterMap: function(schedule, type) {
                         if (type === "create" || type === "update") {
-                            var JSONstring = JSON.stringify({ schedule: schedule });
-                            console.log(JSONstring);
+                            var JSONstarttime = ({ schedule: schedule.start_time });
+                            var JSONstoptime = ({ schedule: schedule.stop_time });
+                            console.log(JSONstarttime);
+                            console.log(JSONstoptime);
                             return JSON.stringify({ schedule: schedule });
                         }
                     }

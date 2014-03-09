@@ -510,10 +510,31 @@ $(document).ready(function () {
                     },
                     parameterMap: function(schedule, type) {
                         if (type === "create" || type === "update") {
-                            var JSONstarttime = ({ schedule: schedule.start_time });
-                            var JSONstoptime = ({ schedule: schedule.stop_time });
-                            console.log(JSONstarttime);
-                            console.log(JSONstoptime);
+                            // Create JSONstarttime from schedule: schedule.start_time...
+                            var startHH = schedule['start_time'].getHours();
+                            var startMM = schedule['start_time'].getMinutes();
+                            var JSONstarttime = new Date(2000,1,1,startHH,startMM,0);
+                            // console.log(JSONstarttime);
+                            // Create JSONstoptime from schedule: schedule.stop_time...
+                            var stopHH = schedule['stop_time'].getHours();
+                            var stopMM = schedule['stop_time'].getMinutes();
+                            var JSONstoptime = new Date(2000,1,1,stopHH,stopMM,0);
+                            // console.log(JSONstoptime);
+                            var offsetStartTime = new Date(JSONstarttime.getTime() - JSONstarttime.getTimezoneOffset() * 60 * 1000);
+                            console.log(offsetStartTime);
+                            var offsetStopTime = new Date(JSONstoptime.getTime() - JSONstoptime.getTimezoneOffset() * 60 * 1000);
+                            console.log(offsetStopTime);
+                            
+                            var JSONstring = JSON.stringify({ schedule: schedule });
+                            console.log(JSONstring);
+                                                       
+                            // overwrite schedule: schedule.start_time with offsetStartTime...
+                            schedule['start_time'] = offsetStartTime;
+                            // overwrite schedule: schedule.stop_time with offsetStopTime...
+                            schedule['stop_time'] = offsetStopTime;
+                            var JSONstring = JSON.stringify({ schedule: schedule });
+                            console.log(JSONstring);
+                            
                             return JSON.stringify({ schedule: schedule });
                         }
                     }
@@ -849,8 +870,8 @@ function timeTurner(container, options) {
         .appendTo(container)
         .kendoTimePicker({
             change: function() {
-              var timevalue = this.value();
-              console.log(timevalue); //value is the selected date in the timepicker
+              // var timevalue = this.value();
+              // console.log(timevalue); //value is the selected date in the timepicker
             }
         });
 }

@@ -13,7 +13,7 @@ class Schedulereg < ActiveRecord::Base
 
   attr_accessible :comments, :entry_date, :exit_date, :child_id, :referral_id, :referred_by, :schedule_id, :location_id
   
-  validates_uniqueness_of :child_id, scope: :schedule_id
+  validates_uniqueness_of :child_id, scope: :schedule_id, message: "already registered for this class"
 
   validates_presence_of :entry_date, :exit_date, :child_id
 

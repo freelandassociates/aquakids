@@ -211,6 +211,7 @@ $(function () {
         $("#schedulereg_child_last_name").removeAttr('disabled');
         $("#schedulereg_child_date_of_birth").val("");
         $("#schedulereg_child_date_of_birth").removeAttr('disabled');
+        // re-enable Kendo date picker here..
         $("#schedulereg_child_notes").val("");
         $("#schedulereg_child_notes").removeAttr('disabled');
       } else {
@@ -224,6 +225,7 @@ $(function () {
           $("#schedulereg_child_last_name").attr('disabled','disabled');
           $("#schedulereg_child_date_of_birth").val(result['date_of_birth']);
           $("#schedulereg_child_date_of_birth").attr('disabled','disabled');
+          // disable Kendo date picker here..
           $("#schedulereg_child_notes").val(result['notes']);
           $("#schedulereg_child_notes").attr('disabled','disabled');
           // alert(result['sex']);
@@ -376,6 +378,11 @@ $(function() {
     });
 });
 
+$(function() {
+  return $('#schedulereg_child_date_of_birth').kendoDatePicker({
+        format: "yyyy-MM-dd"
+    });
+});
 
 $(function() {
 	return $('#q_start_date_gteq').kendoDatePicker({

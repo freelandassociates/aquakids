@@ -1,6 +1,7 @@
 class ScheduleregsController < ApplicationController
   filter_access_to :all
   filter_access_to :registrations_by_schedule, :require => :show
+  filter_access_to :flashrefresh, :require => :show
 
   # GET /registrations
   # GET /registrations.json
@@ -158,13 +159,17 @@ class ScheduleregsController < ApplicationController
       
       # Save the schedulereg
       @schedulereg.save
-      flash[:notice] = "Successfully registered."
+      if @schedulereg.wait = 'Y'  
+        flash[:warning] = "Child registered and added to wait list."
+      else
+        flash[:notice] = "Successfully registered."
+      end
 
       # Add flash notices to response header
-      response.headers['x-flash'] = flash[:notice]  unless flash[:notice].blank?
+      # response.headers['x-flash'] = flash[:notice]  unless flash[:notice].blank?
       # flash.discard
-    
-      # Send json back with errors hash
+
+      # Send json back as successful
       respond_to do |format|
         format.js   { render json: @errors, status: :ok }
       end      
@@ -179,6 +184,11 @@ class ScheduleregsController < ApplicationController
     end
 
   end
+
+  def flashrefresh
+    render :partial => "layouts/flashmessages"
+  end
+
 
   # PUT /registrations/1
   # PUT /registrations/1.json

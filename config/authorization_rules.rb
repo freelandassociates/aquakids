@@ -93,7 +93,7 @@ authorization do
 		# has_permission_on :users, :to => [:index, :show, :edit, :update, :destroy]		
 		# has_permission_on :locations, :to => [:index, :show, :edit, :update, :destroy]		
 		has_permission_on :schedules, :to => [:index, :show, :new, :create, :edit, :update, :destroy, :classes]
-
+		has_permission_on :scheduleregs, :to => [:show]		
 	end
 
 end

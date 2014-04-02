@@ -18,7 +18,7 @@ Aquakids::Application.routes.draw do
   
   get "/scheduleregs/registrations_by_schedule"
 
-  get "/scheduleregs/refresh_flash"
+  get "/scheduleregs/flashrefresh"
 
   get "/children/childrenByParentForSchedule"
   

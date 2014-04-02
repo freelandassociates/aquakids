@@ -1,10 +1,10 @@
 // $(function () {
 //     $(this).on($.modal.CLOSE, function(event, modal) {
-//       alert('Wow it workssss...');
+//       alert('Wow this works when the modal CLOSES');
 //     });
 // });
 
-
+// page.reload_flash
 
 $(function () {
     $(this).on('shown', function() {
@@ -105,8 +105,19 @@ $(function () {
     $(this).on('hidden', function() {
       console.log('Hidden...');
       // alert("Just hidden");
-
-      // $('#flash-messages').load('/scheduleregs/refresh_flash');
+      
+      var fmsg = $.ajax ({
+        url: "/scheduleregs/flashrefresh",
+        type: "GET",
+        complete: function(response, status) {
+          // $('#flash-messages').html(response);
+          console.log('Status:');
+          console.log(status);
+          console.log('Response');
+          console.log(response.responseText);
+          $('#flash-messages').html(response.responseText);
+        }
+      });
 
 
       // Refresh the detail grid...
@@ -368,19 +379,19 @@ $(function() {
 
 $(function() {
   return $('#schedulereg_entry_date').kendoDatePicker({
-        format: "yyyy-MM-dd"
+        format: "MM-dd-yyyy"
     });
 });
 
 $(function() {
   return $('#schedulereg_exit_date').kendoDatePicker({
-        format: "yyyy-MM-dd"
+        format: "MM-dd-yyyy"
     });
 });
 
 $(function() {
   return $('#schedulereg_child_date_of_birth').kendoDatePicker({
-        format: "yyyy-MM-dd"
+        format: "MM-dd-yyyy"
     });
 });
 

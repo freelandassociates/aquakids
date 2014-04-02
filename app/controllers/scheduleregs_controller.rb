@@ -159,7 +159,8 @@ class ScheduleregsController < ApplicationController
       
       # Save the schedulereg
       @schedulereg.save
-      if @schedulereg.wait = 'Y'  
+      # binding.pry
+      if @schedule.number > @schedule.size  
         flash[:warning] = "Child registered and added to wait list."
       else
         flash[:notice] = "Successfully registered."

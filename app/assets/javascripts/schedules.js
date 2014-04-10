@@ -42,6 +42,7 @@ $(function () {
       $("#schedulereg_child_last_name").removeAttr('disabled');
       $("#schedulereg_child_date_of_birth").val("");
       $("#schedulereg_child_date_of_birth").removeAttr('disabled');
+      $("#schedulereg_child_date_of_birth_user").val("");      
       $("#schedulereg_child_notes").val("");
       $("#schedulereg_child_notes").removeAttr('disabled');
 
@@ -222,6 +223,7 @@ $(function () {
         $("#schedulereg_child_last_name").removeAttr('disabled');
         $("#schedulereg_child_date_of_birth").val("");
         $("#schedulereg_child_date_of_birth").removeAttr('disabled');
+        $("#schedulereg_child_date_of_birth_user").val("");
         // re-enable Kendo date picker here..
         $("#schedulereg_child_notes").val("");
         $("#schedulereg_child_notes").removeAttr('disabled');
@@ -236,7 +238,10 @@ $(function () {
           $("#schedulereg_child_last_name").attr('disabled','disabled');
           $("#schedulereg_child_date_of_birth").val(result['date_of_birth']);
           $("#schedulereg_child_date_of_birth").attr('disabled','disabled');
-          // disable Kendo date picker here..
+          // here load #schedulereg_child_date_of_birth_user with mm/dd/yyyy date..
+          var r = result['date_of_birth'].match(/^\s*([0-9]+)\s*-\s*([0-9]+)\s*-\s*([0-9]+)(.*)$/);
+          $("#schedulereg_child_date_of_birth_user").val(r[2]+"/"+r[3]+"/"+r[1]+r[4]);
+
           $("#schedulereg_child_notes").val(result['notes']);
           $("#schedulereg_child_notes").attr('disabled','disabled');
           // alert(result['sex']);
@@ -336,6 +341,7 @@ $(function () {
           $("#schedulereg_child_last_name").removeAttr('disabled');
           $("#schedulereg_child_date_of_birth").val("");
           $("#schedulereg_child_date_of_birth").removeAttr('disabled');
+          $("#schedulereg_child_date_of_birth_user").val("");
           $("#schedulereg_child_notes").val("");
           $("#schedulereg_child_notes").removeAttr('disabled');
 
@@ -389,11 +395,11 @@ $(function() {
     });
 });
 
-$(function() {
-  return $('#schedulereg_child_date_of_birth').kendoDatePicker({
-        format: "MM-dd-yyyy"
-    });
-});
+// $(function() {
+//   return $('#schedulereg_child_date_of_birth').kendoDatePicker({
+//         format: "MM-dd-yyyy"
+//     });
+// });
 
 $(function() {
 	return $('#q_start_date_gteq').kendoDatePicker({

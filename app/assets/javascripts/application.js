@@ -16,6 +16,7 @@
 //= require kendo.web
 //= require jquery.ui.all
 //= require bootstrap.min
+//= require dates
 
 // (function() {
 //   $(document).ready(function() {

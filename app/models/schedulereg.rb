@@ -22,4 +22,18 @@ class Schedulereg < ActiveRecord::Base
 
   validates_date :exit_date
 
+  after_save :calculate_spaces
+
+  def calculate_spaces
+    # schedule.spaces = schedule.size - schedule.number_confirmed
+    # if schedule.number = 0
+    #   schedule.capacity = 'E'
+    # elsif schedule.number >= schedule.size
+    #   schedule.capacity = 'F'
+    # else
+    #   schedule.capacity = 'P'
+    # end
+    schedule.save
+  end
+
 end

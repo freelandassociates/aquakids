@@ -158,6 +158,7 @@ class ScheduleregsController < ApplicationController
       end
       
       # Save the schedulereg
+      # binding.pry
       @schedulereg.save
       # binding.pry
       if @schedule.number > @schedule.size  

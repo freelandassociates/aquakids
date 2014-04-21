@@ -103,12 +103,22 @@ div .schedulereg_child_notes {
 }
 
 div .schedulereg_entry_date {
-	width: 400px;
+	width: 430px;
+	float: left;
+}
+
+div #schedulereg_entry_date_user {
+	// width: 400px;
 	float: left;
 }
 
 div .schedulereg_exit_date {
-	width: 400px;
+	width: 430px;
+	float: left;
+}
+
+div #schedulereg_exit_date_user {
+	// width: 400px;
 	float: left;
 }
 

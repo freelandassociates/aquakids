@@ -30,6 +30,8 @@ class Schedule < ActiveRecord::Base
 
   before_validation :assign_day_of_week
 
+  before_validation :calculate_spaces
+
   def self.default_scope
     # Case statement on location_id... needs refactoring but will work for now
     if (!User.current.blank?) 
@@ -83,5 +85,16 @@ class Schedule < ActiveRecord::Base
     self.day_of_week = 1 if sunday?
   end
 
+  def calculate_spaces
+    self.spaces = self.size - self.number_confirmed
+    if self.number.equal?(0)
+      self.capacity = 'E'
+    elsif self.number >= self.size
+      self.capacity = 'F'
+    else
+      self.capacity = 'P'
+    end
+    # self.save
+  end
 
 end

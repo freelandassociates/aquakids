@@ -70,8 +70,8 @@
       <%= f.input :child_date_of_birth, :as => :datepicker %>
       <%= f.input :child_sex, collection: [:Male, :Female], as: :radio_buttons, label: "Gender" %>
       <%= f.input :child_notes, as: :string %>
-      <%= f.input :entry_date, as: :string %>
-      <%= f.input :exit_date, as: :string %>
+      <%= f.input :entry_date, :as => :datepicker %>
+      <%= f.input :exit_date, :as => :datepicker %>
       <%= f.input :current_schedule_id, as: :hidden %>
       <%= f.input :location_id, as: :hidden %>
   

@@ -96,8 +96,10 @@ $(function () {
       $("#schedulereg_current_schedule_id").val(current_schedule_id);
       $.ajax({url:"schedules/" + current_schedule_id + ".json",success:function(result){
         // console.log(result);
-        $("#schedulereg_entry_date").val(result['start_date']);
-        $("#schedulereg_exit_date").val(result['stop_date']);
+        var r = result['start_date'].match(/^\s*([0-9]+)\s*-\s*([0-9]+)\s*-\s*([0-9]+)(.*)$/);
+        $("#schedulereg_entry_date_user").val(r[2]+"/"+r[3]+"/"+r[1]+r[4]);
+        var r = result['stop_date'].match(/^\s*([0-9]+)\s*-\s*([0-9]+)\s*-\s*([0-9]+)(.*)$/);
+        $("#schedulereg_exit_date_user").val(r[2]+"/"+r[3]+"/"+r[1]+r[4]);
         $("#schedulereg_location_id").val(result['location_id']);
       }});
 
@@ -383,17 +385,27 @@ $(function() {
     });
 });
 
+// if any input in the search form changes, submit the search form..
 $(function() {
-  return $('#schedulereg_entry_date').kendoDatePicker({
-        format: "MM-dd-yyyy"
+    return $("form#schedule_search input").change(function() {
+        var qsrl = $("#schedule_search").serialize();
+        $("#datatable").data("kendoGrid").dataSource.read(qsrl);
     });
 });
 
-$(function() {
-  return $('#schedulereg_exit_date').kendoDatePicker({
-        format: "MM-dd-yyyy"
-    });
-});
+
+
+// $(function() {
+//   return $('#schedulereg_entry_date').kendoDatePicker({
+//         format: "MM-dd-yyyy"
+//     });
+// });
+
+// $(function() {
+//   return $('#schedulereg_exit_date').kendoDatePicker({
+//         format: "MM-dd-yyyy"
+//     });
+// });
 
 // $(function() {
 //   return $('#schedulereg_child_date_of_birth').kendoDatePicker({

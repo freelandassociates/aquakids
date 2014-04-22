@@ -70,9 +70,9 @@
     <%= f.collection_select :facility_id_in, Facility.all, :id, :name, {}, { size: Facility.all.length, multiple: true, class: 'chzn-select' } %>
   </div>
 
-  <div class="schedule_filter_field schedule_filter_field_narrow">
-    <%= f.label :spaces_eq, "Spaces" %>
-    <%= f.text_field :spaces_eq %>
+  <div class="schedule_filter_field schedule_filter_field_wide">
+    <%= f.label "Class Full?" %>
+    <%= f.collection_select :capacity_in, Capacity.all, :code, :name, {}, { size: Capacity.all.length, multiple: true, class: 'chzn-select' } %>
   </div>
 
   <div id='schedule_filter_buttons'>

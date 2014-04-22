@@ -98,8 +98,10 @@ $(function () {
         // console.log(result);
         var r = result['start_date'].match(/^\s*([0-9]+)\s*-\s*([0-9]+)\s*-\s*([0-9]+)(.*)$/);
         $("#schedulereg_entry_date_user").val(r[2]+"/"+r[3]+"/"+r[1]+r[4]);
+        $("#schedulereg_entry_date").val(result['start_date']);
         var r = result['stop_date'].match(/^\s*([0-9]+)\s*-\s*([0-9]+)\s*-\s*([0-9]+)(.*)$/);
         $("#schedulereg_exit_date_user").val(r[2]+"/"+r[3]+"/"+r[1]+r[4]);
+        $("#schedulereg_exit_date").val(result['stop_date']);
         $("#schedulereg_location_id").val(result['location_id']);
       }});
 

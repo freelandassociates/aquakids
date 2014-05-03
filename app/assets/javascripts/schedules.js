@@ -142,15 +142,34 @@ $(function () {
       var select = grid.select();
       // and now the data
       var data = grid.dataItem(select);
-      // console.log(data);
+      console.log("**** DATA ****");
+      console.log(data);
 
       // Ajax call to retrieve the latest version of the schedule record (specifically to retrieve the number of 
       //  children signed up)
-      // http://localhost:3000/schedules/131.json
-      $.ajax({url:"schedules/" + $("#detail_schedule_id").val() + ".json",success:function(result){
-        // $("#schedulereg_child_first_name").val(result['first_name']);
-        data.set("number", result['number']);
-      }});
+      var childers = $.ajax ({
+        url:"schedules/" + $("#detail_schedule_id").val() + ".json",
+        type: "GET",
+        success: function(response) {
+          console.log("**** Completed JSON response ****"); 
+          console.log(response);
+          // console.log("**** Completed JSON status ****");
+          // console.log(status);
+          console.log(response['number']);
+          data.set("number_confirmed", response['number_confirmed']);
+          grid.refresh();
+        }
+        // success:function(result){
+        //   // $("#schedulereg_child_first_name").val(result['first_name']);
+        //   console.log("**** JSON Success! ****");
+        //   console.log(result);
+        //   data.set("number", result['number']);
+        // },
+        // error:function(jqXHR, textStatus, errorThrown){
+        //   console.log("**** JSON Error! ****");
+        //   console.log(textStatus, errorThrown);
+        // }
+      });
 
       // update the column `symbol` and set its value to `HPQ`
       // data.set("number", 9);

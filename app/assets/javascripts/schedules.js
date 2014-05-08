@@ -8,7 +8,8 @@
 
 $(function () {
     $(this).on('shown', function() {
-      console.log('Shown now...');
+      // alert('Shown now...');
+      $('#registrationModal').css('margin-left',-420);
 
       // Clear all errors..
       $('.help-inline').remove();
@@ -108,8 +109,10 @@ $(function () {
     });
 
     $(this).on('hidden', function() {
-      console.log('Hidden...');
+      // console.log('Hidden...');
       // alert("Just hidden");
+      $('#registrationModal').css('margin-left',-9999);
+
       
       var fmsg = $.ajax ({
         url: "/scheduleregs/flashrefresh",

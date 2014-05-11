@@ -18,11 +18,11 @@ class SchedulesController < ApplicationController
 
   def ransack_read_only_search
     # @schedules = Schedule.all
-    binding.pry
+    # binding.pry
     if (params[:q]["capacity_in"].include? 'P')
       params[:q]["capacity_in"] = params[:q]["capacity_in"] | ["E"]
     end
-    binding.pry
+    # binding.pry
     @search = Schedule.search(params[:q])
     #@search = Schedule.search(:id_eq => 0)
     @schedules = @search.result.order('start_date, start_time')
@@ -46,6 +46,9 @@ class SchedulesController < ApplicationController
 
   def ransack_search
     # @schedules = Schedule.all
+    if (params[:q]["capacity_in"].include? 'P')
+      params[:q]["capacity_in"] = params[:q]["capacity_in"] | ["E"]
+    end
     @search = Schedule.search(params[:q])
     #@search = Schedule.search(:id_eq => 0)
     @schedules = @search.result.order('start_date, start_time')

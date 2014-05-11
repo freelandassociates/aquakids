@@ -36,9 +36,9 @@
         <%= link_to "Aquakids", root_path, :class => "brand" %>
         <div class="nav-collapse">
           <ul class="nav">
-
-            <%= render(:partial => "layouts/nav") %>
-
+            <% if user_signed_in? %>
+              <%= render(:partial => "layouts/nav") %>
+            <% end %>
           </ul>
         </div>
       </div>

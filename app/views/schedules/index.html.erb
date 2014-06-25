@@ -12,37 +12,20 @@
 <%= hidden_field_tag 'detail_schedule_id', '0' %>
 <%= hidden_field_tag 'selected_row_index', '0' %>
 
-<div id="datatable"></div>
-<br/>
-<div id="detailtable"></div>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_schedule_path,
             :class => 'btn btn-primary' %>
 
 <%= link_to 'AutoClass', { :controller => 'autoclasses', :action => 'autoclass' }, :class => 'btn' %>
 
- <!-- #submit_tag "New Registration", :id => "new_registration", :disabled => true, :class => 'btn', :onclick => 'submit_create_registration()' -->
-
-
-<!-- <div id="demo-form" class="demo-description" style="display: none; ">
-  <p>
-    The basic dialog window is an overlay positioned within the viewport and is protected from page content
-    (like select elements) shining through with an iframe. It has a title bar and a content area, and can be moved,
-    resized and closed with the 'x' icon by default.
-  </p>
-</div> -->
-
-<!-- %=  link_to_modal "Demo Form", "#demo-form", :class=>"button" %> -->
-
-
-<!-- %=  link_to "New Registration", "#", :id=>"new_registration", :class=>"btn disabled" %> -->
-<!-- %=  link_to "New Registration", "#", :id=>"new_registration", :class=>"btn disabled" %> -->
-
-<!-- submit_tag "CopyClass", :id => "copyclass", :disabled => true, :class => 'btn'  -->
-
 <!-- Button to trigger modal -->
 <a href="#" id="new_registration" role="button" class="btn disabled" data-toggle="modal">New Registration</a>
- 
+
+<div id="datatable"></div>
+<br/>
+<div id="detailtable"></div>
+
+
 <!-- Modal -->
 <div id="registrationModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">

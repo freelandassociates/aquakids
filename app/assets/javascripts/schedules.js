@@ -1,11 +1,3 @@
-// $(function () {
-//     $(this).on($.modal.CLOSE, function(event, modal) {
-//       alert('Wow this works when the modal CLOSES');
-//     });
-// });
-
-// page.reload_flash
-
 $(function () {
     $(this).on('shown', function() {
       // alert('Shown now...');
@@ -56,16 +48,12 @@ $(function () {
       $('#schedulereg_parent_id')
         .find('option')
         .remove();
-      // ...
-      // var schedule = $('#schedulereg_current_schedule_id').val();
-      // alert(schedule);
+
       $.ajax({url:"parents.json" ,success:function(parents){
         var toAppend = '<option value="">Select parent</option>';
-        // alert(parents.parents.length);
         for(i=0; i<parents.parents.length; i++) {
           toAppend += '<option value="'+ parents.parents[i].id +'">' + parents.parents[i].last_name + ', ' + parents.parents[i].first_name + '</option>';
         }
-        // alert(toAppend);
         $('#schedulereg_parent_id').append(toAppend);
       }});
 
@@ -73,13 +61,10 @@ $(function () {
       $('#schedulereg_child_id')
         .find('option')
         .remove();
-      // ...
+
       var schedule = $('#schedulereg_current_schedule_id').val();
-      // alert(schedule);
       $.ajax({url:"children/childrenForSchedule.json?schedule_id=" + schedule ,success:function(children){
         var toAppend = '<option value="">Select child</option>';
-        // console.log(children);
-        // console.log(children.children.length);
 
         for(i=0; i<children.children.length; i++) {
           toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
@@ -88,15 +73,10 @@ $(function () {
         $('#schedulereg_child_id').append(toAppend);
       }});
 
-
-
-
       // Retrieve current schedule_id from hidden field and use to retrieve schedule entry and exit date from schedule table.
       var current_schedule_id = $("#detail_schedule_id").val();
-      console.log(current_schedule_id);
       $("#schedulereg_current_schedule_id").val(current_schedule_id);
       $.ajax({url:"schedules/" + current_schedule_id + ".json",success:function(result){
-        // console.log(result);
         var r = result['start_date'].match(/^\s*([0-9]+)\s*-\s*([0-9]+)\s*-\s*([0-9]+)(.*)$/);
         $("#schedulereg_entry_date_user").val(r[2]+"/"+r[3]+"/"+r[1]+r[4]);
         $("#schedulereg_entry_date").val(result['start_date']);
@@ -109,10 +89,11 @@ $(function () {
     });
 
     $(this).on('hidden', function() {
-      // console.log('Hidden...');
-      // alert("Just hidden");
+      console.log('Hidden or closed...');
       $('#registrationModal').css('margin-left',-9999);
 
+      // $('#new_registration').addClass('disabled');
+                    
       
       var fmsg = $.ajax ({
         url: "/scheduleregs/flashrefresh",
@@ -128,15 +109,9 @@ $(function () {
       });
 
 
+
       // Refresh the detail grid...
       $("#detailtable").data("kendoGrid").dataSource.read();
-      // $("#datatable").data("kendoGrid").dataSource.read();
-      
-      // var grid = $("#datatable").data("kendoGrid"),
-      //   // rowIndex = $("#detail_schedule_id").val(),
-      //   rowIndex = 1;
-      //   row = grid.tbody.find(">tr:not(.k-grouping-row)").eq(rowIndex);
-      // grid.select(row);
 
       // Get a reference to the grid
       var grid = $("#datatable").data("kendoGrid");
@@ -145,47 +120,25 @@ $(function () {
       var select = grid.select();
       // and now the data
       var data = grid.dataItem(select);
-      console.log("**** DATA ****");
-      console.log(data);
 
-      // Ajax call to retrieve the latest version of the schedule record (specifically to retrieve the number of 
-      //  children signed up)
+      // Ajax call to retrieve the latest version of the schedule record (specifically to retrieve the number of children signed up)
       var childers = $.ajax ({
         url:"schedules/" + $("#detail_schedule_id").val() + ".json",
         type: "GET",
         success: function(response) {
-          console.log("**** Completed JSON response ****"); 
-          console.log(response);
-          // console.log("**** Completed JSON status ****");
-          // console.log(status);
-          console.log(response['number']);
+          // Set grid # column to result.number_confirmed for this class..
           data.set("number_confirmed", response['number_confirmed']);
-          grid.refresh();
+          // grid.refresh();
         }
-        // success:function(result){
-        //   // $("#schedulereg_child_first_name").val(result['first_name']);
-        //   console.log("**** JSON Success! ****");
-        //   console.log(result);
-        //   data.set("number", result['number']);
-        // },
-        // error:function(jqXHR, textStatus, errorThrown){
-        //   console.log("**** JSON Error! ****");
-        //   console.log(textStatus, errorThrown);
-        // }
       });
 
-      // update the column `symbol` and set its value to `HPQ`
-      // data.set("number", 9);
-
-      // var grid = $("#datatable").data("kendoGrid"),
       var rowIndex = $("#selected_row_index").val();
-      console.log("rowIndex = ");
+      console.log("growIndex = ");
       console.log(rowIndex);
-      row = grid.tbody.find(">tr:not(.k-grouping-row)").eq(rowIndex);
-      grid.select(row);
+      grid.select(rowIndex);
 
-
-
+      // grid.select("tr:eq(" + rowIndex + ")");
+      
 
     });
 
@@ -194,13 +147,7 @@ $(function () {
     });
 
     $(this).bind("ajax:success", function(){
-      console.log('ajax:success!!');
-      // alert('Successfully registered')
-      // We can now close the modal and reload the grids..
-      // var flash = request.getHeader('x-flash');
-      // alert(flash);
-      // alert(request.getResponseHeader('x-flash'));
-       // alert("done!"+ geturl.getAllResponseHeaders());
+      // hide modal window..
       $('#registrationModal').modal('hide');
     });
 
@@ -209,36 +156,24 @@ $(function () {
       // Remove all previous errors
       $('.help-inline').remove();
       $('.error').removeClass('error');
-      // alert('ajax:error');
-      //console.log(evt);
-      //console.log(xhr);
-      //console.log(status);
-      //console.log(error);
       httpStatus = $.parseJSON(xhr.status);
       console.log(httpStatus);
 
       if (httpStatus == 200) {
-        // alert('Good');
         $('#cancelButton').click();
       } else {
-        // alert('Bad');
         errors = $.parseJSON(xhr.responseText);
-        // console.log(xhr);
         console.log(errors);
         for ( error in errors ) {
-          // console.log('registration_' + error);
           $('#schedulereg_' + error).after('<span class="help-inline">' + errors[error] + '</span>');
           $('.schedulereg_' + error).addClass('error');
-          // console.log(errors[error]);
         }
       }
-      // console.log(xhr);
     });
 
     $('#schedulereg_child_id').on('change', function() {
       console.log('Child changed..');
       var child = $(this).val();
-      // console.log(child);
       if (child == "") {
         // Child drop down has been changed to "" so remove any values from child
         // fields and enable inputs.
@@ -278,11 +213,6 @@ $(function () {
             $("#schedulereg_child_sex_female").attr('checked', false);
             $("#schedulereg_child_sex_female").attr('checked', true);
           }
-          // $("#schedulereg_child_sex").val(result['sex']);
-          // $("#schedulereg_child_sex[value=").val(result['sex']);
-          // $("input[name=schedulereg[children_sex]][value=female]").attr('checked', 'checked');
-          // $("input[name=mygroup][value=" + value + "]").attr('checked', 'checked');
-          // $("#schedulereg_child_sex").attr('disabled','disabled');
           }});
       }
 
@@ -417,25 +347,6 @@ $(function() {
     });
 });
 
-
-
-// $(function() {
-//   return $('#schedulereg_entry_date').kendoDatePicker({
-//         format: "MM-dd-yyyy"
-//     });
-// });
-
-// $(function() {
-//   return $('#schedulereg_exit_date').kendoDatePicker({
-//         format: "MM-dd-yyyy"
-//     });
-// });
-
-// $(function() {
-//   return $('#schedulereg_child_date_of_birth').kendoDatePicker({
-//         format: "MM-dd-yyyy"
-//     });
-// });
 
 $(function() {
 	return $('#q_start_date_gteq').kendoDatePicker({
@@ -827,8 +738,14 @@ $(document).ready(function () {
                 change: function(e) {
                     // To handle clicking on a row in the main grid and reloading the detail grid with registrations..
                     var selectedRows = this.select();
-                    console.log(selectedRows[0]["rowIndex"]);
+                    // console.log(selectedRows[0]["rowIndex"]);
+                    console.log('here...');
+                    console.log(this);
                     var selectedRowIndex = selectedRows[0]["rowIndex"];
+                    
+                    console.log("selectedgRowIndex = ");
+                    console.log(selectedRowIndex);
+
                     $("#selected_row_index").val(selectedRowIndex);
                     var selectedDataItems = [];
                     for (var i = 0; i < selectedRows.length; i++) {
@@ -837,19 +754,35 @@ $(document).ready(function () {
                         }
                     // selectedDataItems contains all selected data items
                     var detail_schedule_id = selectedDataItems[0]["id"];
-                    // console.log(selectedDataItems);
                     // Enable the "New Registration" button and set the href when a row is clicked..
                     $("#new_registration").removeClass('disabled');
                     // $("#new_registration").attr("href", "/scheduleregs/new?schedule_id=" + detail_schedule_id)
                     $("#new_registration").attr("href", "#registrationModal");
                     // Set hidden field to value of this schedule_id..
                     $("#detail_schedule_id").val(detail_schedule_id);
+                    
                     console.log("detail_schedule_id = ");
                     console.log(detail_schedule_id);
+                    
                     // Refresh the detail grid from the datasource..
                     $("#detailtable").data("kendoGrid").dataSource.read();
                 
                     },
+                dataBound: function(e) {
+                  // alert("Data Bound!");
+                  // var grid = $("#datatable").data("kendoGrid");
+                  var rowIndex = $("#selected_row_index").val();
+                  var rowIndex = rowIndex + 1;
+                  console.log("DataBoundrowIndex = ");
+                  console.log(rowIndex);
+
+                  $("#new_registration").addClass('disabled');
+                  $("#new_registration").attr("href", "#");
+                    
+                  // grid.select(rowIndex);
+                  // grid.select("tr:eq(" + rowIndex + ")");
+
+                },
                 columns: [
                     // {field: "checkbox",         title: " ",             width: 27, sortable: false },
                     {field: "program_id",       title: "Session",       width: 105, template: "#=getProgramName(program_id)#" },

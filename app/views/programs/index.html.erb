@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:registration_fee) %></th>
       <th><%= model_class.human_attribute_name(:last_updated_at) %></th>
       <th><%= model_class.human_attribute_name(:last_updated_by) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -15,6 +16,7 @@
     <% @programs.each do |program| %>
       <tr>
         <td><%= program.name %></td>
+        <td><%= number_to_currency(program.registration_fee_dollars) %></td>
         <td><%=l program.updated_at, :format => :short %></td>
         <td><%= User.find(program.versions.last.whodunnit).username if program.versions.count > 0 %></td>
         <td>

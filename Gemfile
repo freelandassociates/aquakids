@@ -14,8 +14,9 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'pry'
-  gem 'rails-erd'
+  # gem 'rails-erd'
   gem 'ruby_parser'
+  gem 'letter_opener'
 end
 
 # Gems used only for assets and not required
@@ -41,6 +42,8 @@ end
 gem 'gon'
   
 gem 'jquery-rails'
+
+gem 'exception_notification'
 
 gem 'devise'
 

@@ -1,7 +1,8 @@
 Aquakids::Application.routes.draw do
   
-  resources :roles
+  resources :payment_plans
 
+  resources :roles
 
   resources :referrals
 

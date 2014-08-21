@@ -1,0 +1,12 @@
+<%= simple_form_for @payment_plan, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  
+  <%= f.input :payment_plan_fee_dollars, :value => (number_with_precision(f.object.payment_plan_fee_dollars, :precision => 2) || 0) %>
+  <%= f.input :per_lesson_cost_dollars, :value => (number_with_precision(f.object.per_lesson_cost_dollars, :precision => 2) || 0) %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                payment_plans_path, :class => 'btn' %>
+  </div>
+<% end %>

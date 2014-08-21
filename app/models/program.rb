@@ -2,6 +2,7 @@ class Program < ActiveRecord::Base
   has_paper_trail
   
   has_many :schedules
+  has_many :payment_plans
 
   validates_presence_of :name
 

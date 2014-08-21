@@ -1,0 +1,40 @@
+<%- model_class = PaymentPlan -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:payment_plan_fee) %></th>
+      <th><%= model_class.human_attribute_name(:per_lesson_cost) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated_by) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @payment_plans.each do |payment_plan| %>
+      <tr>
+        <td><%= payment_plan.name %></td>
+        <td><%= number_to_currency(payment_plan.payment_plan_fee_dollars) %></td>
+        <td><%= number_to_currency(payment_plan.per_lesson_cost_dollars) %></td>
+        <td><%=l payment_plan.updated_at, :format => :short %></td>
+        <td><%= User.find(payment_plan.versions.last.whodunnit).username if payment_plan.versions.count > 0 %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_payment_plan_path(payment_plan), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      payment_plan_path(payment_plan),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_payment_plan_path,
+            :class => 'btn btn-primary' %>

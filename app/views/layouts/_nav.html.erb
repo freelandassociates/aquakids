@@ -35,6 +35,9 @@
     <% permitted_to? :index, :programs do %>
       <li role="presentation"><%= link_to 'Sessions', programs_path %> </li>
     <% end %>
+    <% permitted_to? :index, :payment_plans do %>
+      <li role="presentation"><%= link_to 'Payment Plans', payment_plans_path %> </li>
+    <% end %>
     <% permitted_to? :index, :levels do %>
       <li role="presentation"><%= link_to 'Levels', levels_path %> </li>
     <% end %>

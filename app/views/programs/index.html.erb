@@ -20,6 +20,7 @@
         <td><%=l program.updated_at, :format => :short %></td>
         <td><%= User.find(program.versions.last.whodunnit).username if program.versions.count > 0 %></td>
         <td>
+          <%= link_to "#{program.payment_plans.count} Payment Plan(s)", {:controller => "payment_plans", :action => "index", :program => program.id }, :class => 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_program_path(program), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

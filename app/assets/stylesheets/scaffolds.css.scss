@@ -36,6 +36,10 @@ a {
   }
 }
 
+a.btn-danger {
+  color: white;
+}
+
 div {
   &.field, &.actions {
     margin-bottom: 10px;

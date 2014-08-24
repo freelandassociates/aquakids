@@ -1,0 +1,27 @@
+<h1>Listing payment_plan_instalments</h1>
+
+<table>
+  <tr>
+    <th>Payment plan</th>
+    <th>Due date</th>
+    <th>Payment amount</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @payment_plan_instalments.each do |payment_plan_instalment| %>
+  <tr>
+    <td><%= payment_plan_instalment.payment_plan_id %></td>
+    <td><%= payment_plan_instalment.due_date %></td>
+    <td><%= payment_plan_instalment.payment_amount %></td>
+    <td><%= link_to 'Show', payment_plan_instalment %></td>
+    <td><%= link_to 'Edit', edit_payment_plan_instalment_path(payment_plan_instalment) %></td>
+    <td><%= link_to 'Destroy', payment_plan_instalment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Payment plan instalment', new_payment_plan_instalment_path %>

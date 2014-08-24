@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Payment plan:</b>
+  <%= @payment_plan_instalment.payment_plan_id %>
+</p>
+
+<p>
+  <b>Due date:</b>
+  <%= @payment_plan_instalment.due_date %>
+</p>
+
+<p>
+  <b>Payment amount:</b>
+  <%= @payment_plan_instalment.payment_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_payment_plan_instalment_path(@payment_plan_instalment) %> |
+<%= link_to 'Back', payment_plan_instalments_path %>

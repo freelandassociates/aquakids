@@ -1,5 +1,8 @@
 Aquakids::Application.routes.draw do
   
+  resources :payment_plan_instalments
+
+
   resources :payment_plans
 
   resources :roles

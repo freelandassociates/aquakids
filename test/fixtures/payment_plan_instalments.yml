@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  payment_plan_id: 1
+  due_date: 2014-08-24
+  payment_amount: 1
+
+two:
+  payment_plan_id: 1
+  due_date: 2014-08-24
+  payment_amount: 1

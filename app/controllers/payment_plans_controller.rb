@@ -5,7 +5,11 @@ class PaymentPlansController < ApplicationController
   # GET /payment_plans.json
   def index
     # @payment_plans = PaymentPlan.all
-    @payment_plans = PaymentPlan.joins(:program).order('programs.id').all
+    if (params[:program])
+      @payment_plans = PaymentPlan.joins(:program).find(:all, :conditions => {:program_id => params[:program]})
+    else
+      @payment_plans = PaymentPlan.joins(:program).order('programs.id').all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

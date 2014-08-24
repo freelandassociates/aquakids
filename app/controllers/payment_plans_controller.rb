@@ -1,8 +1,11 @@
 class PaymentPlansController < ApplicationController
+  filter_resource_access
+
   # GET /payment_plans
   # GET /payment_plans.json
   def index
-    @payment_plans = PaymentPlan.all
+    # @payment_plans = PaymentPlan.all
+    @payment_plans = PaymentPlan.joins(:program).order('programs.id').all
 
     respond_to do |format|
       format.html # index.html.erb

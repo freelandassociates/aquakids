@@ -5,7 +5,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th>Session</th>
+      <th>Payment plan name</th>
       <th><%= model_class.human_attribute_name(:payment_plan_fee) %></th>
       <th><%= model_class.human_attribute_name(:per_lesson_cost) %></th>
       <th><%= model_class.human_attribute_name(:last_updated_at) %></th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @payment_plans.each do |payment_plan| %>
       <tr>
+        <td><%= payment_plan.program.name %></td>
         <td><%= payment_plan.name %></td>
         <td><%= number_to_currency(payment_plan.payment_plan_fee_dollars) %></td>
         <td><%= number_to_currency(payment_plan.per_lesson_cost_dollars) %></td>

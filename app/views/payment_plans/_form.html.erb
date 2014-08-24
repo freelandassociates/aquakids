@@ -1,8 +1,11 @@
 <%= simple_form_for @payment_plan, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :name %>
+  <%= f.input :program_id, label: "Session", collection: Program.all(order: 'name'), label_method: :name, prompt: "Choose Session" %>
+
+  <%= f.input :name, label: "Payment Plan Name" %>
   
-  <%= f.input :payment_plan_fee_dollars, :value => (number_with_precision(f.object.payment_plan_fee_dollars, :precision => 2) || 0) %>
-  <%= f.input :per_lesson_cost_dollars, :value => (number_with_precision(f.object.per_lesson_cost_dollars, :precision => 2) || 0) %>
+  <%= f.input :payment_plan_fee_dollars, label: "Payment Plan Fee (USD)" , :value => (number_with_precision(f.object.payment_plan_fee_dollars, :precision => 2) || 0) %>
+
+  <%= f.input :per_lesson_cost_dollars, label: "Per Lesson Cost (USD)" , :value => (number_with_precision(f.object.per_lesson_cost_dollars, :precision => 2) || 0) %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

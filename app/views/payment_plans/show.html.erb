@@ -10,6 +10,8 @@
   <dd><%= number_to_currency(@payment_plan.payment_plan_fee_dollars) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:per_lesson_cost) %>:</strong></dt>
   <dd><%= number_to_currency(@payment_plan.per_lesson_cost_dollars) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:session) %>:</strong></dt>
+  <dd><%= @payment_plan.program.name %></dd>
         
 </dl>
 

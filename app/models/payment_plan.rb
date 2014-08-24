@@ -3,9 +3,9 @@ class PaymentPlan < ActiveRecord::Base
 
   belongs_to :program
 
-  validates_presence_of :name
+  validates_presence_of :name, :program_id
 
-  attr_accessible :name, :payment_plan_fee, :payment_plan_fee_dollars, :per_lesson_cost, :per_lesson_cost_dollars
+  attr_accessible :program_id, :name, :payment_plan_fee, :payment_plan_fee_dollars, :per_lesson_cost, :per_lesson_cost_dollars
 
   def payment_plan_fee_dollars
     self.payment_plan_fee.to_f / 100

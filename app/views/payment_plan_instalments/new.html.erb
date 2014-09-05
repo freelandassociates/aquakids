@@ -1,5 +1,8 @@
-<h1>New payment_plan_instalment</h1>
+<% javascript 'payment_plan_instalments' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', payment_plan_instalments_path %>
+<%- model_class = PaymentPlanInstalment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                                 :default => "New #{model_class.model_name.human}") %></h1>
+</div>
+<%= render :partial => 'form' %>

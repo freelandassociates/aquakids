@@ -11,7 +11,7 @@ class Schedulereg < ActiveRecord::Base
   has_many :attainments
   # has_many :skills, :through => :attainments
 
-  attr_accessible :comments, :entry_date, :exit_date, :child_id, :referral_id, :referred_by, :schedule_id, :location_id
+  attr_accessible :comments, :entry_date, :exit_date, :child_id, :referral_id, :referred_by, :schedule_id, :location_id, :payment_plan_id
   
   validates_uniqueness_of :child_id, scope: :schedule_id, message: "already registered for this class"
 

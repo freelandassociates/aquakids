@@ -1,13 +1,13 @@
-<%= simple_form_for(@payment_plan_instalment) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @payment_plan_instalment, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :payment_plan_id, label: "Payment Plan", collection: PaymentPlan.all(order: 'name'), label_method: :name, prompt: "Choose Payment Plan" %>
+  
+  <%= f.input :due_date, label: "Payment Due Date", as: :string %>
 
-  <div class="form-inputs">
-    <%= f.input :payment_plan_id %>
-    <%= f.input :due_date %>
-    <%= f.input :payment_amount %>
-  </div>
+  <%= f.input :payment_amount_dollars, label: "Payment Amount (USD)" , :value => (number_with_precision(f.object.payment_amount_dollars, :precision => 2) || 0) %>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                payment_plan_instalments_path, :class => 'btn' %>
   </div>
 <% end %>

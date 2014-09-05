@@ -24,6 +24,7 @@
         <td><%=l payment_plan.updated_at, :format => :short %></td>
         <td><%= User.find(payment_plan.versions.last.whodunnit).username if payment_plan.versions.count > 0 %></td>
         <td>
+          <%= link_to "#{payment_plan.payment_plan_instalments.count} Payment Instalment(s)", {:controller => "payment_plan_instalments", :action => "index", :payment_plan => payment_plan.id }, :class => 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_payment_plan_path(payment_plan), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

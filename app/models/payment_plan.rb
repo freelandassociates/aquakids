@@ -2,6 +2,7 @@ class PaymentPlan < ActiveRecord::Base
   has_paper_trail
 
   belongs_to :program
+  has_many :payment_plan_instalments
 
   validates_presence_of :name, :program_id
 

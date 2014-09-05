@@ -1,27 +1,40 @@
-<h1>Listing payment_plan_instalments</h1>
-
-<table>
-  <tr>
-    <th>Payment plan</th>
-    <th>Due date</th>
-    <th>Payment amount</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @payment_plan_instalments.each do |payment_plan_instalment| %>
-  <tr>
-    <td><%= payment_plan_instalment.payment_plan_id %></td>
-    <td><%= payment_plan_instalment.due_date %></td>
-    <td><%= payment_plan_instalment.payment_amount %></td>
-    <td><%= link_to 'Show', payment_plan_instalment %></td>
-    <td><%= link_to 'Edit', edit_payment_plan_instalment_path(payment_plan_instalment) %></td>
-    <td><%= link_to 'Destroy', payment_plan_instalment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = PaymentPlanInstalment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Payment plan</th>
+      <th>Due date</th>
+      <th>Payment amount</th>
+      <th><%= model_class.human_attribute_name(:last_updated_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated_by) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @payment_plan_instalments.each do |payment_plan_instalment| %>
+      <tr>
+        <td><%= payment_plan_instalment.payment_plan.name %></td>
+        <td><%= payment_plan_instalment.due_date %></td>
+        <td><%= number_to_currency(payment_plan_instalment.payment_amount_dollars) %></td>
+        <td><%=l payment_plan_instalment.updated_at, :format => :short %></td>
+        <td><%= User.find(payment_plan_instalment.versions.last.whodunnit).username if payment_plan_instalment.versions.count > 0 %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_payment_plan_instalment_path(payment_plan_instalment), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      payment_plan_instalment_path(payment_plan_instalment),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Payment plan instalment', new_payment_plan_instalment_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_payment_plan_instalment_path,
+            :class => 'btn btn-primary' %>

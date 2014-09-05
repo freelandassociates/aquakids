@@ -1,8 +1,16 @@
 class PaymentPlanInstalmentsController < ApplicationController
+  filter_resource_access
+  
   # GET /payment_plan_instalments
   # GET /payment_plan_instalments.json
   def index
-    @payment_plan_instalments = PaymentPlanInstalment.all
+    # @payment_plan_instalments = PaymentPlanInstalment.joins(:payment_plan).order('payment_plans.id, due_date').all
+    if (params[:payment_plan])
+      @payment_plan_instalments = PaymentPlanInstalment.joins(:payment_plan).order('payment_plans.id, due_date').find(:all, :conditions => {:payment_plan_id => params[:payment_plan]})
+    else
+      @payment_plan_instalments = PaymentPlanInstalment.joins(:payment_plan).order('payment_plans.id, due_date').all
+    end
+
 
     respond_to do |format|
       format.html # index.html.erb

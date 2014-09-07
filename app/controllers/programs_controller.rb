@@ -1,5 +1,6 @@
 class ProgramsController < ApplicationController
-  filter_resource_access
+  filter_access_to :all
+  filter_access_to :payment_plansForSchedule, :require => :show
 
   # GET /programs
   # GET /programs.json
@@ -82,4 +83,19 @@ class ProgramsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def payment_plansForSchedule
+    # Find all payment_plans for the given program_id..
+    @schedule = Schedule.find(params[:schedule_id])
+    # binding.pry
+    # @payment_plans = PaymentPlan.find_by_program_id(@schedule.program_id)
+    @payment_plans = PaymentPlan.find(:all, :conditions => {:program_id => @schedule.program_id})
+    # binding.pry
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @payment_plans }
+    end
+  end
+
 end

@@ -62,6 +62,7 @@ class ScheduleregsController < ApplicationController
     @schedulereg.exit_date = params[:schedulereg][:exit_date]
     @schedulereg.referral_id = params[:schedulereg][:referral_id]
     @schedulereg.referred_by = params[:schedulereg][:referred_by]
+    @schedulereg.payment_plan_id = params[:schedulereg][:payment_plan_id]
     @schedule = Schedule.find(params[:schedulereg][:current_schedule_id])
     # if number of children already signed up is equal to or greater than the class
     #   capacity, set the "wait" flag to yes..

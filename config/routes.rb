@@ -2,9 +2,6 @@ Aquakids::Application.routes.draw do
   
   resources :payment_plan_instalments
 
-
-  resources :payment_plans
-
   resources :roles
 
   resources :referrals
@@ -27,6 +24,8 @@ Aquakids::Application.routes.draw do
   get "/children/childrenByParentForSchedule"
   
   get "/children/childrenForSchedule"
+
+  get "/programs/payment_plansForSchedule"
 
   get "/parents/parentsByLocation"  
   
@@ -71,6 +70,7 @@ Aquakids::Application.routes.draw do
 
   resources :users
 
+  resources :payment_plans
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

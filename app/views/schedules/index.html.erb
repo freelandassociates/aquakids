@@ -52,12 +52,13 @@
       <%= f.input :child_last_name, as: :string %> 
       <%= f.input :child_date_of_birth, :as => :datepicker %>
 
-      <%= f.input :payment_plan_id, label: "Payment Plan", collection: PaymentPlan.find(:all, :conditions => {:program_id => params[:program]}), label_method: :name, prompt: "Select payment plan" %>
       
       <%= f.input :child_sex, collection: [:Male, :Female], as: :radio_buttons, label: "Gender" %>
       <%= f.input :child_notes, as: :string %>
+     
       <%= f.input :entry_date, :as => :datepicker %>
       <%= f.input :exit_date, :as => :datepicker %>
+      <%= f.input :payment_plan_id, label: "Payment Plan", collection: PaymentPlan.find(:all, :conditions => {:program_id => params[:program]}), label_method: :name, prompt: "Select payment plan" %>
       <%= f.input :current_schedule_id, as: :hidden %>
       <%= f.input :location_id, as: :hidden %>
   

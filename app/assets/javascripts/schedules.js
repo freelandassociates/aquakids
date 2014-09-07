@@ -86,6 +86,26 @@ $(function () {
         $("#schedulereg_location_id").val(result['location_id']);
       }});
 
+      // Also use current_schedule_id to retrieve list of possible payment plans for the correct session (program)..
+      // First, remove all payment plans from dropdown..
+      $('#schedulereg_payment_plan_id')
+        .find('option')
+        .remove();
+
+      // Then ajax call and populate dropdown with valid payment plans (plus a "cash" option)..
+      console.log(current_schedule_id);
+      $.ajax({url:"programs/payment_plansForSchedule.json?schedule_id=" + current_schedule_id ,success:function(payment_plan){
+        var toAppend = '<option value="">Cash</option>';
+        console.log(payment_plan);
+        console.log(payment_plan.programs.length);
+        for(i=0; i<payment_plan.programs.length; i++) {
+          toAppend += '<option value= "'+ payment_plan.programs[i].id +'">' + payment_plan.programs[i].name + '</option>';
+        }
+        console.log(toAppend);
+        $('#schedulereg_payment_plan_id').append(toAppend);
+      }});
+
+
     });
 
     $(this).on('hidden', function() {
@@ -844,6 +864,7 @@ $(document).ready(function () {
                 {field: "skill", title: "Skill", width: 80 },
                 {field: "continuance", title: "Continuance", width: 100 },
                 {field: "comments", title: "Comments", width: 90 },
+                {field: "payment_plan_name", title: "Payment Plan", width: 100 },
                 {field: "payment_due_date", title: "Payment Due Date", width: 140, format: "{0:MM-dd-yyyy}"},
                 {field: "registration_date", title: "Registration Date", format:"{0:MM-dd-yyyy}", width: 130 },
                 {field: "referral", title: "Referral", width: 75 },

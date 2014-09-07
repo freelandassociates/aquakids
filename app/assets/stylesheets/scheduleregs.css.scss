@@ -92,9 +92,28 @@ div .schedulereg_child_last_name {
 	float: left;
 }
 
+div .schedulereg_child_date_of_birth {
+	width: 430px;
+	float: left;
+}
+
 div #schedulereg_child_date_of_birth_user {
 	// width: 180px;
 	float: left;
+}
+
+
+div .schedulereg_child_sex {
+	width: 400px;
+	float: left;
+	label {
+		width: 60px;
+		float: left;
+		padding-top: 5px !important;
+	}
+	.control-label {
+		width: 130px;
+	}
 }
 
 div .schedulereg_child_notes {
@@ -115,6 +134,12 @@ div #schedulereg_entry_date_user {
 div .schedulereg_exit_date {
 	width: 430px;
 	float: left;
+	.control-label {
+		width: 130px;
+	}
+	.controls {
+		margin-left: 150px;
+	}
 }
 
 div #schedulereg_exit_date_user {

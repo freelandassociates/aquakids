@@ -31,6 +31,7 @@ class ScheduleregSerializer < ActiveModel::Serializer
              :continuance,
              :promoted_to,
              :payment_due_date,
+             :payment_plan_name,
              :user
   
   def special
@@ -167,6 +168,14 @@ class ScheduleregSerializer < ActiveModel::Serializer
 
   def user
     User.find(object.versions.last.whodunnit).username if object.versions.count > 0
+  end
+
+  def payment_plan_name
+    if object.payment_plan_id.nil?
+      ""
+    else
+      PaymentPlan.find(object.payment_plan_id).name
+    end
   end
 
 end

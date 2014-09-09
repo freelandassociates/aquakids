@@ -1,6 +1,7 @@
 $(function () {
     $(this).on('shown', function() {
       // alert('Shown now...');
+      
       $('#registrationModal').css('margin-left',-420);
 
       // Clear all errors..
@@ -8,36 +9,10 @@ $(function () {
       $('.error').removeClass('error');
       
       // Clear all fields on initial show of modal..
-      $("#schedulereg_parent_id").val("");
-      $("#schedulereg_parent_first_name").val("");
-      $("#schedulereg_parent_first_name").removeAttr('disabled');
-      $("#schedulereg_parent_last_name").val("");
-      $("#schedulereg_parent_last_name").removeAttr('disabled');
-      $("#schedulereg_parent_address_1").val("");
-      $("#schedulereg_parent_address_1").removeAttr('disabled');
-      $("#schedulereg_parent_address_2").val("");
-      $("#schedulereg_parent_address_2").removeAttr('disabled');
-      $("#schedulereg_parent_city").val("");
-      $("#schedulereg_parent_city").removeAttr('disabled');
-      $("#schedulereg_parent_state").val("");
-      $("#schedulereg_parent_state").removeAttr('disabled');
-      $("#schedulereg_parent_zip").val("");
-      $("#schedulereg_parent_zip").removeAttr('disabled');
-      $("#schedulereg_parent_home_phone").val("");
-      $("#schedulereg_parent_home_phone").removeAttr('disabled');
-      $("#schedulereg_parent_cell_phone").val("");
-      $("#schedulereg_parent_cell_phone").removeAttr('disabled');
 
-      $("#schedulereg_child_id").val("");
-      $("#schedulereg_child_first_name").val("");
-      $("#schedulereg_child_first_name").removeAttr('disabled');
-      $("#schedulereg_child_last_name").val("");
-      $("#schedulereg_child_last_name").removeAttr('disabled');
-      $("#schedulereg_child_date_of_birth").val("");
-      $("#schedulereg_child_date_of_birth").removeAttr('disabled');
-      $("#schedulereg_child_date_of_birth_user").val("");      
-      $("#schedulereg_child_notes").val("");
-      $("#schedulereg_child_notes").removeAttr('disabled');
+      registration_clear_parent_fields();
+
+      registration_clear_child_fields();
 
       $("#schedulereg_referral_id").val("");
       $("#schedulereg_referred_by").val("");
@@ -62,16 +37,15 @@ $(function () {
         .find('option')
         .remove();
 
-      var schedule = $('#schedulereg_current_schedule_id').val();
-      $.ajax({url:"children/childrenForSchedule.json?schedule_id=" + schedule ,success:function(children){
-        var toAppend = '<option value="">Select child</option>';
+      // var schedule = $('#schedulereg_current_schedule_id').val();
+      // $.ajax({url:"children/childrenForSchedule.json?schedule_id=" + schedule ,success:function(children){
+      //   var toAppend = '<option value="">Select child</option>';
 
-        for(i=0; i<children.children.length; i++) {
-          toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
-        }
-        // console.log(toAppend);
-        $('#schedulereg_child_id').append(toAppend);
-      }});
+      //   for(i=0; i<children.children.length; i++) {
+      //     toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
+      //   }
+      //   $('#schedulereg_child_id').append(toAppend);
+      // }});
 
       // Retrieve current schedule_id from hidden field and use to retrieve schedule entry and exit date from schedule table.
       var current_schedule_id = $("#detail_schedule_id").val();
@@ -198,16 +172,8 @@ $(function () {
         // Child drop down has been changed to "" so remove any values from child
         // fields and enable inputs.
         console.log("null child");
-        $("#schedulereg_child_first_name").val("");
-        $("#schedulereg_child_first_name").removeAttr('disabled');
-        $("#schedulereg_child_last_name").val("");
-        $("#schedulereg_child_last_name").removeAttr('disabled');
-        $("#schedulereg_child_date_of_birth").val("");
-        $("#schedulereg_child_date_of_birth").removeAttr('disabled');
-        $("#schedulereg_child_date_of_birth_user").val("");
-        // re-enable Kendo date picker here..
-        $("#schedulereg_child_notes").val("");
-        $("#schedulereg_child_notes").removeAttr('disabled');
+        registration_clear_child_fields();
+
       } else {
         console.log($(this).val());
         // Parent drop down has been changed to a parent, so retrieve values from database and
@@ -222,17 +188,25 @@ $(function () {
           // here load #schedulereg_child_date_of_birth_user with mm/dd/yyyy date..
           var r = result['date_of_birth'].match(/^\s*([0-9]+)\s*-\s*([0-9]+)\s*-\s*([0-9]+)(.*)$/);
           $("#schedulereg_child_date_of_birth_user").val(r[2]+"/"+r[3]+"/"+r[1]+r[4]);
-
+          $("#schedulereg_child_date_of_birth_user").attr('disabled','disabled');
+          $(".ui-datepicker-trigger:first").hide();
+          // $("#schedulereg_child_date_of_birth").data('kendoDatePicker').enable(false);
+          
           $("#schedulereg_child_notes").val(result['notes']);
           $("#schedulereg_child_notes").attr('disabled','disabled');
+          $("#schedulereg_child_sex_male").removeAttr('disabled');
+          $("#schedulereg_child_sex_female").removeAttr('disabled');
           // alert(result['sex']);
           if (result['sex'] == "Male") {
-            $("#schedulereg_child_sex_male").attr('checked', true);
-            $("#schedulereg_child_sex_female").attr('checked', false);
+            $("#schedulereg_child_sex_male").prop('checked', true);
+            $("#schedulereg_child_sex_female").prop('checked', false);
           } else {
-            $("#schedulereg_child_sex_female").attr('checked', false);
-            $("#schedulereg_child_sex_female").attr('checked', true);
+            $("#schedulereg_child_sex_female").prop('checked', false);
+            $("#schedulereg_child_sex_female").prop('checked', true);
           }
+          $("#schedulereg_child_sex_male").attr('disabled','disabled');
+          $("#schedulereg_child_sex_female").attr('disabled','disabled');
+         
           }});
       }
 
@@ -247,43 +221,25 @@ $(function () {
       if (parent == "") {
         // Parent drop down has been changed to "" so remove any values from parent
         // fields and enable inputs.
-        console.log("null");
-        $("#schedulereg_parent_first_name").val("");
-        $("#schedulereg_parent_first_name").removeAttr('disabled');
-        $("#schedulereg_parent_last_name").val("");
-        $("#schedulereg_parent_last_name").removeAttr('disabled');
-        $("#schedulereg_parent_address_1").val("");
-        $("#schedulereg_parent_address_1").removeAttr('disabled');
-        $("#schedulereg_parent_address_2").val("");
-        $("#schedulereg_parent_address_2").removeAttr('disabled');
-        $("#schedulereg_parent_city").val("");
-        $("#schedulereg_parent_city").removeAttr('disabled');
-        $("#schedulereg_parent_state").val("");
-        $("#schedulereg_parent_state").removeAttr('disabled');
-        $("#schedulereg_parent_zip").val("");
-        $("#schedulereg_parent_zip").removeAttr('disabled');
-        $("#schedulereg_parent_home_phone").val("");
-        $("#schedulereg_parent_home_phone").removeAttr('disabled');
-        $("#schedulereg_parent_cell_phone").val("");
-        $("#schedulereg_parent_cell_phone").removeAttr('disabled');
+        registration_clear_parent_fields();
 
         // Reload child dropdown here..
         $('#schedulereg_child_id')
           .find('option')
           .remove();
-        // and replace with children of the selected parent.
-        var schedule = $("#schedulereg_current_schedule_id").val();
-        $.ajax({url: "children/childrenForSchedule.json?schedule_id=" + schedule  ,success:function(children){
-          var toAppend = '<option value="">Select child</option>';
-          console.log(children.children);
-          console.log(children.children.length);
+        // // and replace with children of the selected parent.
+        // var schedule = $("#schedulereg_current_schedule_id").val();
+        // $.ajax({url: "children/childrenForSchedule.json?schedule_id=" + schedule  ,success:function(children){
+        //   var toAppend = '<option value="">Select child</option>';
+        //   console.log(children.children);
+        //   console.log(children.children.length);
 
-          for(i=0; i<children.children.length; i++) {
-            toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
-          }
-          // console.log(toAppend);
-          $('#schedulereg_child_id').append(toAppend);
-        }});
+        //   for(i=0; i<children.children.length; i++) {
+        //     toAppend += '<option value="'+ children.children[i].id +'">' + children.children[i].last_name + ', ' + children.children[i].first_name + '</option>';
+        //   }
+        //   // console.log(toAppend);
+        //   $('#schedulereg_child_id').append(toAppend);
+        // }});
 
       } else {
         console.log($(this).val());
@@ -311,15 +267,7 @@ $(function () {
 
 
           // And also blank out and re-enable the child fields...
-          $("#schedulereg_child_first_name").val("");
-          $("#schedulereg_child_first_name").removeAttr('disabled');
-          $("#schedulereg_child_last_name").val("");
-          $("#schedulereg_child_last_name").removeAttr('disabled');
-          $("#schedulereg_child_date_of_birth").val("");
-          $("#schedulereg_child_date_of_birth").removeAttr('disabled');
-          $("#schedulereg_child_date_of_birth_user").val("");
-          $("#schedulereg_child_notes").val("");
-          $("#schedulereg_child_notes").removeAttr('disabled');
+          registration_clear_child_fields();
 
           // Reload child dropdown here..
           $('#schedulereg_child_id')
@@ -346,6 +294,51 @@ $(function () {
 
     });
 
+
+  function registration_clear_parent_fields() {
+      $("#schedulereg_parent_id").val("");
+      $("#schedulereg_parent_first_name").val("");
+      $("#schedulereg_parent_first_name").removeAttr('disabled');
+      $("#schedulereg_parent_last_name").val("");
+      $("#schedulereg_parent_last_name").removeAttr('disabled');
+      $("#schedulereg_parent_address_1").val("");
+      $("#schedulereg_parent_address_1").removeAttr('disabled');
+      $("#schedulereg_parent_address_2").val("");
+      $("#schedulereg_parent_address_2").removeAttr('disabled');
+      $("#schedulereg_parent_city").val("");
+      $("#schedulereg_parent_city").removeAttr('disabled');
+      $("#schedulereg_parent_state").val("");
+      $("#schedulereg_parent_state").removeAttr('disabled');
+      $("#schedulereg_parent_zip").val("");
+      $("#schedulereg_parent_zip").removeAttr('disabled');
+      $("#schedulereg_parent_home_phone").val("");
+      $("#schedulereg_parent_home_phone").removeAttr('disabled');
+      $("#schedulereg_parent_cell_phone").val("");
+      $("#schedulereg_parent_cell_phone").removeAttr('disabled');
+
+
+      registration_clear_child_fields();
+  }
+
+  function registration_clear_child_fields() {
+      $("#schedulereg_child_id").val("");
+      $("#schedulereg_child_first_name").val("");
+      $("#schedulereg_child_first_name").removeAttr('disabled');
+      $("#schedulereg_child_last_name").val("");
+      $("#schedulereg_child_last_name").removeAttr('disabled');
+      $("#schedulereg_child_date_of_birth").val("");
+      $("#schedulereg_child_date_of_birth").removeAttr('disabled');
+      $("#schedulereg_child_date_of_birth_user").val("");
+      $("#schedulereg_child_date_of_birth_user").removeAttr('disabled');
+      $(".ui-datepicker-trigger:first").show();
+      // $("#schedulereg_child_date_of_birth").data('kendoDatePicker').enable(true);
+      $("#schedulereg_child_sex_male").attr('checked', false);
+      $("#schedulereg_child_sex_male").removeAttr('disabled');
+      $("#schedulereg_child_sex_female").attr('checked', false);
+      $("#schedulereg_child_sex_female").removeAttr('disabled');
+      $("#schedulereg_child_notes").val("");
+      $("#schedulereg_child_notes").removeAttr('disabled');
+  }
 
 });
 
@@ -1092,6 +1085,7 @@ function submit_create_registration() {
     // var qsrl = $("#schedule_search").serialize();
     // $("#datatable").data("kendoGrid").dataSource.read(qsrl);
 }
+
 
 
 

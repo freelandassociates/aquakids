@@ -28,6 +28,11 @@ Aquakids::Application.routes.draw do
   get "/programs/payment_plansForSchedule"
 
   get "/parents/parentsByLocation"  
+
+  get "/parents/payments_due"
+  
+  get "/parents/get_payments_due"
+
   
   resources :copyclasses do
     collection do

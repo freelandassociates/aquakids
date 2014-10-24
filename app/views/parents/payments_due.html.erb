@@ -1,0 +1,25 @@
+<% javascript 'parentspaymentsdue' %>
+<!-- < javascript 'classes' %> -->
+
+<%- model_class = Parent -%>
+<div class="page-header">
+  <h1>Payments Due</h1>
+</div>
+
+ <!-- <= render(:partial => "search_form") %> -->
+
+ <!-- form_tag copy_classes_copyclasses_path, method: :get do  -->
+
+<div id="datatable"></div>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_schedule_path,
+            :class => 'btn btn-primary' %>
+
+<%= link_to 'AutoClass', { :controller => 'autoclasses', :action => 'autoclass' }, :class => 'btn' %>
+<%= submit_tag "Test me!", :type => 'button', :onclick => 'alert("It works!")', :class => 'btn' %>
+<%= submit_tag "CopyClass", :id => "copyclass", :disabled => true, :class => 'btn', :onclick => 'submit_copyclass()' %>
+<%= submit_tag "Delete", :id => "deleteclass", :disabled => true, :class => 'btn', :confirm => "Are you sure you want to delete these classes?", :onclick => 'submit_delete_many()' %>
+
+ <!-- end  -->
+

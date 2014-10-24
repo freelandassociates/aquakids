@@ -1,5 +1,7 @@
 class ParentsController < ApplicationController
-  filter_resource_access
+  # filter_resource_access
+  filter_access_to :all
+  filter_access_to :payments_due, :get_payments_due, :require => :payments
 
   # GET /parents
   # GET /parents.json
@@ -94,4 +96,20 @@ class ParentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def payments_due
+  
+  end
+
+  def get_payments_due  
+    @parents = Parent.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @parents, root: false, :each_serializer => ParentReadOnlySerializer }
+    end
+  end
+
+
+
 end

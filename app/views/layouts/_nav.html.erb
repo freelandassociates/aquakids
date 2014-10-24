@@ -15,8 +15,17 @@
 </li>
 
 <li class="dropdown">
-  <a id="drop2" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Setup <b class="caret"></b></a>
+  <a id="drop2" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Payments <b class="caret"></b></a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+    <% permitted_to? :index, :schedules do %>
+      <li role="presentation"><%= link_to 'Payments Due', parents_payments_due_path %> </li>
+    <% end %>
+  </ul>
+</li>
+
+<li class="dropdown">
+  <a id="drop3" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Setup <b class="caret"></b></a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
     <% permitted_to? :index, :locations do %>
       <li role="presentation"><%= link_to 'Locations', locations_path %> </li>
     <% end %>

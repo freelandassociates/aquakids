@@ -13,7 +13,8 @@ authorization do
 		has_permission_on :facilities, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :levels, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :locations, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
-		has_permission_on :parents, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
+		has_permission_on :parents, :to => [:index, :show, :new, :create, :edit, :update, :destroy, :payments]		
+		# has_permission_on :parents, :to => [:all]		
 		has_permission_on :programs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :payment_plans, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :payment_plan_instalments, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
@@ -37,7 +38,7 @@ authorization do
 		has_permission_on :facilities, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :levels, :to => [:index, :show, :new, :create, :edit, :update, :destroy]
 		has_permission_on :locations, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
-		has_permission_on :parents, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
+		has_permission_on :parents, :to => [:index, :show, :new, :create, :edit, :update, :destroy, :payments]		
 		has_permission_on :programs, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :payment_plans, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
 		has_permission_on :payment_plan_instalments, :to => [:index, :show, :new, :create, :edit, :update, :destroy]		
@@ -57,7 +58,7 @@ authorization do
 		has_permission_on :facilities, :to => [:index, :show]		
 		has_permission_on :levels, :to => [:index, :show]
 		has_permission_on :locations, :to => [:index, :show]		
-		has_permission_on :parents, :to => [:index, :show]		
+		has_permission_on :parents, :to => [:index, :show, :payments]		
 		has_permission_on :programs, :to => [:index, :show]		
 		has_permission_on :payment_plans, :to => [:index, :show]		
 		has_permission_on :payment_plan_instalments, :to => [:index, :show]		
@@ -101,7 +102,8 @@ authorization do
 		# has_permission_on :users, :to => [:index, :show, :edit, :update, :destroy]		
 		# has_permission_on :locations, :to => [:index, :show, :edit, :update, :destroy]		
 		has_permission_on :schedules, :to => [:index, :show, :new, :create, :edit, :update, :destroy, :classes]
-		has_permission_on :scheduleregs, :to => [:show]		
+		has_permission_on :scheduleregs, :to => [:show]
+		has_permission_on :parents, :to => [:index, :show, :new, :create, :edit, :update, :destroy, :payments]						
 	end
 
 end

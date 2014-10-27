@@ -33,6 +33,7 @@ Aquakids::Application.routes.draw do
   
   get "/parents/get_payments_due"
 
+  # one change to routes.rb
   
   resources :copyclasses do
     collection do

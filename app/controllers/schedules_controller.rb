@@ -96,7 +96,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
+        format.html { redirect_to schedules_url, notice: 'Schedule was successfully created.' }
         format.json { render json: @schedule, status: :created, location: @schedule }
       else
         format.html { render action: "new" }
@@ -121,7 +121,7 @@ class SchedulesController < ApplicationController
     
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
+        format.html { redirect_to schedules_url, notice: 'Schedule was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

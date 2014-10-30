@@ -71,7 +71,7 @@ class ChildrenController < ApplicationController
 
     respond_to do |format|
       if @child.save
-        format.html { redirect_to @child, notice: 'Child was successfully created.' }
+        format.html { redirect_to children_url, notice: 'Child was successfully created.' }
         format.json { render json: @child, status: :created, location: @child }
       else
         format.html { render action: "new" }
@@ -87,7 +87,7 @@ class ChildrenController < ApplicationController
 
     respond_to do |format|
       if @child.update_attributes(params[:child])
-        format.html { redirect_to @child, notice: 'Child was successfully updated.' }
+        format.html { redirect_to children_url, notice: 'Child was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

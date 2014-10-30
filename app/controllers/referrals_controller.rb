@@ -46,7 +46,7 @@ class ReferralsController < ApplicationController
 
     respond_to do |format|
       if @referral.save
-        format.html { redirect_to @referral, notice: 'Referral was successfully created.' }
+        format.html { redirect_to referrals_url, notice: 'Referral was successfully created.' }
         format.json { render json: @referral, status: :created, location: @referral }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class ReferralsController < ApplicationController
 
     respond_to do |format|
       if @referral.update_attributes(params[:referral])
-        format.html { redirect_to @referral, notice: 'Referral was successfully updated.' }
+        format.html { redirect_to referrals_url, notice: 'Referral was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

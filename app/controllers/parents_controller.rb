@@ -60,7 +60,7 @@ class ParentsController < ApplicationController
 
     respond_to do |format|
       if @parent.save
-        format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
+        format.html { redirect_to parents_url, notice: 'Parent was successfully created.' }
         format.json { render json: @parent, status: :created, location: @parent }
       else
         format.html { render action: "new" }
@@ -76,7 +76,7 @@ class ParentsController < ApplicationController
 
     respond_to do |format|
       if @parent.update_attributes(params[:parent])
-        format.html { redirect_to @parent, notice: 'Parent was successfully updated.' }
+        format.html { redirect_to parents_url, notice: 'Parent was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

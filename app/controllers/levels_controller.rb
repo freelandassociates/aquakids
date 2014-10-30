@@ -47,7 +47,7 @@ class LevelsController < ApplicationController
 
     respond_to do |format|
       if @level.save
-        format.html { redirect_to @level, notice: 'Level was successfully created.' }
+        format.html { redirect_to levels_url, notice: 'Level was successfully created.' }
         format.json { render json: @level, status: :created, location: @level }
       else
         format.html { render action: "new" }
@@ -63,7 +63,7 @@ class LevelsController < ApplicationController
 
     respond_to do |format|
       if @level.update_attributes(params[:level])
-        format.html { redirect_to @level, notice: 'Level was successfully updated.' }
+        format.html { redirect_to levels_url, notice: 'Level was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

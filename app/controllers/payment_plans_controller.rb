@@ -51,7 +51,7 @@ class PaymentPlansController < ApplicationController
 
     respond_to do |format|
       if @payment_plan.save
-        format.html { redirect_to @payment_plan, notice: 'Payment plan was successfully created.' }
+        format.html { redirect_to payment_plans_url, notice: 'Payment plan was successfully created.' }
         format.json { render json: @payment_plan, status: :created, location: @payment_plan }
       else
         format.html { render action: "new" }
@@ -67,7 +67,7 @@ class PaymentPlansController < ApplicationController
 
     respond_to do |format|
       if @payment_plan.update_attributes(params[:payment_plan])
-        format.html { redirect_to @payment_plan, notice: 'Payment plan was successfully updated.' }
+        format.html { redirect_to payment_plans_url, notice: 'Payment plan was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

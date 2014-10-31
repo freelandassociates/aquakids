@@ -85,8 +85,11 @@ Aquakids::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.middleware.use ExceptionNotifier,
-    sender_address: 'errors@aquakids.com',
-    exception_recipients: 'paul.simpsonparry@freelandassociates.com'
+  config.middleware.use ExceptionNotification::Rack,
+      :email => {
+        :email_prefix => "[Error from aquakids PRODUCTION]",
+        :sender_address => %{"AQ" <errors@aquakids.com>},
+        :exception_recipients => %w{paul.simpsonparry@freelandassociates.com}
+      }
 
 end

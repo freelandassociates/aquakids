@@ -51,4 +51,8 @@ Aquakids::Application.configure do
   # Action Mailer default URL (Added for Devise)
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  config.middleware.use ExceptionNotifier,
+    sender_address: 'errors@aquakids.com',
+    exception_recipients: 'paul.simpsonparry@freelandassociates.com'
+
 end

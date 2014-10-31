@@ -5,6 +5,7 @@
   <%= f.input :date_of_birth, as: :date, start_year: Date.today.year - 90,
                               end_year: Date.today.year %>
   <%= f.input :parent_id, label: "Parent", collection: Parent.all(order: 'last_name'), label_method: :full_name, prompt: "Choose parent" %>
+  <%= f.input :notes %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

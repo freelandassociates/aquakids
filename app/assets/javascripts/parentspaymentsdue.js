@@ -8,16 +8,17 @@ $(document).ready(function () {
                     }
                   },
                 autoSync: false,
-                schema: {
-                    model: {
-                        id: "id",
-                        fields: {
-                            select: { type: "string", editable: true },
-                            first_name: { editable: false },
-                            last_name: { editable: false }
-                        }
-                    }
-                }
+                // schema: {
+                //     model: {
+                //         id: "id",
+                //         fields: {
+                //             select: { type: "string", editable: true },
+                //             first_name: { editable: false },
+                //             last_name: { editable: false }
+                //             // payment_due: { editable: false }
+                //         }
+                //     }
+                // }
             });
 
             $("#datatable").kendoGrid({
@@ -26,7 +27,7 @@ $(document).ready(function () {
                 scrollable: true,
                 sortable: true,
                 reorderable: true,
-                // selectable: "row",
+                selectable: "row",
                 resizable: true,
                 change: function(e) {
                   // To handle clicking on a row in the main grid and reloading the detail grid with registrations..
@@ -39,7 +40,13 @@ $(document).ready(function () {
                     
                     // {field: "checkbox",         title: " ",             width: 27, sortable: false },
                     {field: "first_name",          title: "First Name",       width: 80 },
-                    {field: "last_name",          title: "Last Name",       width: 80 }
+                    {field: "last_name",          title: "Last Name",       width: 80 },
+                    {field: "total_registration_fee_due",          title: "Registration Fees",       width: 80 },
+                    {field: "total_lesson_cost_due",          title: "Lesson Costs",       width: 80 },
+                    {field: "total_cost_due",          title: "Total Cost",       width: 80 },
+                    {field: "total_payments_made",          title: "Payments to Date",       width: 80 },
+                    {field: "net_payment_due",          title: "Net Payment Due",       width: 80 },
+                    {field: "number_of_children",          title: "Number of Children",       width: 80 }
                     ]
             });
 

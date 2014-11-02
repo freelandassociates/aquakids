@@ -58,4 +58,6 @@ Aquakids::Application.configure do
         :exception_recipients => %w{paul.simpsonparry@freelandassociates.com}
       }
 
+  config.action_mailer.delivery_method = :letter_opener
+
 end

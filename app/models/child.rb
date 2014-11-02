@@ -64,6 +64,16 @@ class Child < ActiveRecord::Base
   def emergency_contact
     self.parent.emergency_contact
   end
+
+  def total_registration_fee_due
+    i = 0
+    # Loop through all registrations for this child
+    self.scheduleregs.each do |registration|
+      # count
+      i += registration.schedule.program.registration_fee
+    end
+    return i
+  end
  
 
 end

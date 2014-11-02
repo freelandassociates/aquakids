@@ -33,4 +33,35 @@ class Parent < ActiveRecord::Base
 	[last_name, first_name].join(', ')
   end
 
+  def total_registration_fee_due
+    # Initialize variable for total payment due amount
+    i = 0
+    # Loop through each child of this parent
+    self.children.each do |child|
+      i += child.total_registration_fee_due
+    end
+    # Return total payment due
+    return i
+  end
+
+  def total_lesson_cost_due
+    0
+  end
+
+  def total_cost_due
+    3.2
+  end
+
+  def total_payments_made
+    1.8
+  end
+
+  def net_payment_due
+    total_cost_due - total_payments_made
+  end
+
+  def number_of_children
+    self.children.count
+  end
+
 end

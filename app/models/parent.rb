@@ -34,14 +34,14 @@ class Parent < ActiveRecord::Base
   end
 
   def total_registration_fee_due
-    # Initialize variable for total payment due amount
+    # Initialize variable for total registration fee amount (NOTE: all calculations are made at the "cents" level to avoid any rounding issues)
     i = 0
     # Loop through each child of this parent
     self.children.each do |child|
       i += child.total_registration_fee_due
     end
-    # Return total payment due
-    return i
+    # Return total payment due (converting to dollars)
+    return i/100.to_f
   end
 
   def total_lesson_cost_due
@@ -49,7 +49,7 @@ class Parent < ActiveRecord::Base
   end
 
   def total_cost_due
-    3.2
+    total_registration_fee_due + total_lesson_cost_due
   end
 
   def total_payments_made

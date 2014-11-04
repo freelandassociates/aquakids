@@ -36,17 +36,15 @@ $(document).ready(function () {
                   // alert("Data Bound!");
                 },
                 columns: [
-                    {field: "select",           title: " ",             width: 27, sortable: false, template: '<input type=\'checkbox\' class=\'select_one\' onclick=\'checkBoxCount ()\' rel=\'#=id#\' />' },
-                    
-                    // {field: "checkbox",         title: " ",             width: 27, sortable: false },
-                    {field: "first_name",          title: "First Name",       width: 80 },
-                    {field: "last_name",          title: "Last Name",       width: 80 },
-                    {field: "total_registration_fee_due",          title: "Registration Fees",       width: 80 },
-                    {field: "total_lesson_cost_due",          title: "Lesson Costs",       width: 80 },
-                    {field: "total_cost_due",          title: "Total Cost",       width: 80 },
-                    {field: "total_payments_made",          title: "Payments to Date",       width: 80 },
-                    {field: "net_payment_due",          title: "Net Payment Due",       width: 80 },
-                    {field: "number_of_children",          title: "Number of Children",       width: 80 }
+                    {field: "select",                     title: " ",                  width: 27, sortable: false, template: '<input type=\'checkbox\' class=\'select_one\' onclick=\'checkBoxCount ()\' rel=\'#=id#\' />' },
+                    {field: "first_name",                 title: "First Name",         width: 80 },
+                    {field: "last_name",                  title: "Last Name",          width: 80 },
+                    {field: "total_registration_fee_due", title: "Registration Fees",  width: 80, template: '#=kendo.toString(total_registration_fee_due, "c2")#'},
+                    {field: "total_lesson_cost_due",      title: "Lesson Costs",       width: 80, template: '#=kendo.toString(total_lesson_cost_due, "c2")#'},
+                    {field: "total_cost_due",             title: "Total Cost",         width: 80, template: '#=kendo.toString(total_cost_due, "c2")#'},
+                    {field: "total_payments_made",        title: "Payments to Date",   width: 80, template: '#=kendo.toString(total_payments_made, "c2")#'},
+                    {field: "net_payment_due",            title: "Net Payment Due",    width: 80, template: '#=kendo.toString(net_payment_due, "c2")#'},
+                    {field: "number_of_children",         title: "Number of Children", width: 80 }
                     ]
             });
 

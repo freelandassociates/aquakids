@@ -6,7 +6,7 @@ class ScheduleregsController < ApplicationController
   # GET /registrations
   # GET /registrations.json
   def index
-    @scheduleregs = Scheduleregs.all
+    @scheduleregs = Schedulereg.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -212,11 +212,11 @@ class ScheduleregsController < ApplicationController
   # DELETE /registrations/1
   # DELETE /registrations/1.json
   def destroy
-    @registration = Registration.find(params[:id])
+    @registration = Schedulereg.find(params[:id])
     @registration.destroy
 
     respond_to do |format|
-      format.html { redirect_to registrations_url }
+      format.html { redirect_to scheduleregs_url }
       format.json { head :no_content }
     end
   end

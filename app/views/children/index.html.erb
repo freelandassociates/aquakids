@@ -10,6 +10,7 @@
       <th><%= model_class.human_attribute_name(:last_name) %></th>
       <th><%= model_class.human_attribute_name(:gender) %></th>
       <th><%= model_class.human_attribute_name(:date_of_birth) %></th>
+      <th><%= model_class.human_attribute_name(:parent) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -22,6 +23,7 @@
         <td><%= child.last_name %></td>
         <td><%= child.sex %></td>
         <td><%= child.date_of_birth %></td>
+        <td><%= child.parent.full_name %></td>
         <td><%=l child.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

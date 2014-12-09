@@ -44,12 +44,23 @@ class Parent < ActiveRecord::Base
     return i/100.to_f
   end
 
+  def total_payment_plan_fee_due
+    # Initialize variable for total payment plan fee amount (NOTE: all calculations are made at the "cents" level to avoid any rounding issues)
+    i = 0
+    # Loop through each child of this parent
+    self.children.each do |child|
+      i += child.total_payment_plan_fee_due
+    end
+    # Return total payment due (converting to dollars)
+    return i/100.to_f
+  end
+
   def total_lesson_cost_due
     0
   end
 
   def total_cost_due
-    total_registration_fee_due + total_lesson_cost_due
+    total_registration_fee_due + total_payment_plan_fee_due + total_lesson_cost_due
   end
 
   def total_payments_made
@@ -60,8 +71,15 @@ class Parent < ActiveRecord::Base
     total_cost_due - total_payments_made
   end
 
-  def number_of_children
-    self.children.count
+  def number_of_registrations
+    # Initialize variable for number of registrations
+    i = 0
+    # Loop through each child of this parent
+    self.children.each do |child|
+      i += child.number_of_registrations
+    end
+    # Return total
+    return i
   end
 
 end

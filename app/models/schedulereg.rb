@@ -8,6 +8,7 @@ class Schedulereg < ActiveRecord::Base
   belongs_to :referral
   belongs_to :skill
   belongs_to :level
+  belongs_to :paymentplan
   has_many :attainments
   # has_many :skills, :through => :attainments
 

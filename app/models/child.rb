@@ -69,11 +69,39 @@ class Child < ActiveRecord::Base
     i = 0
     # Loop through all registrations for this child
     self.scheduleregs.each do |registration|
-      # count
-      i += registration.schedule.program.registration_fee
+      # Total up all registration fees
+      if registration.wait.blank? # if not on waitlist
+        i += registration.schedule.program.registration_fee
+      end
     end
     return i
   end
- 
+
+  def total_payment_plan_fee_due
+    i = 0
+    # Loop through all registrations for this child
+    self.scheduleregs.each do |registration|
+      # Total up all payment plan fees (if present)
+      if registration.wait.blank? # if not on waitlist
+        if !registration.payment_plan_id.blank?
+          plan = PaymentPlan.find(registration.payment_plan_id)
+            i += plan.payment_plan_fee
+        end
+      end
+    end
+    return i
+  end
+
+  def number_of_registrations
+    i = 0
+    # Loop through all registrations for this child
+    self.scheduleregs.each do |registration|
+      # Total up all registration fees
+      if registration.wait.blank? # if not on waitlist
+        i += 1
+      end
+    end
+    return i    
+  end
 
 end

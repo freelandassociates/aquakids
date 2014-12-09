@@ -3,6 +3,7 @@ class PaymentPlan < ActiveRecord::Base
 
   belongs_to :program
   has_many :payment_plan_instalments
+  has_many :scheduleregs
 
   validates_presence_of :name, :program_id
 

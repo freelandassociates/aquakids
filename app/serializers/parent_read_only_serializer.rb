@@ -15,10 +15,11 @@ class ParentReadOnlySerializer < ActiveModel::Serializer
               :comments, 
               :location_id,
               :total_registration_fee_due,
+              :total_payment_plan_fee_due,
               :total_lesson_cost_due,
               :total_cost_due,
               :total_payments_made,
               :net_payment_due,
-              :number_of_children
+              :number_of_registrations
 
 end

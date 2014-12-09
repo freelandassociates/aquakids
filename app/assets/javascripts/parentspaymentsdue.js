@@ -40,11 +40,12 @@ $(document).ready(function () {
                     {field: "first_name",                 title: "First Name",         width: 80 },
                     {field: "last_name",                  title: "Last Name",          width: 80 },
                     {field: "total_registration_fee_due", title: "Registration Fees",  width: 80, template: '#=kendo.toString(total_registration_fee_due, "c2")#'},
+                    {field: "total_payment_plan_fee_due", title: "Payment Plan Fees",  width: 85, template: '#=kendo.toString(total_payment_plan_fee_due, "c2")#'},
                     {field: "total_lesson_cost_due",      title: "Lesson Costs",       width: 80, template: '#=kendo.toString(total_lesson_cost_due, "c2")#'},
                     {field: "total_cost_due",             title: "Total Cost",         width: 80, template: '#=kendo.toString(total_cost_due, "c2")#'},
                     {field: "total_payments_made",        title: "Payments to Date",   width: 80, template: '#=kendo.toString(total_payments_made, "c2")#'},
                     {field: "net_payment_due",            title: "Net Payment Due",    width: 80, template: '#=kendo.toString(net_payment_due, "c2")#'},
-                    {field: "number_of_children",         title: "Number of Children", width: 80 }
+                    {field: "number_of_registrations",    title: "Number of Registrations", width: 110 }
                     ]
             });
 
